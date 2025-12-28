@@ -1,69 +1,58 @@
 ---
 // src/pages/projects/[slug].astro - Dynamic project page
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 
 // Get all projects for static path generation
 export async function getStaticPaths() {
-  // This will be populated with actual content collection in Phase 2
-  // For now, returning empty paths (no projects yet)
-  return [];
+  const projectEntries = await getCollection('projects');
+
+  return projectEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
 
-// This will be populated with content collection in Phase 2
-// For now, placeholder implementation
-const { slug } = Astro.params;
-
-// Temporary placeholder
-const project = {
-  slug: slug,
-  data: {
-    title: 'Case Study',
-    summary: 'Project coming soon',
-    role: 'UX Designer',
-    duration: 'TBD',
-    featured_image: null,
-    pillars: [],
-  },
-  body: '<p>Content coming soon...</p>',
-};
+const { entry } = Astro.props;
+const { Content } = await entry.render();
 ---
 
-<BaseLayout title={`${project.data.title} - JM Case Studies`}>
+<BaseLayout title={`${entry.data.title} - JM Case Studies`}>
   <article class="project-page">
     <div class="container">
-      {project.data.featured_image && (
+      {entry.data.featured_image && (
         <img
-          src={project.data.featured_image}
-          alt={project.data.title}
+          src={entry.data.featured_image}
+          alt={entry.data.title}
           class="project-hero"
         />
       )}
 
       <header class="project-header">
-        <h1>{project.data.title}</h1>
-        <p class="project-summary">{project.data.summary}</p>
+        <h1>{entry.data.title}</h1>
+        <p class="project-summary">{entry.data.summary}</p>
       </header>
 
-      {(project.data.role || project.data.duration || project.data.pillars?.length > 0) && (
+      {(entry.data.role || entry.data.duration || entry.data.pillars?.length > 0) && (
         <section class="project-meta">
-          {project.data.role && (
+          {entry.data.role && (
             <div class="meta-item">
               <strong>Role:</strong>
-              <span>{project.data.role}</span>
+              <span>{entry.data.role}</span>
             </div>
           )}
-          {project.data.duration && (
+          {entry.data.duration && (
             <div class="meta-item">
               <strong>Duration:</strong>
-              <span>{project.data.duration}</span>
+              <span>{entry.data.duration}</span>
             </div>
           )}
-          {project.data.pillars?.length > 0 && (
+          {entry.data.pillars?.length > 0 && (
             <div class="meta-item">
               <strong>Focus:</strong>
               <div class="pillars">
-                {project.data.pillars.map((pillar) => (
+                {entry.data.pillars.map((pillar) => (
                   <span class="pillar-tag">{pillar}</span>
                 ))}
               </div>
@@ -73,7 +62,7 @@ const project = {
       )}
 
       <div class="project-content">
-        <Fragment set:html={project.body} />
+        <Content />
       </div>
     </div>
   </article>

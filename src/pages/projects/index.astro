@@ -1,11 +1,11 @@
 ---
 // src/pages/projects/index.astro - Projects listing page
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 
-// Projects will be queried from content collection in Phase 2
-// For now, this is a placeholder
-const projects = [];
+// Get all projects from content collection
+const projects = await getCollection('projects');
 ---
 
 <BaseLayout title="Projects - JM Case Studies">
