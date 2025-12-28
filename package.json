@@ -1,0 +1,18 @@
+{
+  "name": "jm-casestudies",
+  "version": "1.0.0",
+  "description": "JM Case Studies - UX Design Portfolio",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [],
+  "author": "JM",
+  "license": "ISC",
+  "dependencies": {
+    "astro": "^5.16.6"
+  }
+}

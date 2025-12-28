@@ -1,0 +1,197 @@
+---
+// src/pages/projects/[slug].astro - Dynamic project page
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+
+// Get all projects for static path generation
+export async function getStaticPaths() {
+  // This will be populated with actual content collection in Phase 2
+  // For now, returning empty paths (no projects yet)
+  return [];
+}
+
+// This will be populated with content collection in Phase 2
+// For now, placeholder implementation
+const { slug } = Astro.params;
+
+// Temporary placeholder
+const project = {
+  slug: slug,
+  data: {
+    title: 'Case Study',
+    summary: 'Project coming soon',
+    role: 'UX Designer',
+    duration: 'TBD',
+    featured_image: null,
+    pillars: [],
+  },
+  body: '<p>Content coming soon...</p>',
+};
+---
+
+<BaseLayout title={`${project.data.title} - JM Case Studies`}>
+  <article class="project-page">
+    <div class="container">
+      {project.data.featured_image && (
+        <img
+          src={project.data.featured_image}
+          alt={project.data.title}
+          class="project-hero"
+        />
+      )}
+
+      <header class="project-header">
+        <h1>{project.data.title}</h1>
+        <p class="project-summary">{project.data.summary}</p>
+      </header>
+
+      {(project.data.role || project.data.duration || project.data.pillars?.length > 0) && (
+        <section class="project-meta">
+          {project.data.role && (
+            <div class="meta-item">
+              <strong>Role:</strong>
+              <span>{project.data.role}</span>
+            </div>
+          )}
+          {project.data.duration && (
+            <div class="meta-item">
+              <strong>Duration:</strong>
+              <span>{project.data.duration}</span>
+            </div>
+          )}
+          {project.data.pillars?.length > 0 && (
+            <div class="meta-item">
+              <strong>Focus:</strong>
+              <div class="pillars">
+                {project.data.pillars.map((pillar) => (
+                  <span class="pillar-tag">{pillar}</span>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+      )}
+
+      <div class="project-content">
+        <Fragment set:html={project.body} />
+      </div>
+    </div>
+  </article>
+
+  <ContactCTA />
+</BaseLayout>
+
+<style>
+  .project-page {
+    padding: 4rem 2rem;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .project-hero {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+  }
+
+  .project-header {
+    margin-bottom: 3rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 2rem;
+  }
+
+  .project-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-summary {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .project-meta {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .meta-item strong {
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+
+  .meta-item span {
+    color: #666;
+  }
+
+  .pillars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .pillar-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #555;
+  }
+
+  .project-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+  }
+
+  .project-content :global(h2) {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-content :global(h3) {
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-content :global(p) {
+    margin-bottom: 1rem;
+  }
+
+  .project-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 2rem 0;
+  }
+
+  .project-content :global(ul),
+  .project-content :global(ol) {
+    margin: 1rem 0;
+    padding-left: 2rem;
+  }
+
+  .project-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+</style>

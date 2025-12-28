@@ -1,0 +1,99 @@
+---
+// src/pages/index.astro - Homepage
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+---
+
+<BaseLayout title="JM Case Studies - UX Design Portfolio">
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Senior UX Designer</h1>
+      <p class="tagline">
+        I solve complex problems through AI-driven design and research
+      </p>
+      <a href="/projects/" class="hero-cta">View My Work</a>
+    </div>
+  </section>
+
+  <section class="featured-projects">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <p class="section-intro">
+        Selected case studies demonstrating problem-solving, AI integration, and UX research
+      </p>
+      <!-- Projects will be populated in Phase 2 -->
+      <div class="projects-grid">
+        <p>Projects loading...</p>
+      </div>
+    </div>
+  </section>
+
+  <ContactCTA />
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8rem 2rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .tagline {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: white;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .featured-projects {
+    padding: 4rem 2rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .featured-projects h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-intro {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+</style>
