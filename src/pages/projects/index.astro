@@ -4,6 +4,8 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 // Get all projects from content collection
 const projects = await getCollection('projects');
 ---
@@ -30,7 +32,7 @@ const projects = await getCollection('projects');
                 )}
                 <div class="project-card-content">
                   <h3>
-                    <a href={`/projects/${project.slug}/`}>{project.data.title}</a>
+                    <a href={`${baseUrl}projects/${project.slug}/`}>{project.data.title}</a>
                   </h3>
                   <p class="summary">{project.data.summary}</p>
                   {project.data.pillars && (
@@ -40,7 +42,7 @@ const projects = await getCollection('projects');
                       ))}
                     </div>
                   )}
-                  <a href={`/projects/${project.slug}/`} class="read-more">
+                  <a href={`${baseUrl}projects/${project.slug}/`} class="read-more">
                     View Case Study →
                   </a>
                 </div>

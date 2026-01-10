@@ -1,15 +1,16 @@
 ---
 // Header.astro - Navigation component
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <header>
   <nav>
     <div class="nav-brand">
-      <a href="/">JM</a>
+      <a href={`${baseUrl}`}>JM</a>
     </div>
     <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/projects/">Projects</a></li>
+      <li><a href={`${baseUrl}`}>Home</a></li>
+      <li><a href={`${baseUrl}projects/`}>Projects</a></li>
       <li><a href="mailto:jmaisel@example.com">Contact</a></li>
     </ul>
   </nav>
