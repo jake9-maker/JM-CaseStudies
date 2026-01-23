@@ -6,7 +6,7 @@ role: "Lead Product Designer, Product Researcher, Strategist, Communication Lead
 team_size: 8
 duration: "2 months"
 featured: true
-featured_image: "/images/project-2-hero.svg"
+featured_image: "/images/market-report-preview.png"
 featured_image_alt: "Market Report mobile native interface showing vehicle insights and condition highlights"
 featured_order: 3
 pillars:
@@ -65,6 +65,8 @@ The mental model: Desktop Market Report is for analysis. Mobile Market Report is
 
 This replaced the "feature parity with desktop" approach with "mobile-specific use case optimization."
 
+![Market Report BuyerPath Mobile Experience](/images/market-report-buyerpath.png)
+
 ---
 
 ## The 3 Decisions That Drove the Outcome
@@ -85,6 +87,8 @@ This replaced the "feature parity with desktop" approach with "mobile-specific u
 **Why this worked:** Dealers opened the app, saw exactly what they needed (comparable recent sales), and made a decision in 60 seconds. No cognitive load from decision-making about which filters to apply. The simplicity felt like intelligence—the app *knew* what they wanted to see.
 
 **Proof:** Dealers reported using mobile Market Report during lot conversations (exactly the use case we designed for). Analytics showed high engagement (average session length was short but action-oriented). Dealers compared vehicles once, made a decision, and moved on. This behavior pattern matched our hypothesis about mobile use cases.
+
+![Market Report Mobile UI](/images/market-report-mobile-ui.png)
 
 ---
 
@@ -123,6 +127,8 @@ This replaced the "feature parity with desktop" approach with "mobile-specific u
 **Why this worked:** Dealers could open the app with one hand, tap their vehicle details, compare to comparables, and make a decision—all without complex interactions. The simplicity made the tool feel like it was designed for their specific moment of need.
 
 **Proof:** Mobile sessions were short (average ~90 seconds) but high-intent (dealers opened the app to solve a specific problem, found the answer, and closed). Dealers reported using Market Report with one hand while walking the lot or in conversation with buyers. The one-handed interaction was a key insight from research that drove design decisions.
+
+![Market Report Responsive Design](/images/market-report-responsive.png)
 
 ---
 
@@ -188,3 +194,5 @@ This replaced the "feature parity with desktop" approach with "mobile-specific u
 - SAM offers: Built on market data foundation; used condition highlights to inform pricing recommendations.
 - Auto bidding: Leveraged comparable data and condition patterns to recommend bid strategies.
 - Advanced save search: Extended condition highlighting to allow condition-based search filters.
+
+---

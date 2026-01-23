@@ -6,7 +6,7 @@ role: "Product Designer, Auditor, Lead Researcher, Communication Specialist, Fac
 team_size: 15
 duration: "1 year (audit and strategy phase; 2026 execution pending)"
 featured: false
-featured_image: "/images/project-3-hero.svg"
+featured_image: "/images/combined-appraisal-experience-preview.png"
 featured_image_alt: "Combined appraisal experience unifying Max and ClearCar into a single strategic platform"
 featured_order: 4
 pillars:
@@ -65,6 +65,8 @@ The mental model: Product portfolios naturally accumulate redundancy over time. 
 
 This replaced the "keep both products to keep both teams happy" approach with "consolidate ruthlessly, reallocate resources strategically."
 
+![Combined Appraisal Jobs to Be Done Audit](/images/combined-appraisal-experience-jobs-to-be-done-audit.png)
+
 ---
 
 ## The 3 Decisions That Drove the Outcome
@@ -86,6 +88,8 @@ This replaced the "keep both products to keep both teams happy" approach with "c
 
 **Proof:** Audit documentation clearly showed redundancy across feature sets, user flows, and data models. When presented to executive leadership, the evidence was overwhelming—nobody could argue with the data. Consolidation became the obvious decision.
 
+![Combined Appraisal Wireframes](/images/combined-appraisal-experience-wireframes.png)
+
 ---
 
 ### Decision 2: Identify and Preserve the 20% of Unique Capabilities in ClearCar
@@ -105,6 +109,8 @@ This replaced the "keep both products to keep both teams happy" approach with "c
 
 **Proof:** The preserved 20% included workflow optimizations and data views that Max didn't offer. When prototyped as part of the merged Max experience, dealers responded positively—they saw the consolidation as an *improvement*, not a loss.
 
+![Combined Appraisal High-Fidelity Designs](/images/combined-appraisal-experience-high-fidelity-designs.png)
+
 ---
 
 ### Decision 3: Design and Prototype the Merged Experience Before Executive Presentation
@@ -123,6 +129,8 @@ This replaced the "keep both products to keep both teams happy" approach with "c
 **Why this worked:** The prototype answered leadership's implicit question: "Will consolidation break the experience?" By showing a thoughtfully merged experience that preserved unique value and simplified the overall product, we demonstrated that consolidation was not a cost-cutting exercise—it was a *strategic improvement*.
 
 **Proof:** Leadership feedback on the prototype was uniformly positive. They saw the value in consolidation and approved the 2026 roadmap based on the prototype. The prototype became the design spec for the 2026 engineering work.
+
+![Combined Appraisal Product Influence](/images/combined-appraisal-experience-product-influence.png)
 
 ---
 
@@ -189,3 +197,5 @@ This replaced the "keep both products to keep both teams happy" approach with "c
 - 2026 consolidation execution: I'm spearheading the merger of Max and ClearCar experiences.
 - Portfolio rationalization methodology: The audit approach (jobs to be done, user personas, user journeys) is being applied to other product consolidation opportunities.
 - Cross-platform ownership: Expanded responsibilities across 8+ product lines (transportation, auctions, marketplace, consumer experiences, vehicle intelligence, inventory, CMS, IMS, pricing auditing).
+
+---
