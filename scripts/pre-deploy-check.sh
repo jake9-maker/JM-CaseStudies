@@ -81,24 +81,32 @@ echo ""
 echo "📋 Test 6: Checking for missing image assets..."
 MISSING_IMAGES=0
 
-# Get all image references from markdown (macOS compatible)
-MARKDOWN_IMAGES=$(grep -r "!\[" src/content/projects/ 2>/dev/null | sed -n 's/.*(\(\/JM-CaseStudies\/images\/[^)]*\)).*/\1/p' | sed 's|^/JM-CaseStudies/||' || true)
-
-# Get all featured images from frontmatter (macOS compatible)
-FEATURED_IMAGES=$(grep -r "featured_image:" src/content/projects/ 2>/dev/null | sed -n 's/.*: "\([^"]*images[^"]*\)".*/\1/p' | sed 's|^/JM-CaseStudies/||' || true)
-
-# Get all CSS background images (macOS compatible)
-CSS_IMAGES=$(grep -r "url('/images" src/pages/ 2>/dev/null | sed -n "s/.*url('\(\/images\/[^']*\)').*/\1/p" | sed "s|^/images/||" || true)
-
-ALL_REFS=$(echo -e "$MARKDOWN_IMAGES\n$FEATURED_IMAGES\n$CSS_IMAGES" | sort -u | grep -v "^$")
-
-while IFS= read -r img; do
-  [ -z "$img" ] && continue
-  if [ ! -f "public$img" ]; then
-    echo -e "${RED}✗ Missing: public$img${NC}"
+# Collect image filenames from markdown content (not template)
+grep -r "!\[" src/content/projects/ --include="index.md" 2>/dev/null | sed 's/.*(\([^)]*\.png\)).*/\1/p' | sed 's|.*/||' | sort -u | while read -r filename; do
+  [ -z "$filename" ] && continue
+  if [ ! -f "public/images/$filename" ]; then
+    echo -e "${RED}✗ Missing: public/images/$filename${NC}"
     MISSING_IMAGES=$((MISSING_IMAGES + 1))
   fi
-done <<< "$ALL_REFS"
+done
+
+# Collect featured_image filenames
+grep -r "featured_image:" src/content/projects/ --include="index.md" 2>/dev/null | sed 's/.*: "\([^"]*\.png\)".*/\1/p' | sed 's|.*/||' | sort -u | while read -r filename; do
+  [ -z "$filename" ] && continue
+  if [ ! -f "public/images/$filename" ]; then
+    echo -e "${RED}✗ Missing: public/images/$filename${NC}"
+    MISSING_IMAGES=$((MISSING_IMAGES + 1))
+  fi
+done
+
+# Collect CSS background-image filenames
+grep -r "url('/images" src/pages/ --include="*.astro" 2>/dev/null | sed "s/.*url('\(\/images\/[^']*\.png\)').*/\1/p" | sed 's|.*/||' | sort -u | while read -r filename; do
+  [ -z "$filename" ] && continue
+  if [ ! -f "public/images/$filename" ]; then
+    echo -e "${RED}✗ Missing: public/images/$filename${NC}"
+    MISSING_IMAGES=$((MISSING_IMAGES + 1))
+  fi
+done
 
 if [ $MISSING_IMAGES -eq 0 ]; then
   echo -e "${GREEN}✓ All image assets found${NC}"
