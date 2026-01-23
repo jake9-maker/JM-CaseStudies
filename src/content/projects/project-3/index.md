@@ -6,7 +6,7 @@ role: "Product Designer, Auditor, Lead Researcher, Communication Specialist, Fac
 team_size: 15
 duration: "1 year (audit and strategy phase; 2026 execution pending)"
 featured: false
-featured_image: "/JM-CaseStudies/images/combined-appraisal-experience-preview.png"
+featured_image: "/images/combined-appraisal-experience-preview.png"
 featured_image_alt: "Combined appraisal experience unifying Max and ClearCar into a single strategic platform"
 featured_order: 4
 pillars:
@@ -65,7 +65,7 @@ The mental model: Product portfolios naturally accumulate redundancy over time. 
 
 This replaced the "keep both products to keep both teams happy" approach with "consolidate ruthlessly, reallocate resources strategically."
 
-![Combined Appraisal Jobs to Be Done Audit](/JM-CaseStudies/images/combined-appraisal-experience-jobs-to-be-done-audit.png)
+![Combined Appraisal Jobs to Be Done Audit](/images/combined-appraisal-experience-jobs-to-be-done-audit.png)
 
 ---
 
@@ -88,7 +88,7 @@ This replaced the "keep both products to keep both teams happy" approach with "c
 
 **Proof:** Audit documentation clearly showed redundancy across feature sets, user flows, and data models. When presented to executive leadership, the evidence was overwhelming—nobody could argue with the data. Consolidation became the obvious decision.
 
-![Combined Appraisal Wireframes](/JM-CaseStudies/images/combined-appraisal-experience-wireframes.png)
+![Combined Appraisal Wireframes](/images/combined-appraisal-experience-wireframes.png)
 
 ---
 
@@ -109,7 +109,7 @@ This replaced the "keep both products to keep both teams happy" approach with "c
 
 **Proof:** The preserved 20% included workflow optimizations and data views that Max didn't offer. When prototyped as part of the merged Max experience, dealers responded positively—they saw the consolidation as an *improvement*, not a loss.
 
-![Combined Appraisal High-Fidelity Designs](/JM-CaseStudies/images/combined-appraisal-experience-high-fidelity-designs.png)
+![Combined Appraisal High-Fidelity Designs](/images/combined-appraisal-experience-high-fidelity-designs.png)
 
 ---
 
@@ -130,7 +130,7 @@ This replaced the "keep both products to keep both teams happy" approach with "c
 
 **Proof:** Leadership feedback on the prototype was uniformly positive. They saw the value in consolidation and approved the 2026 roadmap based on the prototype. The prototype became the design spec for the 2026 engineering work.
 
-![Combined Appraisal Product Influence](/JM-CaseStudies/images/combined-appraisal-experience-product-influence.png)
+![Combined Appraisal Product Influence](/images/combined-appraisal-experience-product-influence.png)
 
 ---
 
