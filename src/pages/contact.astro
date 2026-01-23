@@ -3,11 +3,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
-const heroImage = `${baseUrl}images/contact-hero.png`;
+const heroImage = `url('${baseUrl}images/contact-hero.png')`;
 ---
 
 <BaseLayout title="Contact - JM Case Studies">
-  <section class="contact-header" style={`--hero-image: url('${heroImage}')`}>
+  <section class="contact-header" style={`--hero-image: ${heroImage}`}>
     <div class="contact-header-content">
       <h1>Let's Connect</h1>
       <p class="intro">
@@ -55,7 +55,7 @@ const heroImage = `${baseUrl}images/contact-hero.png`;
 <style>
   .contact-header {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%),
-                url(var(--hero-image)) center / cover no-repeat;
+                var(--hero-image) center / cover no-repeat;
     color: white;
     padding: 4.5rem 2rem;
   }
