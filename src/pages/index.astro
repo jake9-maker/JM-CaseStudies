@@ -54,6 +54,13 @@ const projects = allProjects
             </div>
           </a>
         ))}
+        <a href={`${baseUrl}projects/`} class="project-card view-all-card">
+          <div class="view-all-content">
+            <h3>View All Work</h3>
+            <p>Explore all case studies and detailed project breakdowns</p>
+            <span class="cta-arrow">→</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -172,7 +179,7 @@ const projects = allProjects
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
   }
 
@@ -250,5 +257,55 @@ const projects = allProjects
   .meta-item strong {
     color: var(--color-text);
     font-weight: 600;
+  }
+
+  .view-all-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-tertiary);
+  }
+
+  .view-all-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .view-all-content h3 {
+    font-size: 1.25rem;
+    margin: 0;
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .view-all-content p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .cta-arrow {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    transition: transform 0.3s ease;
+  }
+
+  .view-all-card:hover .cta-arrow {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
