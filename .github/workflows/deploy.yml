@@ -38,6 +38,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Step 3.5: Run pre-deployment checks
+      - name: Run pre-deployment checks
+        run: npm run pre-deploy
+
       # Step 4: Build Astro project (creates dist/ directory)
       - name: Build Astro site
         run: npm run build
