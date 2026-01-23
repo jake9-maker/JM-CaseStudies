@@ -13,8 +13,8 @@ const projectsCollection = defineCollection({
     duration: z.string(),
     featured: z.boolean(),
     featured_image: z.string(),
-    featured_order: z.number().int().min(1).max(3),
-    pillars: z.array(z.enum(['complex-problem-solving', 'ai-integration', 'ux-research'])).min(1),
+    featured_order: z.number().int().min(1).max(10),
+    pillars: z.array(z.enum(['complex-problem-solving', 'ai-integration', 'ux-research', 'retention-strategy', 'data-driven-design', 'mobile-ux', 'operational-design', 'field-research', 'product-strategy', 'market-discovery'])).min(1),
 
     // Optional fields
     impact: z.array(z.string()).optional(),
