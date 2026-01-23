@@ -5,6 +5,7 @@ import ContactCTA from '../components/ContactCTA.astro';
 import { getCollection } from 'astro:content';
 
 const baseUrl = import.meta.env.BASE_URL;
+const heroImage = `${baseUrl}images/home-hero.png`;
 
 // Fetch featured projects and sort by featured_order
 const allProjects = await getCollection('projects');
@@ -14,7 +15,7 @@ const projects = allProjects
 ---
 
 <BaseLayout title="JM Case Studies - Product Design & Leadership">
-  <section class="hero">
+  <section class="hero" style={`--hero-image: url('${heroImage}')`}>
     <div class="hero-content">
       <h1>Product Designer & Leader</h1>
       <p class="tagline">
@@ -79,7 +80,7 @@ const projects = allProjects
 <style>
   .hero {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%),
-                url('/JM-CaseStudies/images/home-hero.png') center / cover no-repeat;
+                url(var(--hero-image)) center / cover no-repeat;
     color: white;
     padding: 6rem 2rem 7rem;
   }
