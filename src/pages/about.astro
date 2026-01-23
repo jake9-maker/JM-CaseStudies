@@ -1,0 +1,279 @@
+---
+// src/pages/about.astro - About page
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="About - JM Case Studies">
+  <section class="about-page">
+    <div class="about-header">
+      <div class="about-header-content">
+        <h1>Senior Product Designer & Strategic Leader</h1>
+        <p class="location">Building products that solve complex problems and drive measurable impact</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <section class="about-content">
+        <div class="intro-section">
+          <p class="intro-text">
+            I'm a Senior Product Designer and strategic leader specializing in complex problem-solving, cross-platform product strategy, and research-led decision making under pressure. I've spent the last decade designing and shipping products that matter—working across 8+ product lines, leading cross-functional teams, and proving that rigorous thinking and clear communication unlock disproportionate value.
+          </p>
+        </div>
+
+        <section class="expertise-section">
+          <h2>What I Do</h2>
+          <div class="expertise-list">
+            <div class="expertise-item">
+              <dt class="expertise-title">Strategic Product Rationalization</dt>
+              <dd class="expertise-description">
+                I audit product portfolios, identify redundancy and waste, and design consolidation strategies that free engineering capacity for larger initiatives. I've turned this into a scalable methodology.
+              </dd>
+            </div>
+            <div class="expertise-item">
+              <dt class="expertise-title">Mobile-First Design & Platform Expansion</dt>
+              <dd class="expertise-description">
+                I don't just make things smaller—I redesign for specific contexts. I've launched mobile-first experiences that achieved 100% utility increases and unlocked entire new use cases.
+              </dd>
+            </div>
+            <div class="expertise-item">
+              <dt class="expertise-title">AI Integration & Optimization</dt>
+              <dd class="expertise-description">
+                I integrate AI into workflows and use it to optimize critical business decisions. I bridge the gap between emerging tech and real product value.
+              </dd>
+            </div>
+            <div class="expertise-item">
+              <dt class="expertise-title">Research-Led Decision Making</dt>
+              <dd class="expertise-description">
+                I use rigorous research (jobs to be done, user personas, journey mapping) to uncover problems others miss, then design solutions leadership can't dismiss as opinion.
+              </dd>
+            </div>
+            <div class="expertise-item">
+              <dt class="expertise-title">Cross-Functional Leadership</dt>
+              <dd class="expertise-description">
+                I own the full cycle—strategy, research, design, product, communication, and team coordination. I'm the connective tissue between teams with competing incentives.
+              </dd>
+            </div>
+          </div>
+        </section>
+
+        <section class="philosophy-section">
+          <h2>How I Work</h2>
+          <div class="philosophy-list">
+            <div class="philosophy-item">
+              <h3>Start with Research</h3>
+              <p>
+                Before designing anything, I understand the problem. I talk to users, map their jobs, and identify what's truly unique vs. what's noise. This prevents solving the wrong problem.
+              </p>
+            </div>
+            <div class="philosophy-item">
+              <h3>Prove with Data</h3>
+              <p>
+                I don't rely on opinion. Every major decision is backed by research, metrics, or prototyping. This builds confidence in leadership and prevents rework.
+              </p>
+            </div>
+            <div class="philosophy-item">
+              <h3>Design for Constraints</h3>
+              <p>
+                The best designs come under pressure—tight deadlines, limited resources, competing priorities. I thrive in constraint-driven environments and use them to drive clarity.
+              </p>
+            </div>
+            <div class="philosophy-item">
+              <h3>Communicate Relentlessly</h3>
+              <p>
+                Great design means nothing if the org doesn't understand it. I'm as committed to communication and facilitation as I am to design. I translate complexity into clarity.
+              </p>
+            </div>
+            <div class="philosophy-item">
+              <h3>Focus on Outcomes</h3>
+              <p>
+                I measure success by business impact, not deliverables. Did we ship it? Did it drive the outcome we promised? Did we learn for next time?
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="background-section">
+          <h2>Background</h2>
+          <p>
+            I've led product design and strategy across automotive marketplaces, building experiences for dealers, buyers, and internal stakeholders. I've designed systems that consolidated redundancy, unlocked AI-driven capabilities, and scaled from zero to millions in transactions. I'm comfortable with ambiguity, thrive on cross-functional complexity, and believe that the best product decisions come from deep research, clear thinking, and honest communication.
+          </p>
+          <p>
+            Currently, I'm working on 8+ product lines, ranging from market research tools to strategic consolidation projects. I'm always interested in problems where the right answer requires cross-platform thinking and isn't obvious from surface analysis.
+          </p>
+        </section>
+      </section>
+    </div>
+
+    <ContactCTA />
+  </section>
+</BaseLayout>
+
+<style>
+  .about-page {
+    width: 100%;
+  }
+
+  .about-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 6rem 2rem 7rem;
+  }
+
+  .about-header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .about-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .location {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    margin: 0;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .about-content {
+    padding: 4rem 0;
+  }
+
+  .intro-section {
+    margin-bottom: 4rem;
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    max-width: 800px;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 2rem 0;
+    color: var(--color-text);
+  }
+
+  .expertise-section,
+  .philosophy-section,
+  .background-section {
+    margin-bottom: 4rem;
+  }
+
+  .expertise-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .expertise-item {
+    padding: 2rem;
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .expertise-item:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+  }
+
+  .expertise-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .expertise-description {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .philosophy-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .philosophy-item {
+    padding: 0;
+  }
+
+  .philosophy-item h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .philosophy-item p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .background-section p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin: 0 0 1.5rem 0;
+    max-width: 800px;
+  }
+
+  .background-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .about-header {
+      padding: 4rem 2rem 5rem;
+    }
+
+    .about-header h1 {
+      font-size: 2.5rem;
+    }
+
+    .location {
+      font-size: 1.1rem;
+    }
+
+    .container {
+      padding: 0 1rem;
+    }
+
+    .about-content {
+      padding: 2rem 0;
+    }
+
+    .philosophy-list {
+      grid-template-columns: 1fr;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
