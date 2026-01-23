@@ -19,7 +19,7 @@ const baseUrl = import.meta.env.BASE_URL;
       <section class="about-content">
         <div class="intro-section">
           <p class="intro-text">
-            I'm a Senior Product Designer and strategic leader specializing in complex problem-solving, cross-platform product strategy, and research-led decision making under pressure. I've spent the last decade designing and shipping products that matter—working across 8+ product lines, leading cross-functional teams, and proving that rigorous thinking and clear communication unlock disproportionate value.
+            I design and ship products that matter. Over the last decade, I've worked across 8+ product lines, leading cross-functional teams to solve complex problems through rigorous research and clear communication.
           </p>
         </div>
 
@@ -29,31 +29,31 @@ const baseUrl = import.meta.env.BASE_URL;
             <div class="expertise-item">
               <dt class="expertise-title">Strategic Product Rationalization</dt>
               <dd class="expertise-description">
-                I audit product portfolios, identify redundancy and waste, and design consolidation strategies that free engineering capacity for larger initiatives. I've turned this into a scalable methodology.
+                I audit portfolios, eliminate redundancy, and design consolidation strategies that free capacity for larger initiatives.
               </dd>
             </div>
             <div class="expertise-item">
               <dt class="expertise-title">Mobile-First Design & Platform Expansion</dt>
               <dd class="expertise-description">
-                I don't just make things smaller—I redesign for specific contexts. I've launched mobile-first experiences that achieved 100% utility increases and unlocked entire new use cases.
+                I redesign for specific contexts, not just scale down. Launched mobile experiences that increased utility 100% and unlocked new use cases.
               </dd>
             </div>
             <div class="expertise-item">
               <dt class="expertise-title">AI Integration & Optimization</dt>
               <dd class="expertise-description">
-                I integrate AI into workflows and use it to optimize critical business decisions. I bridge the gap between emerging tech and real product value.
+                I integrate AI to optimize critical business decisions and bridge emerging tech with real product value.
               </dd>
             </div>
             <div class="expertise-item">
               <dt class="expertise-title">Research-Led Decision Making</dt>
               <dd class="expertise-description">
-                I use rigorous research (jobs to be done, user personas, journey mapping) to uncover problems others miss, then design solutions leadership can't dismiss as opinion.
+                I use rigorous research to uncover problems others miss, creating solutions backed by data instead of opinion.
               </dd>
             </div>
             <div class="expertise-item">
               <dt class="expertise-title">Cross-Functional Leadership</dt>
               <dd class="expertise-description">
-                I own the full cycle—strategy, research, design, product, communication, and team coordination. I'm the connective tissue between teams with competing incentives.
+                I own the full cycle from strategy to execution, connecting teams with competing incentives toward shared goals.
               </dd>
             </div>
           </div>
@@ -65,31 +65,31 @@ const baseUrl = import.meta.env.BASE_URL;
             <div class="philosophy-item">
               <h3>Start with Research</h3>
               <p>
-                Before designing anything, I understand the problem. I talk to users, map their jobs, and identify what's truly unique vs. what's noise. This prevents solving the wrong problem.
+                Every project begins with understanding. I talk to users, map their jobs to be done, identify workflows, and separate signal from noise. This prevents solving the wrong problem.
               </p>
             </div>
             <div class="philosophy-item">
               <h3>Prove with Data</h3>
               <p>
-                I don't rely on opinion. Every major decision is backed by research, metrics, or prototyping. This builds confidence in leadership and prevents rework.
+                I don't rely on opinion. Every major decision is backed by research, metrics, or prototyping. This builds confidence in leadership, speeds execution, and prevents expensive rework.
               </p>
             </div>
             <div class="philosophy-item">
               <h3>Design for Constraints</h3>
               <p>
-                The best designs come under pressure—tight deadlines, limited resources, competing priorities. I thrive in constraint-driven environments and use them to drive clarity.
+                The best work emerges under pressure. Tight deadlines, limited resources, and competing priorities force clarity. I thrive in these environments and use constraints to eliminate the unnecessary.
               </p>
             </div>
             <div class="philosophy-item">
               <h3>Communicate Relentlessly</h3>
               <p>
-                Great design means nothing if the org doesn't understand it. I'm as committed to communication and facilitation as I am to design. I translate complexity into clarity.
+                Great design fails without alignment. I spend as much time communicating decisions to stakeholders as I do making them. Translate complexity into clarity so the whole org can move forward together.
               </p>
             </div>
             <div class="philosophy-item">
               <h3>Focus on Outcomes</h3>
               <p>
-                I measure success by business impact, not deliverables. Did we ship it? Did it drive the outcome we promised? Did we learn for next time?
+                I measure success by business impact, not deliverables shipped. Did we move the needle on the outcome we promised? Did users actually adopt it? What did we learn for next time?
               </p>
             </div>
           </div>
@@ -98,10 +98,7 @@ const baseUrl = import.meta.env.BASE_URL;
         <section class="background-section">
           <h2>Background</h2>
           <p>
-            I've led product design and strategy across automotive marketplaces, building experiences for dealers, buyers, and internal stakeholders. I've designed systems that consolidated redundancy, unlocked AI-driven capabilities, and scaled from zero to millions in transactions. I'm comfortable with ambiguity, thrive on cross-functional complexity, and believe that the best product decisions come from deep research, clear thinking, and honest communication.
-          </p>
-          <p>
-            Currently, I'm working on 8+ product lines, ranging from market research tools to strategic consolidation projects. I'm always interested in problems where the right answer requires cross-platform thinking and isn't obvious from surface analysis.
+            I've spent the last decade leading product design and strategy across automotive marketplaces. I've consolidated redundancy, unlocked AI capabilities, and scaled systems from zero to millions in transactions. I'm drawn to complex, cross-platform problems where the right answer requires deep research and systems-level thinking, not just surface analysis.
           </p>
         </section>
       </section>
@@ -179,13 +176,13 @@ const baseUrl = import.meta.env.BASE_URL;
   }
 
   .expertise-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 
   .expertise-item {
-    padding: 2rem;
+    padding: 1.5rem;
     background-color: var(--color-bg-secondary);
     border: 1px solid var(--color-border);
     border-radius: 8px;
@@ -213,7 +210,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
   .philosophy-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
 
@@ -266,6 +263,10 @@ const baseUrl = import.meta.env.BASE_URL;
 
     .about-content {
       padding: 2rem 0;
+    }
+
+    .expertise-list {
+      grid-template-columns: 1fr;
     }
 
     .philosophy-list {
