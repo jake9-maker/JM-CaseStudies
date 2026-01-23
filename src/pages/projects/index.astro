@@ -22,31 +22,31 @@ const projects = await getCollection('projects');
         projects.length > 0 ? (
           <div class="projects-grid">
             {projects.map((project) => (
-              <div class="project-card">
+              <a href={`${baseUrl}projects/${project.slug}/`} class="project-card">
                 {project.data.featured_image && (
-                  <img
-                    src={project.data.featured_image}
-                    alt={project.data.title}
-                    class="project-image"
-                  />
+                  <div class="project-image-wrapper">
+                    <img
+                      src={project.data.featured_image}
+                      alt={project.data.title}
+                      class="project-image"
+                    />
+                  </div>
                 )}
                 <div class="project-card-content">
-                  <h3>
-                    <a href={`${baseUrl}projects/${project.slug}/`}>{project.data.title}</a>
-                  </h3>
+                  <h3>{project.data.title}</h3>
                   <p class="summary">{project.data.summary}</p>
-                  {project.data.pillars && (
+                  {project.data.pillars && project.data.pillars.length > 0 && (
                     <div class="pillars">
-                      {project.data.pillars.map((pillar) => (
-                        <span class="pillar-tag">{pillar}</span>
+                      {project.data.pillars.slice(0, 4).map((pillar) => (
+                        <span class="pillar-tag">{pillar.replace(/-/g, ' ')}</span>
                       ))}
                     </div>
                   )}
-                  <a href={`${baseUrl}projects/${project.slug}/`} class="read-more">
-                    View Case Study →
-                  </a>
+                  <div class="card-footer">
+                    <span class="read-more">Read Case Study →</span>
+                  </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         ) : (
@@ -84,79 +84,109 @@ const projects = await getCollection('projects');
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-bottom: 3rem;
   }
 
   .project-card {
-    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
   }
 
   .project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .project-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: var(--color-bg-tertiary);
   }
 
   .project-image {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
   }
 
   .project-card-content {
     padding: 1.5rem;
-    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-grow: 1;
   }
 
   .project-card-content h3 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-  }
-
-  .project-card-content h3 a {
-    text-decoration: none;
-    color: #333;
-  }
-
-  .project-card-content h3 a:hover {
-    color: #0066cc;
+    font-size: 1.1rem;
+    margin: 0;
+    color: var(--color-text);
+    font-weight: 600;
+    line-height: 1.4;
   }
 
   .summary {
-    color: #666;
-    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 0;
     line-height: 1.5;
+    flex-grow: 1;
   }
 
   .pillars {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1rem;
+    margin-top: 0.25rem;
   }
 
   .pillar-tag {
     display: inline-block;
     padding: 0.25rem 0.75rem;
-    background-color: #f0f0f0;
+    background-color: var(--color-bg-tertiary);
     border-radius: 6px;
-    font-size: 0.85rem;
-    color: #555;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    text-transform: capitalize;
+  }
+
+  .card-footer {
+    margin-top: auto;
+    padding-top: 0.5rem;
   }
 
   .read-more {
-    display: inline-block;
-    color: #0066cc;
-    text-decoration: none;
+    font-size: 0.9rem;
+    color: var(--color-accent);
     font-weight: 500;
+    transition: transform 0.3s ease;
   }
 
-  .read-more:hover {
-    text-decoration: underline;
+  .project-card:hover .read-more {
+    transform: translateX(2px);
+  }
+
+  @media (max-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .no-projects {
