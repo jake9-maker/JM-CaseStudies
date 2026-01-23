@@ -118,7 +118,7 @@ echo ""
 
 # Test 7: Verify BASE_URL configuration
 echo "📋 Test 7: Checking BASE_URL configuration..."
-if grep -q "BASE_URL.*JM-CaseStudies" astro.config.mjs; then
+if grep -q "base:.*JM-CaseStudies" astro.config.mjs; then
   echo -e "${GREEN}✓ BASE_URL is configured correctly${NC}"
 else
   echo -e "${YELLOW}⚠ WARNING: BASE_URL configuration may not be set correctly${NC}"
