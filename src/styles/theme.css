@@ -1,0 +1,74 @@
+/* Theme system with CSS variables */
+
+:root,
+[data-theme='light'] {
+  /* Background colors */
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f9f9f9;
+  --color-bg-tertiary: #f0f4ff;
+
+  /* Text colors */
+  --color-text: #333333;
+  --color-text-muted: #666666;
+  --color-text-subtle: #999999;
+
+  /* Border and accent colors */
+  --color-border: #eeeeee;
+  --color-accent: #0066cc;
+  --color-accent-dark: #0052a3;
+  --color-accent-light: #f0f4ff;
+
+  /* Gradient colors */
+  --gradient-start: #667eea;
+  --gradient-end: #764ba2;
+
+  /* Semantic colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+}
+
+[data-theme='dark'] {
+  /* Background colors */
+  --color-bg: #0d0d0d;
+  --color-bg-secondary: #1a1a1a;
+  --color-bg-tertiary: #1f1f3a;
+
+  /* Text colors */
+  --color-text: #e4e4e7;
+  --color-text-muted: #a1a1a6;
+  --color-text-subtle: #71717a;
+
+  /* Border and accent colors */
+  --color-border: #27272a;
+  --color-accent: #4d9fff;
+  --color-accent-dark: #7cb3ff;
+  --color-accent-light: #1a2d4a;
+
+  /* Gradient colors */
+  --gradient-start: #667eea;
+  --gradient-end: #764ba2;
+
+  /* Semantic colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html {
+  color-scheme: light;
+}
+
+[data-theme='dark'] html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
