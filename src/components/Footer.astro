@@ -5,8 +5,12 @@
 <footer>
   <div class="footer-content">
     <p>&copy; 2025 JM. All rights reserved.</p>
-    <p>
-      <a href="mailto:jake@maiseldesigns.com">Get in touch</a>
+    <p class="footer-links">
+      <a href="mailto:jake@maiseldesigns.com">Email</a>
+      <span class="separator">•</span>
+      <a href="https://www.linkedin.com/in/jake-maisel-33970197/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <span class="separator">•</span>
+      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
     </p>
   </div>
 </footer>
@@ -27,12 +31,29 @@
     color: var(--color-text-muted);
   }
 
+  .footer-content p {
+    margin: 0.5rem 0;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .separator {
+    color: var(--color-border);
+  }
+
   .footer-content a {
     color: var(--color-accent);
     text-decoration: none;
+    transition: color 0.3s ease;
   }
 
   .footer-content a:hover {
+    color: var(--color-accent-dark);
     text-decoration: underline;
   }
 </style>

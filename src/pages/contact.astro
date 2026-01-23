@@ -1,0 +1,172 @@
+---
+// src/pages/contact.astro - Contact page
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Contact - JM Case Studies">
+  <section class="contact-page">
+    <div class="container">
+      <h1>Let's Connect</h1>
+      <p class="intro">
+        I'm always interested in discussing new projects, design challenges, and opportunities to work together. Reach out through any of the channels below.
+      </p>
+
+      <div class="contact-methods">
+        <div class="contact-item">
+          <h3>Email</h3>
+          <p>
+            <a href="mailto:jake@maiseldesigns.com" class="contact-link">
+              jake@maiseldesigns.com
+            </a>
+          </p>
+          <p class="contact-description">
+            The best way to reach me directly. I typically respond within 24 hours.
+          </p>
+        </div>
+
+        <div class="contact-item">
+          <h3>LinkedIn</h3>
+          <p>
+            <a href="https://www.linkedin.com/in/jake-maisel-33970197/" target="_blank" rel="noopener noreferrer" class="contact-link">
+              Jake Maisel on LinkedIn
+            </a>
+          </p>
+          <p class="contact-description">
+            Connect with me to stay updated on my latest work and insights.
+          </p>
+        </div>
+
+        <div class="contact-item">
+          <h3>Resume</h3>
+          <p>
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">
+              Download Resume (PDF)
+            </a>
+          </p>
+          <p class="contact-description">
+            Full background, experience, and professional history.
+          </p>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h2>Ready to Work Together?</h2>
+        <p>
+          Whether you have a specific project in mind or just want to explore possibilities, I'd love to hear from you. Let's create something meaningful.
+        </p>
+        <a href="mailto:jake@maiseldesigns.com" class="cta-button">Send Me an Email</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-page {
+    padding: 4rem 2rem;
+    min-height: calc(100vh - 200px);
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+    line-height: 1.7;
+  }
+
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .contact-item {
+    padding: 2rem;
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .contact-item:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+  }
+
+  .contact-item h3 {
+    font-size: 1.3rem;
+    margin: 0 0 1rem 0;
+    color: var(--color-text);
+  }
+
+  .contact-item p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+  }
+
+  .contact-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .contact-link:hover {
+    color: var(--color-accent-dark);
+    text-decoration: underline;
+  }
+
+  .contact-description {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem !important;
+  }
+
+  .cta-section {
+    background-color: var(--color-accent-light);
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .cta-section p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: var(--color-accent-dark);
+  }
+</style>
