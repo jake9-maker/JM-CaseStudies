@@ -72,3 +72,27 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
 }
+
+/* Image sizing for inline content */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem 0;
+  border-radius: 8px;
+}
+
+/* Constrain wide images in content to readable width */
+.astro-content img,
+[class*="prose"] img {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Featured/hero images can be wider */
+img[alt*="preview"],
+img[alt*="hero"],
+img[alt*="feature"] {
+  max-width: 100%;
+}
