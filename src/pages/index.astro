@@ -96,40 +96,62 @@ const projects = allProjects.sort((a, b) => a.data.featured_order - b.data.featu
   .hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 8rem 2rem;
-    text-align: center;
+    padding: 6rem 2rem 7rem;
   }
 
   .hero-content {
-    max-width: 800px;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 0;
   }
 
   .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
 
   .tagline {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
     opacity: 0.95;
+    max-width: 600px;
+    line-height: 1.6;
+    font-weight: 400;
   }
 
   .hero-cta {
     display: inline-block;
-    padding: 0.75rem 2rem;
+    padding: 0.75rem 1.75rem;
     background-color: white;
     color: #667eea;
     text-decoration: none;
     border-radius: 4px;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 0.95rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .hero-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 2rem 5rem;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
   }
 
   .about {
