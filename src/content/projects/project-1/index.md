@@ -6,7 +6,7 @@ role: "Product Lead Designer, Product Owner, Researcher, Strategist, Communicati
 team_size: 12
 duration: "1 year (ongoing)"
 featured: true
-featured_image: "/images/guaranteed-sale-preview.png"
+featured_image: "/JM-CaseStudies/images/guaranteed-sale-preview.png"
 featured_image_alt: "Guarantee Sale seamless launch interface integrated into wholesale auction workflow"
 featured_order: 2
 pillars:
@@ -65,7 +65,7 @@ The mental model: Dealers don't avoid guarantee sales because they don't want th
 
 This replaced the "educate dealers about guarantee sale" approach with "make guarantee sale unavoidable and easy."
 
-![Guarantee Sale Workflow](/images/guaranteed-sale-audit.png)
+![Guarantee Sale Workflow](/JM-CaseStudies/images/guaranteed-sale-audit.png)
 
 ---
 
@@ -88,7 +88,7 @@ This replaced the "educate dealers about guarantee sale" approach with "make gua
 
 **Proof:** Before integration, ~2% of failed auctions resulted in guarantee sales. After integration, ~28% of failed auctions resulted in guarantee sales in the first quarter (14x initial adoption lift). This demonstrated massive latent demand once friction was removed.
 
-![Guarantee Sale Feature Comparison](/images/guaranteed-sale-feature-comparison.png)
+![Guarantee Sale Feature Comparison](/JM-CaseStudies/images/guaranteed-sale-feature-comparison.png)
 
 ---
 
@@ -109,7 +109,7 @@ This replaced the "educate dealers about guarantee sale" approach with "make gua
 
 **Proof:** Manual process took 4–8 hours per vehicle (specialist intake, pricing decision, dealer communication). Digitized process took <5 minutes for 95% of cases. Turnaround time dropped from 1–2 days to <1 hour. Specialist team capacity increased 15x (from handling ~30 cases/week to monitoring exceptions across 450+ cases/week).
 
-![Guarantee Sale Pricing Influence](/images/guaranteed-sale-marketing-influence.png)
+![Guarantee Sale Pricing Influence](/JM-CaseStudies/images/guaranteed-sale-marketing-influence.png)
 
 ---
 
@@ -130,7 +130,7 @@ This replaced the "educate dealers about guarantee sale" approach with "make gua
 
 **Proof:** After guarantee sale launched, trade-in and retail guarantee sale designs were estimated to take 20+ weeks. Using the white-label component system, both are now on track for <10 weeks (50% faster). The design team has since applied the white-label approach to 3 other product integrations, establishing it as a company standard.
 
-![Guarantee Sale White-Label Components](/images/guaranteed-sale-white-label-component1.png)
+![Guarantee Sale White-Label Components](/JM-CaseStudies/images/guaranteed-sale-white-label-component1.png)
 
 ---
 
@@ -143,7 +143,7 @@ This replaced the "educate dealers about guarantee sale" approach with "make gua
 - Turnaround time: 1–2 days (manual) → <1 hour (digitized).
 - Company margin: Guarantee sales deliver 18–22% margin (vs. 8–12% for traditional auction relaunches); 10x volume increase = significant revenue impact.
 
-![Guarantee Sale Inventory Impact](/images/guaranteed-sale-inventory.png)
+![Guarantee Sale Inventory Impact](/JM-CaseStudies/images/guaranteed-sale-inventory.png)
 
 **Qualitative signals:**
 - Dealer feedback: "Guarantee sale used to feel like a separate thing; now it's just the natural choice when an auction fails."

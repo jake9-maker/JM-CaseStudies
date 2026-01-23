@@ -6,7 +6,7 @@ role: "Lead Product Designer, Product Researcher, Strategist, Communication Lead
 team_size: 8
 duration: "2 months"
 featured: true
-featured_image: "/images/market-report-preview.png"
+featured_image: "/JM-CaseStudies/images/market-report-preview.png"
 featured_image_alt: "Market Report mobile native interface showing vehicle insights and condition highlights"
 featured_order: 3
 pillars:
@@ -65,7 +65,7 @@ The mental model: Desktop Market Report is for analysis. Mobile Market Report is
 
 This replaced the "feature parity with desktop" approach with "mobile-specific use case optimization."
 
-![Market Report BuyerPath Mobile Experience](/images/market-report-buyerpath.png)
+![Market Report BuyerPath Mobile Experience](/JM-CaseStudies/images/market-report-buyerpath.png)
 
 ---
 
@@ -88,7 +88,7 @@ This replaced the "feature parity with desktop" approach with "mobile-specific u
 
 **Proof:** Dealers reported using mobile Market Report during lot conversations (exactly the use case we designed for). Analytics showed high engagement (average session length was short but action-oriented). Dealers compared vehicles once, made a decision, and moved on. This behavior pattern matched our hypothesis about mobile use cases.
 
-![Market Report Mobile UI](/images/market-report-mobile-ui.png)
+![Market Report Mobile UI](/JM-CaseStudies/images/market-report-mobile-ui.png)
 
 ---
 
@@ -128,7 +128,7 @@ This replaced the "feature parity with desktop" approach with "mobile-specific u
 
 **Proof:** Mobile sessions were short (average ~90 seconds) but high-intent (dealers opened the app to solve a specific problem, found the answer, and closed). Dealers reported using Market Report with one hand while walking the lot or in conversation with buyers. The one-handed interaction was a key insight from research that drove design decisions.
 
-![Market Report Responsive Design](/images/market-report-responsive.png)
+![Market Report Responsive Design](/JM-CaseStudies/images/market-report-responsive.png)
 
 ---
 

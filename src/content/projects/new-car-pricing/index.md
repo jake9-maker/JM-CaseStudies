@@ -6,7 +6,7 @@ role: "Lead Product Designer (Research Lead)"
 team_size: 6
 duration: "14 weeks"
 featured: true
-featured_image: "/images/new-car-pricing-preview.png"
+featured_image: "/JM-CaseStudies/images/new-car-pricing-preview.png"
 featured_image_alt: "MAX New Car Pricing workflow — insights to action"
 featured_order: 1
 pillars:
@@ -130,7 +130,7 @@ pillars:
   - VP Compliance sign-off: "Pricing is now auditable and defensible." This was the gate for launch approval.
   - Cross-functional alignment: Product, Engineering, Sales, and Ops teams all referenced the same pricing narrative. No more second-guessing or parallel interpretations.
 
-![New Car Pricing Userflow](/images/new-car-pricing-userflow.png)
+![New Car Pricing Userflow](/JM-CaseStudies/images/new-car-pricing-userflow.png)
 
   **What would not have happened without this work:**
   - Dealers would continue to escalate routinely; launch would slip past the deadline.
@@ -138,7 +138,7 @@ pillars:
   - The organization would have likely invested in a 6+ month system rebuild that didn't address the real problem.
   - Support volume would grow instead of shrinking.
 
-![New Car Pricing Timeline](/images/new-car-pricing-timeline.png)
+![New Car Pricing Timeline](/JM-CaseStudies/images/new-car-pricing-timeline.png)
 
   ---
   Constraints That Shaped the Work
