@@ -68,8 +68,8 @@
   .theme-toggle {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 36px;
+    justify-content: flex-start;
+    width: 60px;
     height: 36px;
     border: 1px solid var(--color-border);
     background: transparent;
@@ -77,8 +77,9 @@
     color: var(--color-text);
     transition: all 0.3s ease;
     border-radius: 6px;
-    padding: 0;
+    padding: 0 0.75rem;
     margin-left: 1.5rem;
+    position: relative;
   }
 
   .theme-toggle:hover {
@@ -90,8 +91,9 @@
   .theme-toggle svg {
     width: 20px;
     height: 20px;
-    position: absolute;
+    position: relative;
     transition: opacity 0.3s ease, transform 0.3s ease;
+    flex-shrink: 0;
   }
 
   .sun-icon {
@@ -102,6 +104,8 @@
   .moon-icon {
     opacity: 0;
     transform: rotate(-180deg);
+    position: absolute;
+    right: 0.75rem;
   }
 
   .theme-toggle[data-theme='dark'] .sun-icon {
