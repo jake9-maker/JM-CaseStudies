@@ -17,14 +17,14 @@
 
 <style>
   footer {
-    background-color: var(--color-bg-secondary);
+    background-color: var(--color-bg);
     border-top: 1px solid var(--color-border);
-    padding: 2rem 0;
-    margin-top: 4rem;
+    padding: 3rem 0;
+    margin-top: 6rem;
   }
 
   .footer-content {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 2rem;
     text-align: center;
@@ -32,28 +32,57 @@
   }
 
   .footer-content p {
-    margin: 0.5rem 0;
+    margin: 0.75rem 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .footer-content p:first-child {
+    font-size: 0.85rem;
+    color: var(--color-text-subtle);
   }
 
   .footer-links {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
+    align-items: center;
   }
 
   .separator {
     color: var(--color-border);
+    font-weight: 300;
   }
 
   .footer-content a {
-    color: var(--color-accent);
+    color: var(--color-text-muted);
     text-decoration: none;
+    font-weight: 500;
     transition: color 0.3s ease;
   }
 
   .footer-content a:hover {
-    color: var(--color-accent-dark);
+    color: var(--color-accent);
     text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    footer {
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      padding: 0 1rem;
+    }
+
+    .footer-content p {
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      gap: 1rem;
+    }
   }
 </style>
