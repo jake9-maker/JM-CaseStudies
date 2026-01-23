@@ -5,7 +5,7 @@ summary: "Dealers were stuck relaunching vehicles at lower prices when guarantee
 role: "Product Lead Designer, Product Owner, Researcher, Strategist, Communication Lead"
 team_size: 12
 duration: "1 year (ongoing)"
-featured: false
+featured: true
 featured_image: "/images/project-1-hero.svg"
 featured_image_alt: "Guarantee Sale seamless launch interface integrated into wholesale auction workflow"
 featured_order: 2

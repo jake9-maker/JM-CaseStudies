@@ -5,40 +5,50 @@ const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <header>
-  <nav>
+  <div class="container header-inner">
     <div class="nav-brand">
       <a href={`${baseUrl}`}>JM</a>
     </div>
-    <ul class="nav-links">
-      <li><a href={`${baseUrl}`}>Home</a></li>
-      <li><a href={`${baseUrl}about/`}>About</a></li>
-      <li><a href={`${baseUrl}projects/`}>Projects</a></li>
-      <li><a href={`${baseUrl}contact/`}>Contact</a></li>
-      <li><a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
-    </ul>
-    <ThemeToggle />
-  </nav>
+    <div class="nav-wrapper">
+      <nav>
+        <ul class="nav-links">
+          <li><a href={`${baseUrl}`}>Home</a></li>
+          <li><a href={`${baseUrl}about/`}>About</a></li>
+          <li><a href={`${baseUrl}projects/`}>Projects</a></li>
+          <li><a href={`${baseUrl}contact/`}>Contact</a></li>
+        </ul>
+      </nav>
+      <ThemeToggle />
+    </div>
+  </div>
 </header>
 
 <style>
   header {
     background-color: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
-    padding: 0.75rem 0;
+    padding: 1rem 0;
     transition: background-color 0.3s ease, border-color 0.3s ease;
     position: sticky;
     top: 0;
     z-index: 100;
   }
 
-  nav {
+  .container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 2rem;
+  }
+
+  .header-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
+    gap: 2rem;
+  }
+
+  .nav-brand {
+    flex-shrink: 0;
   }
 
   .nav-brand a {
@@ -54,10 +64,22 @@ const baseUrl = import.meta.env.BASE_URL;
     color: var(--color-accent);
   }
 
+  .nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: auto;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
   .nav-links {
     list-style: none;
     display: flex;
-    gap: 2.5rem;
+    gap: 1.5rem;
     margin: 0;
     padding: 0;
     align-items: center;
@@ -77,9 +99,8 @@ const baseUrl = import.meta.env.BASE_URL;
   }
 
   @media (max-width: 768px) {
-    nav {
-      padding: 0 1rem;
-      height: 56px;
+    .header-inner {
+      gap: 1rem;
     }
 
     .nav-brand a {
@@ -87,8 +108,7 @@ const baseUrl = import.meta.env.BASE_URL;
     }
 
     .nav-links {
-      gap: 1.5rem;
-      font-size: 0.9rem;
+      gap: 1rem;
     }
 
     .nav-links a {

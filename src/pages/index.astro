@@ -6,9 +6,11 @@ import { getCollection } from 'astro:content';
 
 const baseUrl = import.meta.env.BASE_URL;
 
-// Fetch all projects and sort by featured_order
+// Fetch featured projects and sort by featured_order
 const allProjects = await getCollection('projects');
-const projects = allProjects.sort((a, b) => a.data.featured_order - b.data.featured_order);
+const projects = allProjects
+  .filter(project => project.data.featured)
+  .sort((a, b) => a.data.featured_order - b.data.featured_order);
 ---
 
 <BaseLayout title="JM Case Studies - Product Design & Leadership">
@@ -18,7 +20,9 @@ const projects = allProjects.sort((a, b) => a.data.featured_order - b.data.featu
       <p class="tagline">
         I build strategic products that solve complex problems and drive measurable impact
       </p>
-      <a href={`${baseUrl}projects/`} class="hero-cta">Explore Case Studies</a>
+      <div class="hero-actions">
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="hero-resume">View Resume</a>
+      </div>
     </div>
   </section>
 
@@ -93,7 +97,7 @@ const projects = allProjects.sort((a, b) => a.data.featured_order - b.data.featu
     background-color: white;
     color: #667eea;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 6px;
     font-weight: 600;
     font-size: 0.95rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -102,6 +106,32 @@ const projects = allProjects.sort((a, b) => a.data.featured_order - b.data.featu
   .hero-cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .hero-resume {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  .hero-resume:hover {
+    background-color: white;
+    color: #667eea;
+    transform: translateY(-2px);
   }
 
   @media (max-width: 768px) {
@@ -150,7 +180,7 @@ const projects = allProjects.sort((a, b) => a.data.featured_order - b.data.featu
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
-    background-color: var(--color-bg);
+    background-color: #ffffff;
     border: 1px solid var(--color-border);
     border-radius: 8px;
     text-decoration: none;

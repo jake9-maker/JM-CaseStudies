@@ -5,7 +5,7 @@ summary: "Dealers couldn't verify pricing decisions, creating disputes, rework, 
 role: "Lead Product Designer (Research Lead)"
 team_size: 6
 duration: "14 weeks"
-featured: false
+featured: true
 featured_image: "/images/new-car-pricing-hero.svg"
 featured_image_alt: "MAX New Car Pricing workflow — insights to action"
 featured_order: 1

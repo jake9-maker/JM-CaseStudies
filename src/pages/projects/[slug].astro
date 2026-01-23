@@ -16,6 +16,14 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// Get all projects sorted by featured_order to find next project
+const allProjects = await getCollection('projects');
+const sortedProjects = allProjects.sort((a, b) => a.data.featured_order - b.data.featured_order);
+const currentIndex = sortedProjects.findIndex(p => p.slug === entry.slug);
+const nextProject = currentIndex < sortedProjects.length - 1 ? sortedProjects[currentIndex + 1] : null;
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={`${entry.data.title} - JM Case Studies`}>
@@ -64,6 +72,35 @@ const { Content } = await entry.render();
       <div class="project-content">
         <Content />
       </div>
+
+      <nav class="content-nav" aria-label="Continue reading">
+        <a href={`${baseUrl}projects/`} class="content-nav-link back-link">
+          <span class="content-nav-label">← Back</span>
+          <div class="content-nav-content">
+            <span class="content-nav-title">To Projects</span>
+          </div>
+        </a>
+        {nextProject && (
+          <a href={`${baseUrl}projects/${nextProject.slug}/`} class="content-nav-link next-link">
+            <span class="content-nav-label">Next up</span>
+            <div class="content-nav-content">
+              {nextProject.data.featured_image && (
+                <div class="content-nav-thumbnail">
+                  <img
+                    src={nextProject.data.featured_image}
+                    alt={nextProject.data.title}
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <span class="content-nav-title">{nextProject.data.title}</span>
+              <svg class="content-nav-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          </a>
+        )}
+      </nav>
     </div>
   </article>
 
@@ -143,7 +180,7 @@ const { Content } = await entry.render();
     display: inline-block;
     padding: 0.25rem 0.75rem;
     background-color: #e0e0e0;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 0.85rem;
     color: #555;
   }
@@ -225,5 +262,111 @@ const { Content } = await entry.render();
     font-weight: 600;
     font-size: inherit;
     line-height: inherit;
+  }
+
+  /* Project Navigation */
+  .content-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .content-nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+  }
+
+  .content-nav-link:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .content-nav-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+  }
+
+  .content-nav-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .content-nav-thumbnail {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: var(--color-bg-secondary);
+  }
+
+  .content-nav-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .content-nav-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  .content-nav-arrow {
+    margin-left: auto;
+    color: var(--color-text-muted);
+    transition: color 0.3s ease, transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .content-nav-link:hover .content-nav-arrow {
+    color: var(--color-accent);
+    transform: translateX(2px);
+  }
+
+  .back-link {
+    grid-column: 1;
+  }
+
+  .next-link {
+    grid-column: 2;
+  }
+
+  @media (max-width: 768px) {
+    .content-nav {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .back-link,
+    .next-link {
+      grid-column: 1;
+    }
+
+    .content-nav-thumbnail {
+      width: 40px;
+      height: 40px;
+    }
+
+    .content-nav-title {
+      font-size: 0.9rem;
+    }
   }
 </style>

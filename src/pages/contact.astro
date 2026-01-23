@@ -6,49 +6,44 @@ const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Contact - JM Case Studies">
-  <section class="contact-page">
-    <div class="container">
+  <section class="contact-header">
+    <div class="contact-header-content">
       <h1>Let's Connect</h1>
       <p class="intro">
-        I'm always interested in discussing new projects, design challenges, and opportunities to work together. Reach out through any of the channels below.
+        I'm always interested in discussing new projects, design challenges, and opportunities to work together.
       </p>
+    </div>
+  </section>
+
+  <section class="contact-page">
+    <div class="container">
 
       <div class="contact-methods">
-        <div class="contact-item">
-          <h3>Email</h3>
-          <p>
-            <a href="mailto:jake@maiseldesigns.com" class="contact-link">
-              jake@maiseldesigns.com
-            </a>
-          </p>
-          <p class="contact-description">
-            The best way to reach me directly. I typically respond within 24 hours.
-          </p>
-        </div>
-
-        <div class="contact-item">
-          <h3>LinkedIn</h3>
-          <p>
-            <a href="https://www.linkedin.com/in/jake-maisel-33970197/" target="_blank" rel="noopener noreferrer" class="contact-link">
-              Jake Maisel on LinkedIn
-            </a>
-          </p>
+        <a href="https://www.linkedin.com/in/jake-maisel-33970197/" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <div class="contact-item-header">
+            <h3>LinkedIn</h3>
+            <svg class="contact-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.75 2.5h12.5c.69 0 1.25.56 1.25 1.25v12.5c0 .69-.56 1.25-1.25 1.25H3.75c-.69 0-1.25-.56-1.25-1.25V3.75c0-.69.56-1.25 1.25-1.25M6.25 8.75v6.25M6.25 6.25v.01M6.25 6.25c0 .69-.56 1.25-1.25 1.25S3.75 6.94 3.75 6.25c0-.69.56-1.25 1.25-1.25s1.25.56 1.25 1.25M16.25 8.75v6.25c0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5v2.5M11.25 8.75v6.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <p class="contact-title">Jake Maisel</p>
           <p class="contact-description">
             Connect with me to stay updated on my latest work and insights.
           </p>
-        </div>
+        </a>
 
-        <div class="contact-item">
-          <h3>Resume</h3>
-          <p>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">
-              Download Resume (PDF)
-            </a>
-          </p>
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <div class="contact-item-header">
+            <h3>Resume</h3>
+            <svg class="contact-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 2.5h8l4 4v10.75c0 .69-.56 1.25-1.25 1.25H5.75c-.69 0-1.25-.56-1.25-1.25V3.75c0-.69.56-1.25 1.25-1.25M7.5 7.5h5M7.5 10h5M7.5 12.5h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <p class="contact-title">Download PDF</p>
           <p class="contact-description">
             Full background, experience, and professional history.
           </p>
-        </div>
+        </a>
       </div>
 
       <div class="cta-section">
@@ -63,9 +58,35 @@ const baseUrl = import.meta.env.BASE_URL;
 </BaseLayout>
 
 <style>
+  .contact-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4.5rem 2rem;
+  }
+
+  .contact-header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .contact-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-header .intro {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    margin: 0;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
   .contact-page {
-    padding: 4rem 2rem;
-    min-height: calc(100vh - 200px);
+    padding: 3rem 2rem 4rem;
   }
 
   .container {
@@ -73,66 +94,78 @@ const baseUrl = import.meta.env.BASE_URL;
     margin: 0 auto;
   }
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--color-text);
-  }
-
-  .intro {
-    font-size: 1.1rem;
-    color: var(--color-text-muted);
-    margin-bottom: 3rem;
-    line-height: 1.7;
-  }
-
   .contact-methods {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
     margin-bottom: 4rem;
   }
 
   .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     padding: 2rem;
     background-color: var(--color-bg-secondary);
     border: 1px solid var(--color-border);
     border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
     transition: all 0.3s ease;
   }
 
   .contact-item:hover {
     border-color: var(--color-accent);
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .contact-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
   }
 
   .contact-item h3 {
-    font-size: 1.3rem;
-    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    margin: 0;
     color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .contact-icon {
+    flex-shrink: 0;
+    color: var(--color-accent);
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .contact-item:hover .contact-icon {
+    color: var(--color-accent-dark);
+    transform: translateX(2px);
+  }
+
+  .contact-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin: 0;
   }
 
   .contact-item p {
-    margin: 0.5rem 0;
+    margin: 0;
     line-height: 1.6;
   }
 
-  .contact-link {
-    color: var(--color-accent);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-
-  .contact-link:hover {
-    color: var(--color-accent-dark);
-    text-decoration: underline;
-  }
-
   .contact-description {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--color-text-muted);
-    margin-top: 0.5rem !important;
+  }
+
+  @media (max-width: 768px) {
+    .contact-items-row {
+      grid-template-columns: 1fr;
+    }
   }
 
   .cta-section {
@@ -161,7 +194,7 @@ const baseUrl = import.meta.env.BASE_URL;
     background-color: var(--color-accent);
     color: white;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 9999px;
     font-weight: bold;
     transition: background-color 0.3s ease;
   }

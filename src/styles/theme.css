@@ -3,8 +3,8 @@
 :root,
 [data-theme='light'] {
   /* Background colors */
-  --color-bg: #ffffff;
-  --color-bg-secondary: #f9f9f9;
+  --color-bg: #f5f5f5;
+  --color-bg-secondary: #ffffff;
   --color-bg-tertiary: #f0f4ff;
 
   /* Text colors */
@@ -31,7 +31,7 @@
 [data-theme='dark'] {
   /* Background colors */
   --color-bg: #0d0d0d;
-  --color-bg-secondary: #1a1a1a;
+  --color-bg-secondary: #131313;
   --color-bg-tertiary: #1f1f3a;
 
   /* Text colors */
@@ -40,7 +40,7 @@
   --color-text-subtle: #71717a;
 
   /* Border and accent colors */
-  --color-border: #27272a;
+  --color-border: #1f1f1f;
   --color-accent: #4d9fff;
   --color-accent-dark: #7cb3ff;
   --color-accent-light: #1a2d4a;

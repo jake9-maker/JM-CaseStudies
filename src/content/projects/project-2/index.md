@@ -5,7 +5,7 @@ summary: "Market Report was desktop-only, forcing dealers to use it in-office. B
 role: "Lead Product Designer, Product Researcher, Strategist, Communication Lead"
 team_size: 8
 duration: "2 months"
-featured: false
+featured: true
 featured_image: "/images/project-2-hero.svg"
 featured_image_alt: "Market Report mobile native interface showing vehicle insights and condition highlights"
 featured_order: 3
