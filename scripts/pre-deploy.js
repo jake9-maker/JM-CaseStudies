@@ -57,7 +57,8 @@ function header(text) {
 header('Pre-Deployment Checks');
 
 // Check 1: No uncommitted changes
-if (run('git diff-index --quiet HEAD --')) {
+const status = run('git status --porcelain');
+if (!status || status.trim() === '') {
   success('No uncommitted changes');
 } else {
   error('Uncommitted changes found. Please commit before deploying.');
