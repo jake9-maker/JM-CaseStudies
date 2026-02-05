@@ -6,9 +6,17 @@ import '../styles/theme.css';
 
 interface Props {
   title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
 }
 
-const { title = 'JM Case Studies' } = Astro.props;
+const {
+  title = 'JM Case Studies - Product Design & Leadership',
+  description = 'Senior UX/Product Designer with 11 years of professional design experience. Specializing in complex product strategy, research-led design, and cross-functional leadership in automotive marketplaces.',
+  image = '/images/home-hero.png',
+  canonicalURL = new URL(Astro.url.pathname, Astro.site).toString()
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -19,6 +27,22 @@ const { title = 'JM Case Studies' } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="color-scheme" content="light dark" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site).toString()} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site).toString()} />
+
     <title>{title}</title>
     <script>
       // Initialize theme immediately to prevent flash
