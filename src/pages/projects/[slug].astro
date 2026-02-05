@@ -130,28 +130,28 @@ const baseUrl = import.meta.env.BASE_URL;
     align-items: center;
     gap: 0.5rem;
     font-size: 0.9rem;
-    color: #666;
+    color: var(--color-text-muted);
     margin-bottom: 2rem;
   }
 
   .breadcrumb a {
-    color: #667eea;
+    color: var(--color-accent);
     text-decoration: none;
     transition: color 0.2s ease;
   }
 
   .breadcrumb a:hover {
-    color: #764ba2;
+    color: var(--color-accent-dark);
     text-decoration: underline;
   }
 
   .breadcrumb .separator {
-    color: #ccc;
+    color: var(--color-border);
     margin: 0 0.25rem;
   }
 
   .breadcrumb .current {
-    color: #333;
+    color: var(--color-text);
     font-weight: 500;
   }
 
@@ -173,7 +173,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
   .project-header {
     margin-bottom: 3rem;
-    border-bottom: 2px solid #eee;
+    border-bottom: 2px solid var(--color-border);
     padding-bottom: 2rem;
   }
 
@@ -184,13 +184,13 @@ const baseUrl = import.meta.env.BASE_URL;
 
   .project-summary {
     font-size: 1.2rem;
-    color: #666;
+    color: var(--color-text-muted);
     line-height: 1.6;
     margin: 0;
   }
 
   .project-meta {
-    background-color: #f9f9f9;
+    background-color: var(--color-bg-tertiary);
     padding: 2rem;
     border-radius: 8px;
     margin-bottom: 3rem;
@@ -205,12 +205,12 @@ const baseUrl = import.meta.env.BASE_URL;
   }
 
   .meta-item strong {
-    color: #333;
+    color: var(--color-text);
     margin-bottom: 0.5rem;
   }
 
   .meta-item span {
-    color: #666;
+    color: var(--color-text-muted);
   }
 
   .pillars {
@@ -408,7 +408,7 @@ const baseUrl = import.meta.env.BASE_URL;
     margin-top: 3rem;
     padding: 0.75rem 1.5rem;
     background-color: #f0f0f0;
-    color: #666;
+    color: var(--color-text-muted);
     text-decoration: none;
     border-radius: 6px;
     font-size: 0.9rem;
@@ -417,7 +417,7 @@ const baseUrl = import.meta.env.BASE_URL;
   }
 
   .back-to-top:hover {
-    background-color: #667eea;
+    background-color: var(--color-accent);
     color: white;
     transform: translateY(-2px);
   }
