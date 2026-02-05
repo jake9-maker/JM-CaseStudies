@@ -1,0 +1,110 @@
+---
+// ProjectFilter.astro - Filter projects by pillar
+export interface Props {
+  projects: any[];
+}
+
+const { projects } = Astro.props;
+
+// Extract unique pillars from all projects
+const allPillars = Array.from(
+  new Set(projects.flatMap(p => p.data.pillars || []))
+).sort();
+
+// Format pillar names for display
+const formatPillar = (pillar: string) => {
+  return pillar.split('-').map(word => 
+    word.charAt(0).toUpperCase() + word.slice(1)
+  ).join(' ');
+};
+---
+
+<div class="project-filter">
+  <div class="filter-controls">
+    <label for="pillar-select">Filter by Focus Area:</label>
+    <select id="pillar-select" class="pillar-select">
+      <option value="">All Projects</option>
+      {allPillars.map(pillar => (
+        <option value={pillar}>{formatPillar(pillar)}</option>
+      ))}
+    </select>
+  </div>
+</div>
+
+<script>
+  const select = document.getElementById('pillar-select') as HTMLSelectElement;
+  const projectCards = document.querySelectorAll('[data-pillars]');
+
+  select.addEventListener('change', (e) => {
+    const selectedPillar = (e.target as HTMLSelectElement).value;
+    
+    projectCards.forEach(card => {
+      const pillars = card.getAttribute('data-pillars')?.split(',') || [];
+      
+      if (!selectedPillar) {
+        // Show all
+        card.style.display = '';
+      } else if (pillars.includes(selectedPillar)) {
+        // Show matching
+        card.style.display = '';
+      } else {
+        // Hide non-matching
+        card.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<style>
+  .project-filter {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--color-bg-tertiary);
+    border-radius: 8px;
+  }
+
+  .filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  label {
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+
+  .pillar-select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+
+  .pillar-select:hover {
+    border-color: var(--color-accent);
+  }
+
+  .pillar-select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .filter-controls {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .pillar-select {
+      width: 100%;
+    }
+  }
+</style>
