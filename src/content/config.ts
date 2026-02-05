@@ -19,6 +19,11 @@ const projectsCollection = defineCollection({
     // Optional fields
     impact: z.array(z.string()).optional(),
     tags: z.array(z.string()).optional(),
+    headings: z.array(z.object({
+      depth: z.number(),
+      slug: z.string(),
+      text: z.string(),
+    })).optional(),
   }),
 });
 

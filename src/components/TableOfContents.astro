@@ -1,0 +1,89 @@
+---
+// TableOfContents.astro - Extracts and displays headings from case study content
+interface Props {
+  headings: Array<{
+    depth: number;
+    slug: string;
+    text: string;
+  }>;
+}
+
+const { headings } = Astro.props;
+
+// Filter to only h2 and h3 headings for cleaner TOC
+const filteredHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
+---
+
+{filteredHeadings.length > 0 && (
+  <nav class="table-of-contents">
+    <p class="toc-label">On this page</p>
+    <ul class="toc-list">
+      {filteredHeadings.map((heading) => (
+        <li class={`toc-item toc-level-${heading.depth}`}>
+          <a href={`#${heading.slug}`}>{heading.text}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+
+<style>
+  .table-of-contents {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0 3rem;
+  }
+
+  .toc-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .toc-item {
+    margin: 0.5rem 0;
+  }
+
+  .toc-level-2 {
+    margin-left: 0;
+  }
+
+  .toc-level-3 {
+    margin-left: 1.25rem;
+  }
+
+  .toc-item a {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    transition: color 0.2s ease;
+  }
+
+  .toc-item a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .table-of-contents {
+      margin: 1.5rem 0 2rem;
+      padding: 1rem;
+    }
+
+    .toc-item a {
+      font-size: 0.9rem;
+    }
+  }
+</style>

@@ -21,6 +21,21 @@ const heroImage = `url('${baseUrl}images/contact-hero.png')`;
   <section class="contact-page">
     <div class="container">
 
+      <div class="contact-info">
+        <div class="info-card email-card">
+          <div class="info-header">
+            <h3>Email</h3>
+            <span class="timezone-badge">US Eastern Time</span>
+          </div>
+          <p class="contact-email">
+            <a href="mailto:jake@maiseldesigns.com">jake@maiseldesigns.com</a>
+          </p>
+          <p class="contact-description">
+            The best way to reach me. I typically reply within 24 hours.
+          </p>
+        </div>
+      </div>
+
       <div class="contact-methods">
         <a href="https://www.linkedin.com/in/jake-maisel-33970197/" target="_blank" rel="noopener noreferrer" class="contact-item">
           <div class="contact-item-header">
@@ -44,11 +59,11 @@ const heroImage = `url('${baseUrl}images/contact-hero.png')`;
       </div>
 
       <div class="cta-section">
-        <h2>Ready to Work Together?</h2>
+        <h2>Let's Discuss Your Next Project</h2>
         <p>
-          Whether you have a specific project in mind or just want to explore possibilities, I'd love to hear from you. Let's create something meaningful.
+          Whether you have a specific challenge in mind or want to explore how strategic design can solve your problems, I'm ready to have that conversation.
         </p>
-        <a href="mailto:jake@maiseldesigns.com" class="cta-button">Send Me an Email</a>
+        <a href="mailto:jake@maiseldesigns.com?subject=Let%27s%20work%20together" class="cta-button">Start the Conversation</a>
       </div>
     </div>
   </section>
@@ -90,6 +105,56 @@ const heroImage = `url('${baseUrl}images/contact-hero.png')`;
   .container {
     max-width: 720px;
     margin: 0 auto;
+  }
+
+  .contact-info {
+    margin-bottom: 3rem;
+  }
+
+  .info-card {
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+  }
+
+  .info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .info-header h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .timezone-badge {
+    font-size: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .contact-email {
+    margin: 1rem 0;
+  }
+
+  .contact-email a {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+  }
+
+  .contact-email a:hover {
+    text-decoration: underline;
   }
 
   .contact-methods {

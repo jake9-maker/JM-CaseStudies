@@ -3,6 +3,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
 
 // Get all projects for static path generation
 export async function getStaticPaths() {
@@ -29,11 +30,20 @@ const baseUrl = import.meta.env.BASE_URL;
 <BaseLayout title={`${entry.data.title} - JM Case Studies`}>
   <article class="project-page">
     <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={`${baseUrl}`}>Home</a>
+        <span class="separator">/</span>
+        <a href={`${baseUrl}projects/`}>Projects</a>
+        <span class="separator">/</span>
+        <span class="current">{entry.data.title}</span>
+      </nav>
+
       {entry.data.featured_image && (
         <img
           src={entry.data.featured_image}
           alt={entry.data.title}
           class="project-hero"
+          loading="eager"
         />
       )}
 
@@ -70,7 +80,9 @@ const baseUrl = import.meta.env.BASE_URL;
       )}
 
       <div class="project-content">
+        <TableOfContents headings={entry.data.headings || []} />
         <Content />
+        <a href="#top" class="back-to-top" aria-label="Back to top">↑ Back to top</a>
       </div>
 
       <nav class="content-nav" aria-label="Continue reading">
@@ -110,6 +122,37 @@ const baseUrl = import.meta.env.BASE_URL;
 <style>
   .project-page {
     padding: 4rem 2rem;
+  }
+
+  /* Breadcrumb Navigation */
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+  }
+
+  .breadcrumb .separator {
+    color: #ccc;
+    margin: 0 0.25rem;
+  }
+
+  .breadcrumb .current {
+    color: #333;
+    font-weight: 500;
   }
 
   .container {
@@ -263,6 +306,7 @@ const baseUrl = import.meta.env.BASE_URL;
     margin: 2rem 0;
     border-radius: 8px;
     display: block;
+    loading: lazy;
   }
 
   /* Keep general strong everywhere else slightly lighter */
@@ -356,6 +400,39 @@ const baseUrl = import.meta.env.BASE_URL;
 
   .next-link {
     grid-column: 2;
+  }
+
+  /* Back to top button */
+  .back-to-top {
+    display: inline-block;
+    margin-top: 3rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #f0f0f0;
+    color: #666;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .back-to-top:hover {
+    background-color: #667eea;
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* Enhanced image styling */
+  .project-content :global(figure) {
+    margin: 2rem 0;
+  }
+
+  .project-content :global(figcaption) {
+    font-size: 0.9rem;
+    color: #999;
+    text-align: center;
+    margin-top: 0.75rem;
+    font-style: italic;
   }
 
   @media (max-width: 768px) {
