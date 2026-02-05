@@ -181,7 +181,7 @@ This replaced the "feature parity with desktop" approach with "mobile-specific u
 
 ---
 
-## Appendix (Optional)
+## Appendix
 
 **Supporting artifacts:**
 - Research findings: 18 dealer interviews on mobile Market Report needs and on-the-lot use cases.

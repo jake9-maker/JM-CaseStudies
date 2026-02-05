@@ -163,7 +163,7 @@ pillars:
   - What kinds of problems I now look for: Systems where smart, motivated people distrust an outcome not because it's wrong, but because it's opaque. These are high-leverage problems because the solution is often elegant—rearchitect what information is visible and in what order, not the system itself.
 
   ---
-  Appendix (Optional)
+  ## Appendix
 
   **Supporting artifacts:**
   - Research findings: 12 dealer interviews revealing "I can't verify this" as the root cause (not a training gap or system error).

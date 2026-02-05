@@ -187,7 +187,7 @@ This replaced the "educate dealers about guarantee sale" approach with "make gua
 
 ---
 
-## Appendix (Optional)
+## Appendix
 
 **Supporting artifacts:**
 - Research findings: 25+ dealer interviews revealing the friction points in the guarantee sale decision process.

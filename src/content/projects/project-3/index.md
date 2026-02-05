@@ -183,7 +183,7 @@ This replaced the "keep both products to keep both teams happy" approach with "c
 
 ---
 
-## Appendix (Optional)
+## Appendix
 
 **Supporting artifacts:**
 - Jobs to be done analysis: Dealer appraisal workflows mapped for both Max and ClearCar.
