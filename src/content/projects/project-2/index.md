@@ -13,6 +13,8 @@ pillars:
   - mobile-ux
   - product-strategy
   - market-discovery
+meta_description: "See how I transformed Market Report from desktop-only to 100% mobile utility. Simplified filter complexity and revealed vehicle condition insights for on-the-lot dealer use."
+og_image: "/images/market-report-preview.png"
 ---
 
 ---

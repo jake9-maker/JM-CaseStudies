@@ -13,6 +13,8 @@ pillars:
   - complex-problem-solving
   - product-strategy
   - market-discovery
+meta_description: "Discover how I digitized the guarantee sales process, achieving 10x growth in a year. Led product strategy, research, and design for the company's first white-label component system."
+og_image: "/images/guaranteed-sale-preview.png"
 ---
 
 ---

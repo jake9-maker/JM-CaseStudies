@@ -13,6 +13,8 @@ pillars:
   - ux-research
   - complex-problem-solving
   - ai-integration
+meta_description: "Learn how I made pricing auditable to rebuild trust with dealers. Resolved disputes and compliance risks in a 14-week launch deadline through UX research and AI integration."
+og_image: "/images/new-car-pricing-preview.png"
 ---
 
 ---

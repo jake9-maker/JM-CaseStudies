@@ -13,6 +13,8 @@ pillars:
   - product-strategy
   - complex-problem-solving
   - market-discovery
+meta_description: "Discover my audit of Max and ClearCar appraisal platforms. Identified 80% redundancy and proposed strategic consolidation that unlocks engineering capacity for larger initiatives."
+og_image: "/images/combined-appraisal-experience-preview.png"
 ---
 
 ---

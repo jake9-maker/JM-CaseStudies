@@ -9,6 +9,12 @@ export default defineConfig({
   // Static output for GitHub Pages
   output: 'static',
 
+  // Markdown configuration
+  markdown: {
+    // Enable heading extraction for table of contents
+    gfm: true,
+  },
+
   // Other settings
   integrations: [],
 });

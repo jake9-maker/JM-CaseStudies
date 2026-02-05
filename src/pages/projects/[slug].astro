@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, headings } = await entry.render();
 
 // Get all projects sorted by featured_order to find next project
 const allProjects = await getCollection('projects');
@@ -27,7 +27,11 @@ const nextProject = currentIndex < sortedProjects.length - 1 ? sortedProjects[cu
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout title={`${entry.data.title} - JM Case Studies`}>
+<BaseLayout
+  title={`${entry.data.title} - JM Case Studies`}
+  description={entry.data.meta_description || entry.data.summary}
+  image={entry.data.og_image || entry.data.featured_image}
+>
   <article class="project-page">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -80,7 +84,7 @@ const baseUrl = import.meta.env.BASE_URL;
       )}
 
       <div class="project-content">
-        <TableOfContents headings={entry.data.headings || []} />
+        <TableOfContents headings={headings} />
         <Content />
         <a href="#top" class="back-to-top" aria-label="Back to top">↑ Back to top</a>
       </div>
