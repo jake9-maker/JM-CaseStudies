@@ -34,14 +34,6 @@ const baseUrl = import.meta.env.BASE_URL;
 >
   <article class="project-page">
     <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href={`${baseUrl}`}>Home</a>
-        <span class="separator">/</span>
-        <a href={`${baseUrl}projects/`}>Projects</a>
-        <span class="separator">/</span>
-        <span class="current">{entry.data.title}</span>
-      </nav>
-
       {entry.data.featured_image && (
         <img
           src={entry.data.featured_image}
@@ -126,37 +118,6 @@ const baseUrl = import.meta.env.BASE_URL;
 <style>
   .project-page {
     padding: 4rem 2rem;
-  }
-
-  /* Breadcrumb Navigation */
-  .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    margin-bottom: 2rem;
-  }
-
-  .breadcrumb a {
-    color: var(--color-accent);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .breadcrumb a:hover {
-    color: var(--color-accent-dark);
-    text-decoration: underline;
-  }
-
-  .breadcrumb .separator {
-    color: var(--color-border);
-    margin: 0 0.25rem;
-  }
-
-  .breadcrumb .current {
-    color: var(--color-text);
-    font-weight: 500;
   }
 
   .container {
