@@ -1,5 +1,5 @@
 ---
-title: "Market Report Native: From Zero to 100% Mobile Utility"
+title: "Market Report Mobile Conversion"
 date: "2025-09-10"
 summary: "Market Report was desktop-only, forcing dealers to use it in-office. By redesigning the native mobile experience with dealer-centered insights, we achieved 100% mobile utility increase, simplified overwhelming noise from filters, and revealed untapped value in vehicle condition data."
 role: "Lead Product Designer, Product Researcher, Strategist, Communication Lead"

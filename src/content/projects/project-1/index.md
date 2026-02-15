@@ -1,5 +1,5 @@
 ---
-title: "Guarantee Sale: From Manual Process to 10x Growth"
+title: "Guaranteed Sale"
 date: "2025-11-15"
 summary: "Dealers were stuck relaunching vehicles at lower prices when guarantee sales didn't hit reserve—a time-consuming process costing them money. I led the digitization of guarantee sales as a natural wholesale alternative, achieving 10x growth in a year and creating the company's first white-label component system."
 role: "Product Lead Designer, Product Owner, Researcher, Strategist, Communication Lead"

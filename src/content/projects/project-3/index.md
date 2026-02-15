@@ -1,5 +1,5 @@
 ---
-title: "Combined Appraisal Experience: Consolidating Redundancy Into Strategy"
+title: "Combined Appraisal Experience"
 date: "2025-10-01"
 summary: "Two consumer-facing appraisal experiences (Max and ClearCar) were 80% redundant with only slight rebranding differences. I audited both platforms, identified the 20% unique capabilities worth preserving, and proposed a strategic consolidation to leadership, unlocking significant engineering capacity for larger initiatives while improving dealer experience."
 role: "Product Designer, Auditor, Lead Researcher, Communication Specialist, Facilitation Lead"

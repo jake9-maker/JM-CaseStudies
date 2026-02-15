@@ -1,5 +1,5 @@
 ---
-title: "New Car Pricing"
+title: "New Car Workflow"
 date: "2025-12-01"
 summary: "Dealers couldn't verify pricing decisions, creating disputes, rework, and compliance risk. I made pricing auditable to rebuild trust and ship under a fixed launch deadline."
 role: "Lead Product Designer (Research Lead)"
