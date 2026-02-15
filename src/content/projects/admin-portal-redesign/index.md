@@ -50,6 +50,8 @@ og_image: "/images/admin-portal-redesign-preview.png"
 
 **Impact:** Users immediately felt less overwhelmed. Interface clarity increased. Workflows became direct paths instead of mazes. Fewer errors because fewer choices to confuse users. Time to complete common tasks dropped noticeably.
 
+![Admin Portal Configuration](/images/adminportal-configuration.png)
+
 ---
 
 ### Decision 2: Add Clear Guidance at Every Step
@@ -60,6 +62,8 @@ og_image: "/images/admin-portal-redesign-preview.png"
 
 **Impact:** Users understood what the system needed from them. Errors decreased because validation was immediate and clear. Users felt guided, not guessing. Support questions dropped measurably because the interface was self-explanatory.
 
+![Admin Portal User Goals](/images/adminportal-user-goals.png)
+
 ---
 
 ### Decision 3: Implement Accountability and Add Dashboard Intelligence
@@ -69,6 +73,12 @@ og_image: "/images/admin-portal-redesign-preview.png"
 **Solution:** Unique logins for each user to track who makes changes. Activity logs capturing what changed and when. Dashboard showing recent activity and outstanding tasks at a glance. Key metrics for quick insights into operational status.
 
 **Impact:** Clear audit trail for compliance. Users felt accountable and aware of their actions. Real-time updates eliminated anxiety. Dashboard gave users context and helped them prioritize. Operational visibility improved across teams.
+
+![Admin Portal Dashboard](/images/adminportal-dashboard.png)
+
+---
+
+![Admin Portal Sitemap](/images/adminportal-sitemap.png)
 
 ---
 
@@ -86,6 +96,8 @@ og_image: "/images/admin-portal-redesign-preview.png"
 - Team feedback: Reduced frustration and confusion; improved confidence in system
 - Compliance team: "Activity logs solve our audit trail problem"
 - Operational efficiency: Team reported fewer bottlenecks; workflows accelerated
+
+![Admin Portal User Journey](/images/adminportal-userjourney.png)
 
 ---
 
