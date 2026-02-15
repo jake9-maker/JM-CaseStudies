@@ -69,12 +69,18 @@
     display: none;
   }
 
-  /* Mobile: show only arrow icon */
+  /* Mobile: show only arrow icon as circle */
   @media (max-width: 768px) {
     .back-to-top-sticky {
-      padding: 0.75rem;
+      width: 3rem;
+      height: 3rem;
+      padding: 0;
       bottom: 1rem;
       right: 1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .back-to-top-text {
@@ -83,6 +89,7 @@
 
     .back-to-top-icon {
       display: inline;
+      font-size: 1.2rem;
     }
   }
 </style>
