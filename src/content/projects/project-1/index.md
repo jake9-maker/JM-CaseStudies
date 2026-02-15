@@ -1,7 +1,7 @@
 ---
 title: "Guaranteed Sale"
 date: "2025-11-15"
-summary: "Dealers were stuck relaunching vehicles at lower prices when guarantee sales didn't hit reserve—a time-consuming process costing them money. I led the digitization of guarantee sales as a natural wholesale alternative, achieving 10x growth in a year and creating the company's first white-label component system."
+summary: "Dealers avoided guarantee sales due to workflow friction. By integrating it as a natural option within the auction flow, I achieved 10x growth and created the company's first white-label component system."
 role: "Product Lead Designer, Product Owner, Researcher, Strategist, Communication Lead"
 team_size: 12
 duration: "1 year (ongoing)"

@@ -1,7 +1,7 @@
 ---
 title: "Admin Portal Redesign"
 date: "2026-01-15"
-summary: "Legacy internal admin tool was frustrating to use—shared logins obscured accountability, scattered fields caused errors, and outdated options cluttered workflows. By redesigning the interface with clear guidance, improved navigation, and accountability tracking, I reduced user friction and accelerated operational workflows."
+summary: "Legacy admin tool frustrated users with shared logins and cluttered workflows. By removing legacy elements, adding clear guidance, and implementing accountability tracking, I reduced friction and accelerated operations."
 role: "Design Lead, Research Lead"
 team_size: 8
 duration: "4 months"

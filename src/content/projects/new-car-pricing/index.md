@@ -1,7 +1,7 @@
 ---
 title: "New Car Workflow"
 date: "2025-12-01"
-summary: "Dealers couldn't verify pricing decisions, creating disputes, rework, and compliance risk. I made pricing auditable to rebuild trust and ship under a fixed launch deadline."
+summary: "Dealers couldn't verify pricing decisions, creating disputes and compliance risk. I made pricing transparent and auditable—rebuilding trust and shipping on deadline."
 role: "Lead Product Designer (Research Lead)"
 team_size: 6
 duration: "14 weeks"

@@ -1,7 +1,7 @@
 ---
 title: "Market Report Mobile Conversion"
 date: "2025-09-10"
-summary: "Market Report was desktop-only, forcing dealers to use it in-office. By redesigning the native mobile experience with dealer-centered insights, we achieved 100% mobile utility increase, simplified overwhelming noise from filters, and revealed untapped value in vehicle condition data."
+summary: "Market Report was desktop-only, forcing dealers to use it in-office. By redesigning for mobile-first dealer use on the lot, we achieved 100% mobile utility and revealed condition data as a strategic differentiator."
 role: "Lead Product Designer, Product Researcher, Strategist, Communication Lead"
 team_size: 8
 duration: "2 months"
