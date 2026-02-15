@@ -1,219 +1,88 @@
 ---
-// SidebarNav.astro - Collapsible sidebar navigation with smooth scroll
+// BackToTop.astro - Sticky back to top button
 ---
 
-<div class="sidebar-panel" id="sidebar-panel">
-  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle navigation panel">
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-      <path d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"/>
-    </svg>
-  </button>
-
-  <nav class="sidebar-nav-content">
-    <div class="sidebar-header">
-      <h3>Quick Links</h3>
-      <button class="sidebar-close" id="sidebar-close" aria-label="Close navigation panel">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
-        </svg>
-      </button>
-    </div>
-    <button class="sidebar-nav-link" data-target="60-second-summary-tldr">
-      Summary
-    </button>
-    <button class="sidebar-nav-link" data-target="appendix">
-      Appendix
-    </button>
-  </nav>
-</div>
+<button class="back-to-top-sticky" id="back-to-top-sticky" aria-label="Back to top">
+  <span class="back-to-top-text">↑ Back to top</span>
+  <span class="back-to-top-icon">↑</span>
+</button>
 
 <script>
-  const sidebarPanel = document.getElementById('sidebar-panel');
-  const sidebarToggle = document.getElementById('sidebar-toggle');
-  const sidebarClose = document.getElementById('sidebar-close');
-  const navLinks = document.querySelectorAll('.sidebar-nav-link');
+  const backToTopButton = document.getElementById('back-to-top-sticky');
 
-  // Toggle sidebar visibility
-  sidebarToggle?.addEventListener('click', () => {
-    sidebarPanel?.classList.toggle('open');
-  });
-
-  // Close sidebar
-  sidebarClose?.addEventListener('click', () => {
-    sidebarPanel?.classList.remove('open');
-  });
-
-  // Smooth scroll to section with offset for header
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      const targetId = link.getAttribute('data-target');
-      const targetElement = document.getElementById(targetId);
-
-      if (targetElement) {
-        // Get header height to offset scroll
-        const headerHeight = document.querySelector('header')?.offsetHeight || 80;
-        const elementTop = targetElement.offsetTop - headerHeight - 20; // 20px extra spacing
-
-        window.scrollTo({
-          top: elementTop,
-          behavior: 'smooth'
-        });
-
-        // Close panel on mobile/tablet
-        if (window.innerWidth < 1024) {
-          sidebarPanel?.classList.remove('open');
-        }
-      }
-    });
-  });
-
-  // Close panel when clicking outside (mobile)
-  document.addEventListener('click', (e) => {
-    const isClickInsidePanel = sidebarPanel?.contains(e.target);
-    const isClickOnToggle = sidebarToggle?.contains(e.target);
-    if (!isClickInsidePanel && !isClickOnToggle && window.innerWidth < 1024) {
-      sidebarPanel?.classList.remove('open');
+  // Show/hide button based on scroll position
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopButton?.classList.add('visible');
+    } else {
+      backToTopButton?.classList.remove('visible');
     }
+  });
+
+  // Scroll to top on click
+  backToTopButton?.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
 </script>
 
 <style>
-  .sidebar-panel {
+  .back-to-top-sticky {
     position: fixed;
-    right: 0;
-    top: 0;
-    height: 100vh;
+    bottom: 2rem;
+    right: 2rem;
     z-index: 40;
-    display: flex;
-    align-items: flex-start;
-    padding-top: 6rem;
-  }
-
-  .sidebar-toggle {
-    position: absolute;
-    right: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-bg-secondary);
-    border: 1px solid var(--color-border);
-    border-right: none;
-    border-radius: 8px 0 0 8px;
-    color: var(--color-text);
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .sidebar-toggle:hover {
+    padding: 0.75rem 1.5rem;
     background-color: var(--color-accent);
     color: white;
-  }
-
-  .sidebar-nav-content {
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    background-color: var(--color-bg-secondary);
-    border: 1px solid var(--color-border);
-    border-right: none;
-    border-radius: 8px 0 0 8px;
-    padding: 1rem;
-    box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.1);
-    width: 160px;
-    margin-right: -160px;
-    transition: margin-right 0.3s ease;
-  }
-
-  .sidebar-panel.open .sidebar-nav-content {
-    margin-right: 0;
-  }
-
-  .sidebar-header {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
     gap: 0.5rem;
   }
 
-  .sidebar-header h3 {
-    margin: 0;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  .back-to-top-sticky.visible {
+    opacity: 1;
+    pointer-events: auto;
   }
 
-  .sidebar-close {
+  .back-to-top-sticky:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  }
+
+  .back-to-top-text {
+    display: inline;
+  }
+
+  .back-to-top-icon {
     display: none;
-    width: 1.5rem;
-    height: 1.5rem;
-    background: none;
-    border: none;
-    color: var(--color-text);
-    cursor: pointer;
-    padding: 0;
-    flex-shrink: 0;
   }
 
-  .sidebar-close:hover {
-    color: var(--color-accent);
-  }
+  /* Mobile: show only arrow icon */
+  @media (max-width: 768px) {
+    .back-to-top-sticky {
+      padding: 0.75rem;
+      bottom: 1rem;
+      right: 1rem;
+    }
 
-  .sidebar-nav-link {
-    padding: 0.75rem 1rem;
-    color: var(--color-text);
-    background-color: transparent;
-    border: 1px solid transparent;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-align: center;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-  }
-
-  .sidebar-nav-link:hover {
-    color: var(--color-accent);
-    background-color: var(--color-bg-tertiary);
-    border-color: var(--color-accent);
-  }
-
-  /* Desktop: always show panel, hide toggle button, show close button */
-  @media (min-width: 1024px) {
-    .sidebar-toggle {
+    .back-to-top-text {
       display: none;
     }
 
-    .sidebar-close {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .sidebar-nav-content {
-      margin-right: 0;
-    }
-
-    .sidebar-panel {
-      padding-top: 8rem;
-    }
-  }
-
-  /* Mobile: hide panel by default, hide close button */
-  @media (max-width: 1023px) {
-    .sidebar-panel {
-      padding-top: 50vh;
-    }
-
-    .sidebar-close {
-      display: none;
+    .back-to-top-icon {
+      display: inline;
     }
   }
 </style>

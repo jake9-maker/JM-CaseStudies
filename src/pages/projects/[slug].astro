@@ -79,7 +79,6 @@ const baseUrl = import.meta.env.BASE_URL;
 
       <div class="project-content">
         <Content />
-        <a href="#top" class="back-to-top" aria-label="Back to top">↑ Back to top</a>
       </div>
 
       <nav class="content-nav" aria-label="Continue reading">
@@ -366,26 +365,6 @@ const baseUrl = import.meta.env.BASE_URL;
 
   .next-link {
     grid-column: 2;
-  }
-
-  /* Back to top button */
-  .back-to-top {
-    display: inline-block;
-    margin-top: 3rem;
-    padding: 0.75rem 1.5rem;
-    background-color: #f0f0f0;
-    color: var(--color-text-muted);
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-  }
-
-  .back-to-top:hover {
-    background-color: var(--color-accent);
-    color: white;
-    transform: translateY(-2px);
   }
 
   /* Enhanced image styling */
