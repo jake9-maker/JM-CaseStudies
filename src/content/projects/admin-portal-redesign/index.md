@@ -6,7 +6,7 @@ role: "Design Lead, Research Lead"
 team_size: 8
 duration: "4 months"
 featured: false
-featured_image: "/images/admin-portal-redesign-preview.png"
+featured_image: "/images/adminportal-hero.png"
 featured_image_alt: "Redesigned admin portal with clear navigation, guided workflows, and activity transparency"
 featured_order: 5
 pillars:
