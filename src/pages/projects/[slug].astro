@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
+import ImageViewer from '../../components/ImageViewer.astro';
 
 // Get all projects for static path generation
 export async function getStaticPaths() {
@@ -104,6 +105,8 @@ const baseUrl = import.meta.env.BASE_URL;
   </article>
 
   <ContactCTA />
+
+  <ImageViewer />
 </BaseLayout>
 
 <style>
@@ -263,6 +266,16 @@ const baseUrl = import.meta.env.BASE_URL;
     border-radius: 8px;
     display: block;
     loading: lazy;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .project-content :global(img:hover) {
+    transform: scale(1.02);
+    opacity: 0.95;
+  }
+
+  .project-content :global(img:active) {
+    transform: scale(0.98);
   }
 
   /* Keep general strong everywhere else slightly lighter */
