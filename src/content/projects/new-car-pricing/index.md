@@ -17,108 +17,59 @@ meta_description: "Learn how I made pricing auditable to rebuild trust with deal
 og_image: "/images/new-car-pricing-preview.png"
 ---
 
----
+## In 60 seconds
 
-## 60-Second Summary (TL;DR)
+- **The problem:** Dealers disputed prices, not because the prices were wrong, but because they had no way to check them. Every launch slipped 2–3 weeks and created compliance risk.
+- **What I did:** I led the research, owned the problem framing, and aligned executives around a different goal: trust, not training. I drove the design under a fixed 14-week deadline.
+- **The result:** Dealers adopted it without training, escalations dropped by about two-thirds, and it shipped on time with zero compliance incidents.
 
-- **The outcome:** Dealers gained confidence in pricing decisions, materially reducing post-sale disputes and rework. Vehicle launch cycles accelerated. The system shipped on deadline with zero compliance incidents.
-- **Why it mattered:** Pricing ambiguity created operational friction and compliance risk. Every vehicle launch triggered dealer disputes, internal rework, and escalations that delayed inventory availability and exposed the company to regulatory risk.
-- **What I did:** Led research to uncover that the problem was transparency, not accuracy. Owned problem framing that separated justification from calculation. Aligned executives on a different success metric (trust, not training). Drove three specific design decisions that proved the model under a fixed 14-week deadline.
-- **Proof:** Dealers adopted the system without training. Support escalations dropped measurably. Cross-functional teams accelerated cycles because validation was no longer the bottleneck. System shipped on deadline with full executive confidence.
+<div class="stats">
+  <div class="stat"><span class="stat-num">95%</span><span class="stat-label">dealer adoption in two weeks, with no training</span></div>
+  <div class="stat"><span class="stat-num">8 → 2–3</span><span class="stat-label">pricing escalations per launch</span></div>
+  <div class="stat"><span class="stat-num">10 of 12</span><span class="stat-label">dealers could explain the pricing logic unprompted</span></div>
+  <div class="stat"><span class="stat-num">0</span><span class="stat-label">compliance incidents; shipped on a fixed 14-week deadline</span></div>
+</div>
 
----
+## The problem
 
-## The Problem
+Everyone assumed dealers distrusted pricing because they didn't understand it, and that the fix was more training or an expensive system rebuild.
 
-**What everyone thought:** Dealers distrust pricing because they don't understand it. We need better training or a system rebuild.
+My interviews with 12 dealers showed the opposite. They understood the logic. They just couldn't verify it. The system handed them a final number with no inputs and no reasoning, so skepticism and escalation were their only options.
 
-**What research revealed:** Dealers understood the pricing logic perfectly. They just couldn't verify it. The system didn't expose inputs or decision logic—dealers received a final number with no way to audit it. In a domain where price depends on many variable inputs (market conditions, inventory age, demand signals, competitive benchmarks), dealers fell back on skepticism and escalation.
-
-**Why this mattered:** Every vehicle launch slipped 2–3 weeks post-launch due to pricing disputes. Support volume grew. Dealer retention eroded. Company would invest in expensive infrastructure to replace something that was already correct—just opaque.
-
-**The insight:** The problem isn't mathematical correctness. It's transparency. Make pricing auditable by showing the work. Separate the technical problem (is the price correct?) from the communication problem (can a dealer understand why?). Solve the communication problem through design; trust the technical problem.
-
----
-
-## The 3 Decisions That Drove the Outcome
-
-### Decision 1: Expose Key Inputs Before the Final Number
-
-**Problem:** Dealers needed to verify the system had considered all relevant market factors before trusting the output. Without seeing inputs, they had no way to sanity-check. This forced escalation for every questionable price.
-
-**Solution:** Show the 4–5 inputs that moved the needle most (market conditions, inventory age, demand signal, competitive benchmarks, margin target) in plain language, *before* the final price. Let dealers see the premises before evaluating the conclusion.
-
-**Impact:** Dealers immediately gained agency. They could say "I see why this price was set; I agree" or "I disagree with the inventory age weighting—here's my counterargument." Disagreement became technical debate instead of blind pushback. Escalations dropped because most pushback evaporated once dealers could verify the decision was sound. In validation with 12 dealers, 10 could articulate the pricing logic unprompted and said "I would trust this without training." Post-launch, pricing-related support escalations dropped from ~8 per launch to 2–3.
-
----
-
-### Decision 2: Separate "What" From "Why" Across User Types
-
-**Problem:** Dealers and buyers needed different information density. Dealers needed full justification; buyers needed enough context to feel informed without being overwhelmed. Showing everything would confuse; showing nothing would repeat the trust problem.
-
-**Solution:** Progressive disclosure. Buyer-facing interface shows price + 1-line reason ("This price reflects current market demand and low inventory availability"). Dealer interface shows full breakdown behind a click. Both consume the same underlying pricing data model, so logic lives in one place.
-
-**Impact:** Buyers felt informed without overload. Dealers could drill as deep as they needed. The organization maintained a single source of truth for pricing logic, which reduced bugs and compliance issues. Post-launch, pricing changes propagated instantly across both surfaces with no sync problems. Buyer testing with 15+ customers showed zero complaints. Dealer adoption reached 95% within two weeks—no training required.
-
----
-
-### Decision 3: Use Confidence Tiers to Manage Uncertainty Transparently
-
-**Problem:** Data quality varied. Sometimes prices were based on real-time demand signals and recent comparable sales; sometimes on limited data or historical benchmarks. Dealers needed to understand reliability without either hiding uncertainty (dishonest) or overwhelming them with confidence percentages (precise but not actionable).
-
-**Solution:** Define 3 tiers (High/Medium/Low) with explicit, honest plain-language criteria. Tie tier to workflow: High-confidence prices go live immediately; Medium requires ops review; Low triggers escalation. Make tier criteria public so dealers understand the system.
-
-**Impact:** Dealers accepted that some decisions were more justified than others. They stopped demanding equal rigor across all prices. The tier system gave the pricing ops team clear escalation criteria, which reduced debate about what required review. When dealers questioned a Medium-confidence price, ops could point to the tier definition and explain. This converted adversarial conversations into collaborative ones. Ops team reported escalation decisions became "predictable and defensible." Pricing-related debates between sales and ops dropped measurably. The system shipped with full VP Compliance sign-off because confidence tiers made pricing auditable.
-
----
-
-## Evidence and Results
-
-**Quantitative:**
-- Time to resolve pricing disputes dropped materially; dealers could self-verify
-- Support escalations related to pricing decreased measurably from baseline
-- Vehicle launch cycles accelerated—pricing validation was no longer the bottleneck
-- System shipped on deadline with zero compliance incidents and zero post-launch compliance support
-
-**Qualitative:**
-- Dealer feedback: "Finally I can see why a price is set" and "I trust this because I can check the math myself"
-- Operations team: Escalations transformed from "Why don't you trust us?" to "I disagree with the inventory age weighting; here's my counterargument." Technical debate replaced trust debates
-- VP Compliance: "Pricing is now auditable and defensible"
-- Cross-functional alignment: All teams referenced the same pricing narrative
+**The insight:** the prices were already correct. The problem was transparency. Design could fix that without rebuilding the pricing engine.
 
 ![New Car Pricing Userflow](/images/new-car-pricing-userflow.png)
 
+## Three decisions that drove the outcome
+
+### 1. Show the inputs before the price
+
+I put the 4–5 factors that mattered most (market conditions, inventory age, demand, competitive benchmarks, margin target) in plain language *before* the final number. Dealers could check the premises before judging the conclusion, and pushback turned into specific, useful debate.
+
+**Result:** 10 of 12 dealers in validation could explain the logic unprompted and said they'd trust it without training. Escalations fell from ~8 per launch to 2–3.
+
+### 2. Different depth for different people
+
+Buyers see the price and a one-line reason. Dealers can click into the full breakdown. Both read from the same pricing model, so the logic lives in one place.
+
+**Result:** 95% dealer adoption within two weeks, zero complaints across 15+ buyer tests, and pricing changes that update everywhere at once.
+
+### 3. Be honest about confidence
+
+Data quality varied, so I defined three confidence tiers (high, medium, low) with plain-language criteria and tied each to a workflow: high goes live, medium gets reviewed, low escalates.
+
+**Result:** Escalation decisions became, in the ops team's words, "predictable and defensible." It shipped with full VP of Compliance sign-off.
+
+## What changed
+
 ![New Car Pricing Timeline](/images/new-car-pricing-timeline.png)
 
----
+- **For dealers:** "Finally I can see why a price is set." New dealers could use it without onboarding.
+- **For the business:** Pricing validation stopped being the bottleneck, launches sped up, and compliance called pricing "auditable and defensible."
+- **For the company:** The confidence-tier pattern became the standard for other high-stakes decisions: financing terms, discounts, and inventory allocation.
 
-## What This Unlocked
+## What I took away
 
-- **Immediate:** Confidence-tier framework became standard pattern for other high-stakes decisions (discounts, inventory allocation, financing terms)
-- **Scaling:** Transparent-logic approach reduced dependency on specialized training. New dealers could use the system effectively without onboarding. Improved time-to-contribution and satisfaction
-- **Organizational capability:** Proved that in high-ambiguity domains, transparency increases trust and reduces support burden. Shifted how the org approached other opaque systems
+Trust problems are usually information problems, not training problems.
 
----
-
-## Reflection
-
-**Key insight:** Trust problems are usually information architecture problems, not communication or training problems. The solution isn't better docs or more training—it's redesigning what information is surfaced and in what order.
-
-**How it changed my approach:** I now ask "What would have to be true for a skeptical person to verify this decision?" before "How do we explain this better?" The first question points to transparency and data structure; the second points to training. Most "trust" and "communication" problems are actually information design problems.
-
-**Problems I now look for:** Systems where smart, motivated people distrust an outcome not because it's wrong, but because it's opaque. These are high-leverage problems because the solution is often elegant—rearchitect what information is visible and in what order, not the system itself.
-
----
-
-## Appendix
-
-**Supporting artifacts:**
-- 12 dealer interviews revealing "I can't verify this" as the root cause (not training gap or system error)
-- Wireframes showing progressive disclosure and confidence tier system
-- Confidence tier criteria definitions with real examples
-- Compliance sign-off and audit documentation
-
-**Related work:**
-- Framework was applied post-launch to financing terms transparency and inventory allocation using the same "show your work" pattern
-
----
+Now I ask: *what would a skeptical person need to see to verify this?* before *how do we explain it better?* The first question leads to better design. The second usually leads to more documentation.

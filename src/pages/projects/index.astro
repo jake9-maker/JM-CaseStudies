@@ -13,12 +13,16 @@ const projects = await getCollection('projects');
 <BaseLayout
   title="UX Case Studies - Jake Maisel Product Design Work"
   description="Explore detailed case studies showcasing UX research, product strategy, and design leadership. Featured work in automotive marketplace innovation, mobile design, and complex problem solving.">
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="eyebrow">Case studies</p>
+      <h1>The <em>complete</em> work.</h1>
+      <p class="lede">How I approached each problem, what I learned, and what changed as a result.</p>
+    </div>
+  </section>
+
   <section class="projects-section">
     <div class="container">
-      <h1>Case Studies</h1>
-      <p class="intro">
-        Detailed exploration of my recent design work, approaches, and outcomes
-      </p>
 
       {
         projects.length > 0 ? (
@@ -37,13 +41,6 @@ const projects = await getCollection('projects');
                 <div class="project-card-content">
                   <h3>{project.data.title}</h3>
                   <p class="summary">{project.data.summary}</p>
-                  {project.data.pillars && project.data.pillars.length > 0 && (
-                    <div class="pillars">
-                      {project.data.pillars.slice(0, 4).map((pillar) => (
-                        <span class="pillar-tag">{pillar.replace(/-/g, ' ')}</span>
-                      ))}
-                    </div>
-                  )}
                   <div class="card-footer">
                     <span class="read-more">Read Case Study →</span>
                   </div>
@@ -65,23 +62,12 @@ const projects = await getCollection('projects');
 
 <style>
   .projects-section {
-    padding: 4rem 2rem;
+    padding: 1rem 2rem 2rem;
   }
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .intro {
-    font-size: 1.1rem;
-    color: var(--color-text-muted);
-    margin-bottom: 3rem;
   }
 
   .projects-grid {
@@ -95,7 +81,7 @@ const projects = await getCollection('projects');
     display: flex;
     flex-direction: column;
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: 14px;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
@@ -104,8 +90,8 @@ const projects = await getCollection('projects');
   }
 
   .project-card:hover {
-    border-color: var(--color-accent);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+    border-color: var(--gradient-start);
+    box-shadow: 0 12px 32px rgba(var(--brand-blue-rgb), 0.15);
     transform: translateY(-2px);
   }
 
@@ -131,11 +117,13 @@ const projects = await getCollection('projects');
   }
 
   .project-card-content h3 {
-    font-size: 1.1rem;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
     margin: 0;
     color: var(--color-text);
-    font-weight: 600;
-    line-height: 1.4;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
   }
 
   .summary {
@@ -144,23 +132,6 @@ const projects = await getCollection('projects');
     margin: 0;
     line-height: 1.5;
     flex-grow: 1;
-  }
-
-  .pillars {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.25rem;
-  }
-
-  .pillar-tag {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background-color: var(--color-bg-tertiary);
-    border-radius: 6px;
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
-    text-transform: capitalize;
   }
 
   .card-footer {
@@ -186,6 +157,10 @@ const projects = await getCollection('projects');
   }
 
   @media (max-width: 768px) {
+    .projects-section {
+      padding: 1rem 1rem 2rem;
+    }
+
     .projects-grid {
       grid-template-columns: 1fr;
     }

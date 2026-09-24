@@ -14,13 +14,13 @@
 
   /* Border and accent colors */
   --color-border: #eeeeee;
-  --color-accent: #0066cc;
-  --color-accent-dark: #0052a3;
-  --color-accent-light: #f0f4ff;
+  --color-accent: #1f55e6;
+  --color-accent-dark: #1a44b8;
+  --color-accent-light: #eef3ff;
 
-  /* Gradient colors */
-  --gradient-start: #667eea;
-  --gradient-end: #764ba2;
+  /* Gradient colors: electric blue -> teal (deeper teal for contrast on light) */
+  --gradient-start: #2f5bff;
+  --gradient-end: #0aa697;
 
   /* Semantic colors */
   --color-success: #10b981;
@@ -32,7 +32,7 @@
   /* Background colors */
   --color-bg: #0d0d0d;
   --color-bg-secondary: #131313;
-  --color-bg-tertiary: #1f1f3a;
+  --color-bg-tertiary: #172230;
 
   /* Text colors */
   --color-text: #e4e4e7;
@@ -41,13 +41,13 @@
 
   /* Border and accent colors */
   --color-border: #2a2a2a;
-  --color-accent: #5ba3ff;
-  --color-accent-dark: #87c0ff;
-  --color-accent-light: #1f3a52;
+  --color-accent: #5b9bff;
+  --color-accent-dark: #87b8ff;
+  --color-accent-light: #16304a;
 
-  /* Gradient colors */
-  --gradient-start: #667eea;
-  --gradient-end: #764ba2;
+  /* Gradient colors: electric blue -> teal */
+  --gradient-start: #2f5bff;
+  --gradient-end: #12d6c5;
 
   /* Semantic colors */
   --color-success: #10b981;
@@ -95,4 +95,209 @@ img[alt*="preview"],
 img[alt*="hero"],
 img[alt*="feature"] {
   max-width: 100%;
+}
+
+/* ================================
+   Shared design system (2026 refresh)
+   Serif display type, signature gradient, pill buttons
+   ================================ */
+
+:root {
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --gradient: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  /* Deeper teal end so white button text stays readable */
+  --gradient-button: linear-gradient(135deg, #2f5bff, #0e8f88);
+  /* Same colors as channels, for glows and shadows */
+  --brand-blue-rgb: 47, 91, 255;
+  --brand-teal-rgb: 18, 214, 197;
+}
+
+/* Display headings */
+.display,
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.02;
+  color: var(--color-text);
+}
+
+.display em,
+.page-hero h1 em {
+  font-style: italic;
+  padding-right: 0.05em;
+}
+
+.grad-text,
+.display em,
+.page-hero h1 em {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Small label above headings */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: 0 0 1.4rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gradient);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--gradient-button);
+  color: #fff;
+}
+
+.btn-ghost {
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+[data-theme='light'] .btn-ghost {
+  border-color: #d4d4d8;
+}
+
+.btn-ghost:hover {
+  border-color: var(--gradient-start);
+}
+
+/* Page header used on inner pages */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 4.5rem 2rem 3.5rem;
+  background: var(--color-bg);
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  width: 640px;
+  height: 640px;
+  right: -160px;
+  top: -260px;
+  background: radial-gradient(closest-side, rgba(var(--brand-blue-rgb), 0.3), rgba(var(--brand-teal-rgb), 0.1) 55%, transparent);
+  pointer-events: none;
+}
+
+.page-hero-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-hero h1 {
+  font-size: clamp(2.75rem, 6vw, 4.75rem);
+  margin: 0;
+  max-width: 18ch;
+}
+
+.page-hero .lede {
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  max-width: 44ch;
+  margin: 1.4rem 0 0;
+}
+
+/* Section headings */
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin: 0 0 0.75rem;
+}
+
+/* Card with a thin signature-gradient edge */
+.edge-card {
+  position: relative;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+}
+
+.edge-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 15px;
+  padding: 1px;
+  background: linear-gradient(160deg, rgba(var(--brand-blue-rgb), 0.75), transparent 40%, transparent 70%, rgba(var(--brand-teal-rgb), 0.6));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 3rem 1rem 2.5rem;
+  }
+
+  .page-hero::before {
+    width: 400px;
+    height: 400px;
+    right: -180px;
+    top: -160px;
+  }
+}
+
+/* ================================
+   Parallax (driven by --scroll from BaseLayout)
+   Decorative glows drift slower than the page; hero layers get slight depth.
+   Transform-only; off for reduced motion and on small screens for content.
+   ================================ */
+
+:root {
+  --scroll: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero::before,
+  .page-hero::before {
+    transform: translate3d(0, calc(var(--scroll) * 0.45px), 0);
+    will-change: transform;
+  }
+
+  [data-parallax] {
+    transform: translate3d(0, calc(var(--scroll) * var(--parallax-speed, 0) * 1px), 0);
+    will-change: transform;
+  }
+}
+
+@media (max-width: 860px) {
+  [data-parallax] {
+    transform: none;
+  }
 }

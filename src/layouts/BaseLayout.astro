@@ -31,6 +31,11 @@ const {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
+    <!-- Display serif for headlines -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
     <!-- Open Graph Tags -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -58,10 +63,30 @@ const {
   </head>
   <body>
     <Header />
-    <main>
+    <main id="main">
       <slot />
     </main>
     <Footer />
+    <script>
+      // Parallax: expose scroll position as --scroll; CSS decides what moves.
+      // Transform-only, so layout and reading flow are untouched.
+      const root = document.documentElement;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let queued = false;
+
+      const update = () => {
+        root.style.setProperty('--scroll', String(window.scrollY));
+        queued = false;
+      };
+
+      window.addEventListener('scroll', () => {
+        if (reduceMotion.matches || queued) return;
+        queued = true;
+        requestAnimationFrame(update);
+      }, { passive: true });
+
+      update();
+    </script>
   </body>
 </html>
 

@@ -4,7 +4,7 @@ date: "2025-11-15"
 summary: "Dealers avoided guarantee sales due to workflow friction. By integrating it as a natural option within the auction flow, I achieved 10x growth and created the company's first white-label component system."
 role: "Product Lead Designer, Product Owner, Researcher, Strategist, Communication Lead"
 team_size: 12
-duration: "1 year (ongoing)"
+duration: "3 months"
 featured: true
 featured_image: "/images/guaranteed-sale-preview.png"
 featured_image_alt: "Guarantee Sale seamless launch interface integrated into wholesale auction workflow"
@@ -17,119 +17,65 @@ meta_description: "Discover how I digitized the guarantee sales process, achievi
 og_image: "/images/guaranteed-sale-preview.png"
 ---
 
----
+## In 60 seconds
 
-## 60-Second Summary (TL;DR)
+- **The problem:** Dealers skipped guarantee sales. Not because they were confused, but because a separate flow added friction at an already painful moment.
+- **What I did:** I owned it end to end, leading strategy, research, design, and a 12-person cross-functional team to put guarantee sale inside the failed-auction workflow, digitize pricing, and build a reusable component system.
+- **The result:** 10x more guarantee vehicles launched in under a year, plus the company's first white-label component system.
 
-- **The outcome:** Guarantee sales were being left on the table because dealers found the process too friction-heavy. By integrating guarantee sale as a natural option within the failed-auction workflow, we achieved 10x growth in successfully launched guarantee vehicles in under a year.
-- **Why it mattered:** Dealers lose money and time relaunching vehicles that fail guarantee sales at lower prices. Removing friction from this decision meant unlocking significant revenue.
-- **What I did:** Led strategy, research, design, and cross-functional coordination. Discovered the real problem wasn't education—it was workflow friction. Designed guarantee sale as a natural next step in the auction flow, not a separate product.
-- **Proof:** 10x growth in successfully launched guarantee vehicles. Created the company's first white-label component system. Guarantee Sale expanding to trade-ins and retail in 2026, with me leading the expansion.
+<div class="stats">
+  <div class="stat"><span class="stat-num">10×</span><span class="stat-label">guarantee vehicles launched (~30 → 300+ a week)</span></div>
+  <div class="stat"><span class="stat-num">2% → 32%</span><span class="stat-label">of failed auctions choosing guarantee sale</span></div>
+  <div class="stat"><span class="stat-num">&lt;1 hr</span><span class="stat-label">pricing turnaround, down from 1–2 days</span></div>
+  <div class="stat"><span class="stat-num">18–22%</span><span class="stat-label">margin, vs. 8–12% for relaunches</span></div>
+</div>
 
----
+## The problem
 
-## The Problem
+Everyone assumed dealers didn't understand guarantee sales, and that more education would fix it.
 
-**What everyone thought:** Guarantee sales were failing because dealers didn't understand them. Education and marketing would fix it.
+Interviews with 25+ dealers showed the opposite. They understood it fine. Relaunching a car at a lower price means taking a loss, and dealers avoided that decision by avoiding guarantee sales altogether.
 
-**What research revealed:** Dealers understood guarantee sales perfectly. The problem was psychological—relaunching a vehicle at lower price means taking a loss, which is emotionally and cognitively expensive. Dealers avoided the decision by avoiding guarantee sales altogether.
-
-**Why this mattered:** 10x revenue opportunity was being left on the table. Competitors could discover the same insight and build a better workflow first.
-
-**The insight:** Make guarantee sale unavoidable by embedding it into the workflow. Remove the separate decision by showing it as a natural option at the moment when dealers are already deciding what to do with a failed auction.
+**The insight:** don't explain the option better. Put it where the decision already happens.
 
 ![Guarantee Sale Workflow](/images/guaranteed-sale-audit.png)
 
----
+## Three decisions that drove the outcome
 
-## The 3 Decisions That Drove the Outcome
+### 1. Put it inside the auction workflow
 
-### Decision 1: Integrate Into the Auction Workflow
+I redesigned the moment an auction misses reserve. Dealers now see both paths side by side: relaunch at a lower price, or take a guaranteed payout, each with its timeline. No extra navigation, no separate product.
 
-**Problem:** Guarantee sale was a separate product requiring navigation and a deliberate opt-in. Dealers never discovered it or didn't want the friction of another flow.
-
-**Solution:** Show guarantee sale at the moment of decision. When an auction fails to meet reserve, surface both paths: (1) relaunch at lower price with estimated timeline, (2) guarantee sale with guaranteed payout and timeline. Make the comparison transparent. Let dealers choose.
-
-**Impact:** Before integration, ~2% of failed auctions resulted in guarantee sales. After integration, ~28% in 90 days (14x lift). Dealers saw guarantee sale at the exact moment they were evaluating options. No additional navigation required. Adoption jumped because the decision was informed and effortless.
+**Result:** 2% → 28% of failed auctions within 90 days, a 14x lift.
 
 ![Guarantee Sale Feature Comparison](/images/guaranteed-sale-feature-comparison.png)
 
----
+### 2. Digitize the pricing logic
 
-### Decision 2: Digitize the Pricing Logic
+Three specialists priced every vehicle by hand: 4–8 hours each, with a 1–2 day turnaround. I led the effort to turn their judgment into a recommendation engine trained on their past decisions and market data. They now review only the edge cases.
 
-**Problem:** 3 manual pricing specialists made complex decisions about payout amounts. This logic was embedded in experience, hard to extract, and impossible to scale.
-
-**Solution:** Build a pricing recommendation engine trained on historical specialist decisions + market data. The system handles 95% of cases automatically. Specialists review edge cases and validate anomalies.
-
-**Impact:** Manual process: 4–8 hours per vehicle, 1–2 day turnaround. Digitized process: <5 minutes for 95% of cases, <1 hour turnaround. Specialist capacity increased 15x (from ~30 cases/week to monitoring 450+/week). Company gained visibility into pricing patterns and could optimize margins dynamically.
+**Result:** 95% of cases priced automatically in under 5 minutes. Specialists went from handling ~30 cases a week to overseeing 450+.
 
 ![Guarantee Sale Pricing Influence](/images/guaranteed-sale-marketing-influence.png)
 
----
+### 3. Build it as a white-label component system
 
-### Decision 3: Build a White-Label Component System
+We knew trade-in and retail would follow, so I designed guarantee sale as modular pieces (pricing, UI, workflow, data) with clear interfaces and documentation.
 
-**Problem:** Guarantee sale was growing. We knew we'd want to expand it to trade-ins and retail. But we didn't have a reusable component system. Each new surface would require rebuilding from scratch.
-
-**Solution:** Design guarantee sale as a modular component system: separate concerns (pricing logic, UI, workflow, data models), create clear interfaces, document thoroughly. Make it the template for future integrations.
-
-**Impact:** Trade-in and retail guarantee sale designs estimated at 20+ weeks took <10 weeks using the component system (50% faster). Design team adopted the white-label pattern as company standard. Since then, applied to 3 other product integrations.
+**Result:** Trade-in and retail designs estimated at 20+ weeks took under 10. The pattern became the design team's standard and has been reused in 3 other integrations.
 
 ![Guarantee Sale White-Label Components](/images/guaranteed-sale-white-label-component1.png)
 
----
-
-## Evidence and Results
-
-**Quantitative:**
-- Successfully launched guarantee vehicles: 10x growth in under 1 year (scale from ~30/week to 300+/week)
-- Adoption rate: ~2% (before) → ~28% (90 days after) → ~32% (current)
-- Manual digitization: 95% of cases handled automatically
-- Turnaround time: 1–2 days → <1 hour
-- Company margin: Guarantee sales deliver 18–22% margin (vs. 8–12% for traditional relaunches)
+## What changed
 
 ![Guarantee Sale Inventory Impact](/images/guaranteed-sale-inventory.png)
 
-**Qualitative:**
-- Dealer feedback: "Guarantee sale used to feel like a separate thing; now it's just the natural choice when an auction fails."
-- Specialist team: Transitioned from intake work to strategic analysis and model monitoring; team satisfaction increased
-- Design team: "Now we know how to build reusable integrations"
-- Leadership: Guarantee sale became a strategic revenue driver; trade-in and retail expansion green-lit
+- **For dealers:** "Guarantee sale used to feel like a separate thing; now it's just the natural choice when an auction fails."
+- **For the business:** Guarantee sale went from niche to a material revenue driver, and I led its expansion into trade-in and retail, which has since launched.
+- **For the team:** Pricing specialists moved from volume intake to strategic risk management and model monitoring.
 
----
+## What I took away
 
-## What This Unlocked
+Big growth often comes from removing friction, not adding features. The product already existed; the path to it was the problem.
 
-- **Immediate:** Trade-in and retail guarantee sales underway using the white-label component system
-- **Design system:** White-label component approach now adopted across design teams
-- **Specialist evolution:** 3 specialists shifted from volume intake to strategic risk management
-- **Revenue impact:** Guarantee sales went from niche to material revenue driver; expansion compounds impact
-
----
-
-## Reflection
-
-**Key insight:** Big growth often comes from removing friction, not from building new features. Guarantee sale existed; the problem was workflow friction around accessing it.
-
-**How it changed my approach:** I now ask "Where is the dealer in their decision journey when we surface this option?" Making something available isn't enough—it has to appear at the right moment. Timing and context drive adoption far more than features or education.
-
-**Problems I now look for:** Underutilized products with real demand but workflow friction. These are high-leverage because the fix is about redesigning the path, not rebuilding the product.
-
----
-
-## Appendix
-
-**Supporting artifacts:**
-- 25+ dealer interviews revealing friction points in the guarantee sale decision process
-- Specialist interviews extracting pricing logic and decision rules
-- Workflow redesign: Before/after comparison of guarantee sale decision flow
-- White-label component documentation: System architecture, API, theming, integration guide
-- Pricing model training data: Historical specialist decisions and outcome tracking
-
-**Related work:**
-- Trade-in guarantee sales: Expected launch Q2 2026
-- Retail guarantee sales: In design phase, expected Q3 2026
-- Other integrations: Design team applied white-label pattern to 3 other product integrations
-
----
+Now I always ask: *where is the user in their decision when we show this?* Making something available isn't enough. It has to appear at the right moment.

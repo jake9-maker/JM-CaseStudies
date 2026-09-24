@@ -5,7 +5,13 @@ import ContactCTA from '../components/ContactCTA.astro';
 import { getCollection } from 'astro:content';
 
 const baseUrl = import.meta.env.BASE_URL;
-const heroImage = `url('${baseUrl}images/home-hero.png')`;
+
+// Headline outcomes shown beside the hero, one per featured case study
+const outcomes = [
+  { slug: 'project-1', name: 'Guaranteed Sale', metric: '10×', what: 'growth by building guarantees into the auction flow' },
+  { slug: 'project-2', name: 'Market Report', metric: '100%', what: 'mobile utility for dealers on the lot, not just the office' },
+  { slug: 'new-car-pricing', name: 'New Car Workflow', metric: 'Auditable', what: 'pricing decisions, shipped on deadline' },
+];
 
 // Fetch featured projects and sort by featured_order
 const allProjects = await getCollection('projects');
@@ -17,23 +23,43 @@ const projects = allProjects
 <BaseLayout
   title="JM Case Studies - Product Design & Leadership"
   description="Senior UX/Product Designer specializing in complex problem solving, strategic product design, and cross-functional leadership. View my case studies in automotive marketplace innovation.">
-  <section class="hero" style={`--hero-image: ${heroImage}`}>
+  <section class="hero">
     <div class="hero-content">
-      <h1>Senior Product Designer</h1>
-      <p class="tagline">
-        I build strategic products that solve complex problems and drive measurable impact
-      </p>
-      <div class="hero-actions">
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="hero-resume">View Resume</a>
+      <div class="hero-copy" data-parallax style="--parallax-speed: 0.12">
+        <p class="eyebrow">Jake Maisel · Senior Product Designer</p>
+        <h1 class="display">Complex workflows, made <em>trustworthy</em>.</h1>
+        <p class="tagline">
+          I turn compliance-heavy, multi-step processes—pricing, approvals, auctions—into tools operations teams rely on.
+        </p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">See the work</a>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">View resume</a>
+        </div>
+      </div>
+
+      <div class="outcomes edge-card" data-parallax style="--parallax-speed: -0.08" aria-label="Selected outcomes">
+        {outcomes.map((o) => (
+          <a href={`${baseUrl}projects/${o.slug}/`} class="outcome">
+            <span class="outcome-name">{o.name}</span>
+            <span class="outcome-metric grad-text">{o.metric}</span>
+            <span class="outcome-arrow" aria-hidden="true">→</span>
+            <span class="outcome-what">{o.what}</span>
+          </a>
+        ))}
+        <div class="outcomes-foot">
+          <span>{outcomes.length} selected case studies</span>
+          <span class="ok">● fewer disputes, less risk</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="featured-projects">
+  <section class="featured-projects" id="work">
     <div class="container">
-      <h2>Featured Work</h2>
+      <p class="eyebrow">Featured work</p>
+      <h2 class="section-title">Problems worth <em class="grad-text">solving</em>.</h2>
       <p class="section-intro">
-        Four projects showcasing problem framing, research, strategic thinking, and cross-functional leadership
+        How I frame problems, research them, and lead teams to ship.
       </p>
 
       <div class="projects-grid">
@@ -47,29 +73,16 @@ const projects = allProjects
             <div class="project-content">
               <h3>{project.data.title}</h3>
               <p class="project-summary">{project.data.summary}</p>
-              {project.data.pillars && project.data.pillars.length > 0 && (
-                <div class="project-pillars">
-                  {project.data.pillars.slice(0, 3).map((pillar) => (
-                    <span class="pillar-tag">{pillar.replace(/-/g, ' ')}</span>
-                  ))}
-                </div>
-              )}
+              <span class="read-more">Read case study →</span>
             </div>
           </a>
         ))}
         <a href={`${baseUrl}projects/`} class="project-card view-all-card">
-          <div class="view-all-image">
-            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="300" fill="var(--color-bg-tertiary)"/>
-              <text x="200" y="150" text-anchor="middle" font-size="24" fill="var(--color-text-muted)" dy=".3em">Explore All Work</text>
-            </svg>
-          </div>
-          <div class="project-content">
-            <h3>View All Work</h3>
-            <p class="project-summary">Explore the complete portfolio with all case studies and detailed project breakdowns</p>
-            <div class="project-pillars">
-              <span class="pillar-tag view-all-tag">See all →</span>
-            </div>
+          <div class="view-all-inner">
+            <p class="eyebrow">More case studies</p>
+            <h3 class="display">View all <em>work</em></h3>
+            <p class="project-summary">Every case study, from first research to what shipped.</p>
+            <span class="view-all-arrow" aria-hidden="true">→</span>
           </div>
         </a>
       </div>
@@ -81,73 +94,144 @@ const projects = allProjects
 
 <style>
   .hero {
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%),
-                var(--hero-image) center / cover no-repeat;
-    color: white;
-    padding: 6rem 2rem 7rem;
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 2rem 6.5rem;
+    background: var(--color-bg);
+  }
+
+  /* Soft signature-gradient glow */
+  .hero::before {
+    content: "";
+    position: absolute;
+    width: 720px;
+    height: 720px;
+    right: -160px;
+    top: -200px;
+    background: radial-gradient(closest-side, rgba(var(--brand-blue-rgb), 0.32), rgba(var(--brand-teal-rgb), 0.12) 55%, transparent);
+    pointer-events: none;
   }
 
   .hero-content {
-    max-width: 1280px;
+    position: relative;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 0;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+    align-items: center;
   }
 
-  .hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin: 0 0 1rem 0;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+  .hero-copy h1 {
+    font-size: clamp(3.1rem, 7vw, 5.75rem);
+    line-height: 1;
+    margin: 0;
   }
 
   .tagline {
     font-size: 1.2rem;
-    margin-bottom: 2.5rem;
-    opacity: 0.95;
-    max-width: 600px;
-    line-height: 1.6;
-    font-weight: 400;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+    max-width: 36ch;
+    margin: 1.6rem 0 0;
   }
 
   .hero-actions {
     display: flex;
-    gap: 1.5rem;
+    gap: 0.75rem;
     flex-wrap: wrap;
+    margin-top: 2.25rem;
+  }
+
+  /* Outcomes panel */
+  .outcomes {
+    padding: 0.5rem;
+  }
+
+  .outcome {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.15rem 1.25rem;
     align-items: center;
-  }
-
-  .hero-resume {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    background-color: transparent;
-    color: white;
+    padding: 1.25rem;
+    border-radius: 8px;
     text-decoration: none;
-    border: 2px solid white;
-    border-radius: 9999px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    color: inherit;
   }
 
-  .hero-resume:hover {
-    background-color: white;
-    color: var(--gradient-start);
-    transform: translateY(-2px);
+  .outcome + .outcome {
+    border-top: 1px solid var(--color-border);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 
-  @media (max-width: 768px) {
+  .outcome:hover {
+    background: var(--color-bg-tertiary);
+  }
+
+  .outcome-name {
+    grid-column: 1 / -1;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .outcome-metric {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 2.75rem;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  .outcome-arrow {
+    grid-row: 2 / span 2;
+    grid-column: 2;
+    font-size: 1.25rem;
+    color: var(--color-accent);
+  }
+
+  .outcome-what {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: var(--color-text-muted);
+    max-width: 30ch;
+  }
+
+  .outcomes-foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.25rem 0.75rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .outcomes-foot .ok {
+    color: var(--color-success);
+  }
+
+  @media (max-width: 860px) {
     .hero {
-      padding: 4rem 2rem 5rem;
+      padding: 3rem 1rem 4.5rem;
     }
 
-    .hero-content h1 {
-      font-size: 2.5rem;
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      right: -180px;
+      top: -100px;
     }
 
     .tagline {
       font-size: 1.1rem;
-      margin-bottom: 2rem;
     }
   }
 
@@ -160,17 +244,10 @@ const projects = allProjects
     margin: 0 auto;
   }
 
-  .featured-projects h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--color-text);
-    font-weight: 700;
-  }
-
   .section-intro {
     color: var(--color-text-muted);
     font-size: 1.1rem;
-    margin-bottom: 3rem;
+    margin: 0 0 3rem;
   }
 
   .projects-grid {
@@ -185,15 +262,15 @@ const projects = allProjects
     overflow: hidden;
     background-color: var(--color-bg-secondary);
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: 14px;
     text-decoration: none;
     color: inherit;
     transition: all 0.3s ease;
   }
 
   .project-card:hover {
-    border-color: var(--color-accent);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+    border-color: var(--gradient-start);
+    box-shadow: 0 12px 32px rgba(var(--brand-blue-rgb), 0.15);
     transform: translateY(-2px);
   }
 
@@ -210,19 +287,51 @@ const projects = allProjects
     object-fit: cover;
   }
 
-  .view-all-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    background-color: var(--color-bg-tertiary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .view-all-card {
+    position: relative;
+    justify-content: flex-end;
+    min-height: 100%;
+    background:
+      radial-gradient(120% 80% at 100% 0%, rgba(var(--brand-blue-rgb), 0.28), transparent 60%),
+      radial-gradient(90% 70% at 0% 100%, rgba(var(--brand-teal-rgb), 0.18), transparent 60%),
+      var(--color-bg-secondary);
   }
 
-  .view-all-image svg {
-    width: 100%;
+  .view-all-inner {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
     height: 100%;
+    justify-content: flex-end;
+  }
+
+  .view-all-inner .eyebrow {
+    margin-bottom: auto;
+  }
+
+  .view-all-inner h3 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin: 2rem 0 0;
+  }
+
+  .view-all-arrow {
+    align-self: flex-start;
+    margin-top: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    background: var(--gradient-button);
+    color: #fff;
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+  }
+
+  .view-all-card:hover .view-all-arrow {
+    transform: translateX(4px);
   }
 
   .project-content {
@@ -233,11 +342,13 @@ const projects = allProjects
   }
 
   .project-content h3 {
-    font-size: 1.1rem;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 400;
     margin: 0;
     color: var(--color-text);
-    font-weight: 600;
-    line-height: 1.4;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
   }
 
   .project-summary {
@@ -247,26 +358,11 @@ const projects = allProjects
     line-height: 1.5;
   }
 
-  .project-pillars {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+  .read-more {
     margin-top: 0.5rem;
-  }
-
-  .pillar-tag {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background-color: var(--color-bg-tertiary);
-    border-radius: 6px;
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
-    text-transform: capitalize;
-  }
-
-  .pillar-tag.view-all-tag {
-    color: var(--color-accent);
+    font-size: 0.9rem;
     font-weight: 500;
+    color: var(--color-accent);
   }
 
   @media (max-width: 768px) {

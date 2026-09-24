@@ -2,17 +2,16 @@
 // src/pages/contact.astro - Contact page
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const baseUrl = import.meta.env.BASE_URL;
-const heroImage = `url('${baseUrl}images/contact-hero.png')`;
 ---
 
 <BaseLayout
   title="Contact Jake Maisel - Let's Connect"
   description="Get in touch to discuss your next product design project. Connect via email, LinkedIn, or download my resume to learn more.">
-  <section class="contact-header" style={`--hero-image: ${heroImage}`}>
-    <div class="contact-header-content">
-      <h1>Let's Connect</h1>
-      <p class="intro">
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="eyebrow">Contact</p>
+      <h1>Let's <em>connect</em>.</h1>
+      <p class="lede">
         I'm always interested in discussing new projects, design challenges, and opportunities to work together.
       </p>
     </div>
@@ -22,13 +21,13 @@ const heroImage = `url('${baseUrl}images/contact-hero.png')`;
     <div class="container">
 
       <div class="contact-info">
-        <div class="info-card email-card">
+        <div class="info-card email-card edge-card">
           <div class="info-header">
             <h3>Email</h3>
             <span class="timezone-badge">US Eastern Time</span>
           </div>
           <p class="contact-email">
-            <a href="mailto:jake@maiseldesigns.com">jake@maiseldesigns.com</a>
+            <a href="mailto:jake@maiseldesigns.com" class="grad-text">jake@maiseldesigns.com</a>
           </p>
           <p class="contact-description">
             The best way to reach me. I typically reply within 24 hours.
@@ -58,48 +57,20 @@ const heroImage = `url('${baseUrl}images/contact-hero.png')`;
         </a>
       </div>
 
-      <div class="cta-section">
-        <h2>Let's Discuss Your Next Project</h2>
+      <div class="cta-section edge-card">
+        <h2 class="display">Let's discuss your next <em>project</em>.</h2>
         <p>
           Whether you have a specific challenge in mind or want to explore how strategic design can solve your problems, I'm ready to have that conversation.
         </p>
-        <a href="mailto:jake@maiseldesigns.com?subject=Let%27s%20work%20together" class="cta-button">Start the Conversation</a>
+        <a href="mailto:jake@maiseldesigns.com?subject=Let%27s%20work%20together" class="btn btn-primary">Start the conversation</a>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .contact-header {
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%),
-                var(--hero-image) center / cover no-repeat;
-    color: white;
-    padding: 4.5rem 2rem;
-  }
-
-  .contact-header-content {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-
-  .contact-header h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 0 0 0.75rem 0;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-  }
-
-  .contact-header .intro {
-    font-size: 1.1rem;
-    opacity: 0.95;
-    margin: 0;
-    max-width: 600px;
-    line-height: 1.6;
-  }
-
   .contact-page {
-    padding: 3rem 2rem 4rem;
+    padding: 1rem 2rem 2rem;
   }
 
   .container {
@@ -113,10 +84,6 @@ const heroImage = `url('${baseUrl}images/contact-hero.png')`;
 
   .info-card {
     padding: 2rem;
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-    color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
   }
 
   .info-header {
@@ -135,7 +102,8 @@ const heroImage = `url('${baseUrl}images/contact-hero.png')`;
 
   .timezone-badge {
     font-size: 0.8rem;
-    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-text-muted);
+    background-color: var(--color-bg-tertiary);
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-weight: 500;
@@ -146,9 +114,10 @@ const heroImage = `url('${baseUrl}images/contact-hero.png')`;
   }
 
   .contact-email a {
-    color: white;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
     text-decoration: none;
     transition: text-decoration 0.2s ease;
   }
@@ -171,20 +140,16 @@ const heroImage = `url('${baseUrl}images/contact-hero.png')`;
     padding: 2rem;
     background-color: var(--color-bg-secondary);
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: 14px;
     text-decoration: none;
     color: inherit;
     transition: all 0.3s ease;
   }
 
   .contact-item:hover {
-    border-color: var(--color-accent);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+    border-color: var(--gradient-start);
+    box-shadow: 0 12px 32px rgba(var(--brand-blue-rgb), 0.15);
     transform: translateY(-2px);
-  }
-
-  [data-theme='dark'] .contact-item:hover {
-    box-shadow: 0 4px 12px rgba(77, 159, 255, 0.15);
   }
 
   .contact-item-header {
@@ -195,10 +160,11 @@ const heroImage = `url('${baseUrl}images/contact-hero.png')`;
   }
 
   .contact-item h3 {
-    font-size: 1.1rem;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
     margin: 0;
     color: var(--color-text);
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .contact-icon {
@@ -229,10 +195,6 @@ const heroImage = `url('${baseUrl}images/contact-hero.png')`;
     color: var(--color-text-muted);
   }
 
-  .email-card .contact-description {
-    color: rgba(255, 255, 255, 0.9);
-  }
-
   @media (max-width: 768px) {
     .contact-methods {
       grid-template-columns: 1fr;
@@ -240,37 +202,30 @@ const heroImage = `url('${baseUrl}images/contact-hero.png')`;
   }
 
   .cta-section {
-    background-color: var(--color-accent-light);
     padding: 3rem 2rem;
-    border-radius: 8px;
     text-align: center;
   }
 
   .cta-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--color-text);
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    margin: 0 0 1rem;
   }
 
   .cta-section p {
     font-size: 1.1rem;
     color: var(--color-text-muted);
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem;
     line-height: 1.7;
+    max-width: 48ch;
   }
 
-  .cta-button {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    background-color: var(--color-accent);
-    color: white;
-    text-decoration: none;
-    border-radius: 9999px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
+  @media (max-width: 768px) {
+    .contact-page {
+      padding: 1rem 1rem 2rem;
+    }
 
-  .cta-button:hover {
-    background-color: var(--color-accent-dark);
+    .cta-section {
+      padding: 2.5rem 1.25rem;
+    }
   }
 </style>
