@@ -8,9 +8,9 @@ const baseUrl = import.meta.env.BASE_URL;
 
 // Headline outcomes shown beside the hero, one per featured case study
 const outcomes = [
-  { slug: 'project-1', name: 'Guaranteed Sale', metric: '10×', what: 'growth by building guarantees into the auction flow' },
-  { slug: 'project-2', name: 'Market Report', metric: '100%', what: 'mobile utility for dealers on the lot, not just the office' },
-  { slug: 'new-car-pricing', name: 'New Car Workflow', metric: 'Auditable', what: 'pricing decisions, shipped on deadline' },
+  { slug: 'project-1', name: 'Guaranteed Sale', metric: '10×', what: 'more guaranteed vehicles in under a year' },
+  { slug: 'clearcar', name: 'ClearCar', metric: '65%+', what: 'of consumers finish the AI-powered trade-in offer' },
+  { slug: 'project-3', name: 'MAX + ClearCar', metric: '2 → 1', what: 'appraisal products, unified under ACV MAX' },
 ];
 
 // Fetch featured projects and sort by featured_order
@@ -29,7 +29,7 @@ const projects = allProjects
         <p class="eyebrow">Jake Maisel · Senior Product Designer</p>
         <h1 class="display">Complex workflows, made <em>trustworthy</em>.</h1>
         <p class="tagline">
-          I turn compliance-heavy, multi-step processes—pricing, approvals, auctions—into tools operations teams rely on.
+          I turn complex, high-stakes processes—trade-ins, pricing, auctions—into products dealers rely on.
         </p>
         <div class="hero-actions">
           <a href="#work" class="btn btn-primary">See the work</a>
@@ -48,7 +48,7 @@ const projects = allProjects
         ))}
         <div class="outcomes-foot">
           <span>{outcomes.length} selected case studies</span>
-          <span class="ok">● fewer disputes, less risk</span>
+          <span class="ok">● all shipped and live at ACV</span>
         </div>
       </div>
     </div>
@@ -284,7 +284,10 @@ const projects = allProjects
   .project-image img {
     width: 100%;
     height: 100%;
+    margin: 0;
+    border-radius: 0;
     object-fit: cover;
+    object-position: top;
   }
 
   .view-all-card {

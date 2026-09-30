@@ -6,8 +6,9 @@ import ContactCTA from '../../components/ContactCTA.astro';
 
 const baseUrl = import.meta.env.BASE_URL;
 
-// Get all projects from content collection
-const projects = await getCollection('projects');
+// Get all projects, strongest first (same order as the homepage)
+const projects = (await getCollection('projects'))
+  .sort((a, b) => a.data.featured_order - b.data.featured_order);
 ---
 
 <BaseLayout
@@ -105,7 +106,10 @@ const projects = await getCollection('projects');
   .project-image {
     width: 100%;
     height: 100%;
+    margin: 0;
+    border-radius: 0;
     object-fit: cover;
+    object-position: top;
   }
 
   .project-card-content {

@@ -9,7 +9,7 @@ const projectsCollection = defineCollection({
     date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be in YYYY-MM-DD format'),
     summary: z.string(),
     role: z.string(),
-    team_size: z.number().int().positive(),
+    team_size: z.number().int().positive().optional(),
     duration: z.string(),
     featured: z.boolean(),
     featured_image: z.string(),
@@ -19,6 +19,8 @@ const projectsCollection = defineCollection({
     // Optional fields
     impact: z.array(z.string()).optional(),
     tags: z.array(z.string()).optional(),
+    featured_image_alt: z.string().optional(),
+    hero_frame: z.boolean().optional(), // show the hero image inside a browser-window frame
     meta_description: z.string().optional(),
     og_image: z.string().optional(),
     headings: z.array(z.object({

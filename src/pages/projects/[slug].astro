@@ -36,12 +36,14 @@ const baseUrl = import.meta.env.BASE_URL;
   <article class="project-page">
     <div class="container">
       {entry.data.featured_image && (
-        <img
-          src={entry.data.featured_image}
-          alt={entry.data.title}
-          class="project-hero"
-          loading="eager"
-        />
+        <div class={`project-hero-wrap${entry.data.hero_frame ? ' framed' : ''}`}>
+          <img
+            src={entry.data.featured_image}
+            alt={entry.data.featured_image_alt || entry.data.title}
+            class="project-hero"
+            loading="eager"
+          />
+        </div>
       )}
 
       <header class="project-header">
@@ -117,14 +119,52 @@ const baseUrl = import.meta.env.BASE_URL;
     width: 100%;
   }
 
+  /* Hero image breaks out of the 720px text column */
+  .project-hero-wrap {
+    width: min(1040px, calc(100vw - 32px));
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 0 3rem;
+  }
+
   .project-hero {
-    max-width: 720px;
     width: 100%;
     height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    margin: 0 auto 2.5rem;
+    margin: 0;
+    border-radius: 12px;
     display: block;
+  }
+
+  /* hero_frame: true → browser-window frame with a soft brand glow */
+  .project-hero-wrap.framed {
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow:
+      0 40px 100px -40px rgba(var(--brand-blue-rgb), 0.45),
+      0 20px 60px -30px rgba(var(--brand-teal-rgb), 0.35);
+  }
+
+  .project-hero-wrap.framed::before,
+  .project-content :global(.shot .frame)::before {
+    content: "";
+    display: block;
+    height: 28px;
+    background:
+      radial-gradient(circle at 16px 50%, #ff5f57 5px, transparent 5.5px),
+      radial-gradient(circle at 34px 50%, #febc2e 5px, transparent 5.5px),
+      radial-gradient(circle at 52px 50%, #28c840 5px, transparent 5.5px),
+      var(--color-bg-tertiary);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .project-hero-wrap.framed .project-hero {
+    border-radius: 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: top left;
   }
 
   .project-header {
@@ -395,10 +435,416 @@ const baseUrl = import.meta.env.BASE_URL;
 
   .project-content :global(figcaption) {
     font-size: 0.9rem;
-    color: var(--color-text-subtle);
+    color: var(--color-text-muted);
     text-align: center;
-    margin-top: 0.75rem;
-    font-style: italic;
+    margin-top: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* ================================
+     Case study building blocks (used as HTML inside the markdown)
+     ================================ */
+
+  /* <figure class="shot [wide]"><div class="frame"><img></div><figcaption> */
+  .project-content :global(.shot) {
+    margin: 2.75rem 0;
+  }
+
+  .project-content :global(.shot .frame) {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 24px 60px -30px rgba(var(--brand-blue-rgb), 0.4);
+  }
+
+  .project-content :global(.shot img),
+  .project-content :global(.pair img),
+  .project-content :global(.promise img) {
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .project-content :global(.shot img:hover),
+  .project-content :global(.pair img:hover),
+  .project-content :global(.promise img:hover) {
+    transform: none;
+    opacity: 1;
+  }
+
+  /* Diagrams: no browser bar, light canvas */
+  .project-content :global(.shot.plain .frame)::before {
+    display: none;
+  }
+
+  /* Break out of the 720px column */
+  .project-content :global(.wide) {
+    width: min(1040px, calc(100vw - 32px));
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* <div class="pair wide"><figure>…</figure><figure>…</figure></div> */
+  .project-content :global(.pair) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 2.75rem 0;
+    align-items: start;
+  }
+
+  .project-content :global(.pair figure) {
+    margin: 0;
+  }
+
+  .project-content :global(.pair .frame) {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .project-content :global(.pair figcaption) {
+    text-align: left;
+    font-size: 0.85rem;
+  }
+
+  /* <div class="phones wide"><figure><div class="frame"><img></div><figcaption></figure> ×3 */
+  .project-content :global(.phones) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 300px));
+    justify-content: center;
+    gap: clamp(0.75rem, 3vw, 2.5rem);
+    margin: 2.75rem 0;
+  }
+
+  .project-content :global(.phones.two) {
+    grid-template-columns: repeat(2, minmax(0, 300px));
+  }
+
+  .project-content :global(.phones figure) {
+    margin: 0;
+  }
+
+  .project-content :global(.phones .frame) {
+    border-radius: clamp(14px, 3vw, 28px);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: #fff;
+    box-shadow: 0 24px 50px -28px rgba(var(--brand-blue-rgb), 0.55);
+  }
+
+  .project-content :global(.phones img) {
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .project-content :global(.phones img:hover) {
+    transform: none;
+  }
+
+  .project-content :global(.phones figcaption) {
+    font-size: 0.8rem;
+  }
+
+  .project-content :global(.tag) {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 0.6rem;
+  }
+
+  .project-content :global(.tag.accent) {
+    color: var(--color-accent);
+  }
+
+  /* The one-line product promise */
+  .project-content :global(.promise) {
+    margin: 2.75rem 0;
+    padding: 2rem;
+    border-radius: 18px;
+    border: 1px solid var(--color-border);
+    background:
+      radial-gradient(120% 140% at 0% 0%, rgba(var(--brand-blue-rgb), 0.12), transparent 60%),
+      radial-gradient(120% 140% at 100% 100%, rgba(var(--brand-teal-rgb), 0.12), transparent 60%),
+      var(--color-bg-secondary);
+  }
+
+  .project-content :global(.promise-line) {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    line-height: 1.15;
+    margin: 0 0 1.5rem;
+  }
+
+  .project-content :global(.promise-line em) {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .project-content :global(.promise .frame) {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: #fff;
+  }
+
+  .project-content :global(.promise-note) {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 1rem 0 0;
+  }
+
+  /* <div class="versus"><div class="vs-col">…</div><div class="vs-col accent">…</div></div> */
+  .project-content :global(.versus) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .project-content :global(.vs-col) {
+    padding: 1.4rem 1.5rem;
+    border-radius: 14px;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-secondary);
+  }
+
+  .project-content :global(.vs-col.accent) {
+    border-color: rgba(var(--brand-blue-rgb), 0.5);
+    box-shadow: 0 16px 40px -24px rgba(var(--brand-blue-rgb), 0.6);
+  }
+
+  .project-content :global(.vs-title) {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    line-height: 1.1;
+    margin: 0 0 0.75rem;
+  }
+
+  .project-content :global(.vs-col ul) {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.98rem;
+  }
+
+  .project-content :global(.vs-col li) {
+    margin: 0.35rem 0;
+    line-height: 1.5;
+  }
+
+  /* Single-series score chart: <figure class="score-chart"> with .sc-row per item.
+     Width comes from --v (0-5). Value is always printed; hover/focus shows .sc-tip. */
+  .project-content :global(.score-chart) {
+    --sc-bar: #2f5bff;
+    --sc-lab: 5.5rem;
+    --sc-valw: 2.5rem;
+    --sc-gap: 0.75rem;
+    margin: 2.5rem 0;
+    padding: 1.5rem 1.5rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    background: var(--color-bg-secondary);
+  }
+
+  :global(html[data-theme="dark"]) .project-content :global(.score-chart) {
+    --sc-bar: #4f8ef7;
+  }
+
+  .project-content :global(.sc-head) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .project-content :global(.sc-title) {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .project-content :global(.sc-avg) {
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  .project-content :global(.sc-rows) {
+    position: relative;
+    display: grid;
+    gap: 6px;
+  }
+
+  .project-content :global(.sc-row) {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--sc-lab) 1fr var(--sc-valw);
+    align-items: center;
+    gap: var(--sc-gap);
+    padding: 4px 0;
+    border-radius: 6px;
+    outline: none;
+  }
+
+  .project-content :global(.sc-row:hover),
+  .project-content :global(.sc-row:focus-visible) {
+    background: var(--color-bg-tertiary);
+  }
+
+  .project-content :global(.sc-label),
+  .project-content :global(.sc-val) {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .project-content :global(.sc-val) {
+    color: var(--color-text);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+
+  .project-content :global(.sc-track) {
+    position: relative;
+    height: 12px;
+  }
+
+  .project-content :global(.sc-bar) {
+    display: block;
+    height: 100%;
+    width: calc(var(--v) / 5 * 100%);
+    background: var(--sc-bar);
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* Average marker: a thin line across all rows at --avg */
+  .project-content :global(.sc-avg-line) {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--sc-lab) + var(--sc-gap) + (100% - var(--sc-lab) - var(--sc-valw) - 2 * var(--sc-gap)) * var(--avg) / 5);
+    width: 0;
+    border-left: 1.5px dashed var(--color-text-muted);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .project-content :global(.sc-tip) {
+    position: absolute;
+    z-index: 5;
+    left: calc(var(--sc-lab) + var(--sc-gap));
+    right: calc(var(--sc-valw) + var(--sc-gap));
+    bottom: calc(100% + 6px);
+    padding: 0.6rem 0.75rem;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    pointer-events: none;
+  }
+
+  .project-content :global(.sc-row:hover .sc-tip),
+  .project-content :global(.sc-row:focus-visible .sc-tip) {
+    opacity: 1;
+    transform: none;
+  }
+
+  .project-content :global(.sc-foot) {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.75rem calc(var(--sc-valw) + var(--sc-gap)) 0 calc(var(--sc-lab) + var(--sc-gap));
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .project-content :global(.sr-only) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* <p class="chapter">Chapter 2</p> before a new part of the story */
+  .project-content :global(.chapter) {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 4.5rem 0 -1.5rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .project-content :global(.chapter)::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(var(--brand-blue-rgb), 0.5), transparent);
+  }
+
+  /* Pull quotes */
+  .project-content :global(blockquote) {
+    margin: 2.5rem 0;
+    padding: 0 0 0 1.5rem;
+    border-left: 3px solid;
+    border-image: var(--gradient) 1;
+  }
+
+  .project-content :global(blockquote p) {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    line-height: 1.3;
+    margin: 0 0 0.5rem;
+  }
+
+  .project-content :global(blockquote cite) {
+    font-style: normal;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .project-content :global(.score-chart) {
+      --sc-lab: 4.25rem;
+      --sc-valw: 1.75rem;
+      --sc-gap: 0.5rem;
+      padding: 1.1rem 1rem 1rem;
+    }
+
+    .project-content :global(.sc-head) {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .project-content :global(.pair),
+    .project-content :global(.versus) {
+      grid-template-columns: 1fr;
+    }
+
+    .project-content :global(.promise) {
+      padding: 1.4rem;
+    }
   }
 
   @media (max-width: 768px) {

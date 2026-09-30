@@ -37,13 +37,13 @@ import ContactCTA from '../components/ContactCTA.astro';
             <div class="expertise-item">
               <dt class="expertise-title">Mobile-First Design</dt>
               <dd class="expertise-description">
-                Redesign for context, not just scale. Launched mobile experiences that increased utility 100%.
+                Redesign for context, not just scale: Market Report on the lot, ClearCar's dealer portal, and MAX on mobile.
               </dd>
             </div>
             <div class="expertise-item">
               <dt class="expertise-title">AI Integration</dt>
               <dd class="expertise-description">
-                Integrate AI to optimize decisions and bridge emerging tech with real product value.
+                Put AI where it earns trust: AI damage detection in ClearCar's offers, and AI-assisted workflows for my own design team.
               </dd>
             </div>
             <div class="expertise-item">
@@ -58,6 +58,46 @@ import ContactCTA from '../components/ContactCTA.astro';
                 Own strategy to execution, connecting teams with competing incentives toward shared goals.
               </dd>
             </div>
+          </div>
+        </section>
+
+        <section class="lead-section">
+          <p class="eyebrow">Beyond the screen</p>
+          <h2 class="section-title">How I <em class="grad-text">lead</em>.</h2>
+          <p class="lead-intro">
+            The best design work I've done keeps paying off after I've moved on, because it changed how the team works, not just what it shipped.
+          </p>
+          <div class="lead-grid">
+            <article class="lead-item edge-card">
+              <span class="lead-num">01</span>
+              <h3>Set the team's operating rules</h3>
+              <p>I co-owned how ACV Retail plans and hands off work: plan the big picture first, one ticket per deliverable, and no blocker sits for more than two business days. Then I modeled it, with every handoff including the prototype, acceptance criteria, every state, and accessibility notes.</p>
+            </article>
+            <article class="lead-item edge-card">
+              <span class="lead-num">02</span>
+              <h3>Build systems others reuse</h3>
+              <p>I led the white-label component work behind Guaranteed Sale: audits, three standardization workshops with design and engineering, written guidelines, and the component build. Designs estimated at 20+ weeks took under 10.</p>
+            </article>
+            <article class="lead-item edge-card">
+              <span class="lead-num">03</span>
+              <h3>Design in code</h3>
+              <p>For ClearCar's 2026 customer offer widget, the design lived in a live Storybook prototype, not static mockups. I joined engineering code review and fixed real bugs before handoff.</p>
+            </article>
+            <article class="lead-item edge-card">
+              <span class="lead-num">04</span>
+              <h3>Put AI to work, carefully</h3>
+              <p>I wrote ACV's playbook for using Claude to create in-product guides: templates, tone rules, and sequencing, so any designer can draft guides and prototypes quickly while staying consistent.</p>
+            </article>
+            <article class="lead-item edge-card">
+              <span class="lead-num">05</span>
+              <h3>Measure what ships</h3>
+              <p>For MAX's mobile "Take Into Inventory" flow, I built tracking into the handoff so the team could see starts, completions, and errors from day one. It launched with zero critical issues.</p>
+            </article>
+            <article class="lead-item edge-card">
+              <span class="lead-num">06</span>
+              <h3>Share what I learn</h3>
+              <p>Weekly UX updates for ACV Retail, an onboarding deck for new partners, a Tech Talk for non-designers on dealer negotiation, and presentations at ACV's Research &amp; Design Journal.</p>
+            </article>
           </div>
         </section>
 
@@ -140,9 +180,59 @@ import ContactCTA from '../components/ContactCTA.astro';
   }
 
   .expertise-section,
+  .lead-section,
   .philosophy-section,
   .background-section {
     margin-bottom: 4rem;
+  }
+
+  .lead-section .section-title {
+    margin-bottom: 1rem;
+  }
+
+  .lead-intro {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    max-width: 680px;
+    margin: 0 0 2.5rem;
+  }
+
+  .lead-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .lead-item {
+    padding: 1.75rem;
+  }
+
+  .lead-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    width: fit-content;
+  }
+
+  .lead-item h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 0.6rem;
+  }
+
+  .lead-item p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0;
   }
 
   .expertise-list {
@@ -215,6 +305,12 @@ import ContactCTA from '../components/ContactCTA.astro';
     margin-bottom: 0;
   }
 
+  @media (max-width: 1024px) {
+    .lead-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
   @media (max-width: 768px) {
     .container {
       padding: 0 1rem;
@@ -224,7 +320,8 @@ import ContactCTA from '../components/ContactCTA.astro';
       padding: 2rem 0;
     }
 
-    .expertise-list {
+    .expertise-list,
+    .lead-grid {
       grid-template-columns: 1fr;
     }
 
