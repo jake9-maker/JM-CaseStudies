@@ -25,6 +25,7 @@ const isActive = (href: string) => {
         <ul class="nav-links">
           <li><a href={`${baseUrl}about/`} class={isActive(`${baseUrl}about/`) ? 'active' : ''}>About</a></li>
           <li><a href={`${baseUrl}projects/`} class={isActive(`${baseUrl}projects/`) ? 'active' : ''}>Projects</a></li>
+          <li><a href={`${baseUrl}brand/`} class={isActive(`${baseUrl}brand/`) ? 'active' : ''}>Brand</a></li>
           <li><a href={`${baseUrl}contact/`} class={`btn btn-primary nav-cta${isActive(`${baseUrl}contact/`) ? ' active' : ''}`}><span class="cta-long">Get in touch</span><span class="cta-short">Contact</span></a></li>
         </ul>
       </nav>
@@ -217,6 +218,49 @@ const isActive = (href: string) => {
 
     .cta-short {
       display: inline;
+    }
+  }
+  @media (max-width: 420px) {
+    .container {
+      padding: 0 0.75rem;
+    }
+
+    .brand-mark {
+      height: 24px;
+    }
+
+    .header-inner {
+      gap: 0.5rem;
+    }
+
+    .nav-wrapper {
+      gap: 0.3rem;
+    }
+
+    .nav-links {
+      gap: 0.5rem;
+    }
+
+    .nav-links a:not(.nav-cta) {
+      font-size: 0.85rem;
+    }
+
+    .nav-links a.nav-cta {
+      padding: 0.4rem 0.7rem;
+      font-size: 0.8rem;
+    }
+  }
+  @media (max-width: 370px) {
+    .nav-links {
+      gap: 0.4rem;
+    }
+
+    .nav-links a:not(.nav-cta) {
+      font-size: 0.8rem;
+    }
+
+    .nav-links a.nav-cta {
+      padding: 0.35rem 0.55rem;
     }
   }
 </style>

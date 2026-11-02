@@ -1,0 +1,392 @@
+---
+// src/pages/brand/[slug].astro - Brand detail page
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ImageViewer from '../../components/ImageViewer.astro';
+import brands from '../../data/brands.json';
+
+export function getStaticPaths() {
+  return brands.map((b, i) => ({
+    params: { slug: b.slug },
+    props: { brand: b, prev: brands[i - 1] ?? null, next: brands[i + 1] ?? null },
+  }));
+}
+
+const { brand, prev, next } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
+const groupLabel = { built: 'Brands I built', life: 'Bringing brands to life', range: 'Range' }[brand.group];
+const deliverables = brand.deliv ? brand.deliv.split(' · ') : [];
+// Split a section into rows of up to 3 (4 becomes 2 + 2) so every row lines up at one height.
+const rows = <T,>(items: T[]): T[][] => {
+  if (items.length <= 3) return [items];
+  if (items.length === 4) return [items.slice(0, 2), items.slice(2)];
+  const out: T[][] = [];
+  for (let i = 0; i < items.length; i += 3) out.push(items.slice(i, i + 3));
+  return out;
+};
+const alt = (title: string, i: number) => `${brand.title}: ${title}${i > 0 ? `, image ${i + 1}` : ''}`;
+---
+
+<BaseLayout
+  title={`${brand.title} - Brand Work - Jake Maisel`}
+  description={brand.story || `${brand.title} brand work by Jake Maisel.`}
+  image={brand.tile ?? undefined}>
+  <article class="brand-page project-content">
+    <header class="brand-hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <a class="back" href={`${baseUrl}brand/`}>← All brand work</a>
+          <p class="eyebrow">{groupLabel}</p>
+          <h1 class="display">{brand.title}</h1>
+          {brand.loc && <p class="loc">{brand.loc}</p>}
+          {brand.story && <p class="story">{brand.story}</p>}
+          <dl class="facts">
+            {brand.role && (<div><dt>Role</dt><dd>{brand.role}</dd></div>)}
+            {deliverables.length > 0 && (
+              <div>
+                <dt>Deliverables</dt>
+                <dd><ul class="chips">{deliverables.map((d) => <li>{d}</li>)}</ul></dd>
+              </div>
+            )}
+          </dl>
+        </div>
+        {brand.hero && (
+          <div class="hero-media">
+            <img src={brand.hero.src} width={brand.hero.w} height={brand.hero.h} alt={`${brand.title} key visual`} fetchpriority="high" />
+          </div>
+        )}
+      </div>
+    </header>
+
+    <div class="container">
+      {brand.sections.map((sec) => (
+        <section class="work-section">
+          <h2>{sec.title}</h2>
+          {sec.layout === 'motion' ? (
+            <div class="gallery motion">
+              {sec.items.map((it) => (
+                <figure class={it.w / it.h > 2.5 ? 'wide' : ''}>
+                  <video
+                    src={it.src}
+                    poster={it.poster}
+                    width={it.w}
+                    height={it.h}
+                    muted
+                    loop
+                    playsinline
+                    autoplay
+                    preload="metadata"
+                    controls={brand.slug === 'the-ryan'}
+                    aria-label={`${brand.title}: ${it.label}`}
+                    data-motion
+                  ></video>
+                  <figcaption>{it.label}</figcaption>
+                </figure>
+              ))}
+            </div>
+          ) : (
+            sec.layout === 'grid' ? (
+              <div class="gallery rows">
+                {rows(sec.items).map((row, r) => (
+                  <div class="row">
+                    {row.map((it, i) => (
+                      <div class={it.w / it.h < 0.75 ? 'cell tall' : 'cell'} style={`flex: ${(it.w / it.h).toFixed(4)} 1 0`}>
+                        <img src={it.src} width={it.w} height={it.h} alt={alt(sec.title, r * 3 + i)} loading="lazy" decoding="async" />
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div class={`gallery ${sec.layout}`}>
+                {sec.items.map((it, i) => (
+                  <img src={it.src} width={it.w} height={it.h} alt={alt(sec.title, i)} loading="lazy" decoding="async" />
+                ))}
+              </div>
+            )
+          )}
+        </section>
+      ))}
+      <p class="zoom-hint">Click any image to see it full size.</p>
+    </div>
+
+    <nav class="container pager" aria-label="More brand work">
+      {prev ? <a href={`${baseUrl}brand/${prev.slug}/`} class="pager-link"><span>Previous</span>{prev.title}</a> : <span></span>}
+      {next ? <a href={`${baseUrl}brand/${next.slug}/`} class="pager-link next"><span>Next</span>{next.title}</a> : <span></span>}
+    </nav>
+  </article>
+  <ImageViewer />
+</BaseLayout>
+
+<script>
+  // Respect reduced-motion: no autoplay, the poster shows until the visitor presses play.
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const videos = document.querySelectorAll<HTMLVideoElement>('video[data-motion]');
+  function apply() {
+    videos.forEach((v) => {
+      if (reduce.matches) {
+        v.removeAttribute('autoplay');
+        v.controls = true;
+        v.pause();
+      } else {
+        v.play().catch(() => {});
+      }
+    });
+  }
+  apply();
+  reduce.addEventListener('change', apply);
+</script>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .brand-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 0 3.5rem;
+  }
+
+  .brand-hero::before {
+    content: "";
+    position: absolute;
+    width: 640px;
+    height: 640px;
+    right: -160px;
+    top: -260px;
+    background: radial-gradient(closest-side, rgba(var(--brand-blue-rgb), 0.22), rgba(var(--brand-teal-rgb), 0.08) 55%, transparent);
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .back {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+
+  .back:hover {
+    color: var(--color-text);
+  }
+
+  .brand-hero h1 {
+    font-size: clamp(2.6rem, 5vw, 4.25rem);
+    margin: 0;
+  }
+
+  .loc {
+    margin: 0.6rem 0 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .story {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.35rem;
+    line-height: 1.45;
+    color: var(--color-text);
+    margin: 1.5rem 0 1.75rem;
+  }
+
+  .facts {
+    margin: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .facts dt {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 0.35rem;
+  }
+
+  .facts dd {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .chips li {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--color-border);
+    border-radius: 9999px;
+    color: var(--color-text-muted);
+    background: var(--color-bg-secondary);
+  }
+
+  .hero-media img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    margin: 0;
+    border-radius: 12px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+  }
+
+  .work-section {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .work-section h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    margin: 0 0 1.5rem;
+    color: var(--color-text);
+  }
+
+  .gallery {
+    display: grid;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .gallery img,
+  .gallery video {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border-radius: 10px;
+    background: var(--color-bg-tertiary);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  }
+
+  .gallery.rows {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .row {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .cell {
+    min-width: 0;
+  }
+
+  .row:only-child .cell:only-child {
+    max-width: 980px;
+  }
+
+  .gallery.strip {
+    max-width: 900px;
+  }
+
+  .gallery.tiles {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .gallery.tiles img {
+    box-shadow: none;
+    border: 1px solid var(--color-border);
+  }
+
+  .gallery.motion {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  }
+
+  .gallery.motion figure.wide {
+    grid-column: 1 / -1;
+  }
+
+  .gallery.motion figure {
+    margin: 0;
+  }
+
+  .gallery.motion figcaption {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .zoom-hint {
+    font-size: 0.85rem;
+    color: var(--color-text-subtle);
+    margin: 0 0 2rem;
+  }
+
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .pager-link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .pager-link span {
+    font-family: inherit;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    font-family: system-ui, sans-serif;
+  }
+
+  .pager-link.next {
+    text-align: right;
+  }
+
+  .pager-link:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .gallery.tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      padding: 0 1rem;
+    }
+    .row { flex-direction: column; }
+    .cell { flex: none !important; width: 100%; }
+    .cell.tall { width: 72%; margin: 0 auto; }
+    .gallery.tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pager-link { font-size: 1.15rem; }
+  }
+</style>

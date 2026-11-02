@@ -1,0 +1,1922 @@
+[
+ {
+  "title": "Broadstone Grand",
+  "loc": "Tempe, AZ",
+  "role": "Brand Identity + Creative Direction",
+  "deliv": "Logo system \u00b7 Brand narrative \u00b7 Stationery \u00b7 Brochure \u00b7 Pocket folder \u00b7 Social \u00b7 Website",
+  "story": "A legendary address. A tracked serif wordmark framed in gold rules, a houndstooth signature and a gold-and-charcoal palette \u2014 carried through stationery, an editorial brochure, social and a full website.",
+  "slug": "broadstone-grand",
+  "group": "built",
+  "hero": {
+   "src": "/brand/broadstone-grand/hero.webp",
+   "w": 1600,
+   "h": 1200
+  },
+  "tile": "/brand/broadstone-grand/tile.webp",
+  "sections": [
+   {
+    "title": "Identity + stationery",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-grand/s0_0.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-grand/s0_1.webp",
+      "w": 1600,
+      "h": 1600
+     }
+    ]
+   },
+   {
+    "title": "Brochure",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-grand/s1_0.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-grand/s1_1.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-grand/s1_2.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   },
+   {
+    "title": "Website",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-grand/s2_0.webp",
+      "w": 1600,
+      "h": 1142
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-grand/s2_1.webp",
+      "w": 1600,
+      "h": 1071
+     }
+    ]
+   },
+   {
+    "title": "Website \u00b7 full page",
+    "layout": "strip",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-grand/s3_0.webp",
+      "w": 1600,
+      "h": 2900
+     }
+    ]
+   },
+   {
+    "title": "Social",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-grand/s4_0.webp",
+      "w": 1250,
+      "h": 938
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-grand/s4_1.webp",
+      "w": 1250,
+      "h": 938
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-grand/s4_2.webp",
+      "w": 1250,
+      "h": 938
+     }
+    ]
+   },
+   {
+    "title": "Alternate brochure concept \u00b7 not selected",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-grand/s5_0.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "BidRev",
+  "loc": "ACV Auctions \u00b7 Consumer brand",
+  "role": "Lead Product Designer \u00b7 Brand, product + go-to-market",
+  "deliv": "Logo + visual identity \u00b7 Style guide \u00b7 Messaging \u00b7 Marketing site \u00b7 Offer flow \u00b7 Live auction experience",
+  "story": "Sell your car to the highest bidder. A new consumer brand I built from zero for ACV, everything but the name. In a 4-week market test it lifted lead generation 3.5%.",
+  "slug": "bidrev",
+  "group": "built",
+  "hero": {
+   "src": "/brand/bidrev/hero.webp",
+   "w": 1440,
+   "h": 860
+  },
+  "tile": "/brand/bidrev/tile.webp",
+  "sections": [
+   {
+    "title": "Logo + brand system",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/bidrev/s0_0.webp",
+      "w": 1600,
+      "h": 1600
+     },
+     {
+      "type": "image",
+      "src": "/brand/bidrev/s0_1.webp",
+      "w": 1600,
+      "h": 809
+     }
+    ]
+   },
+   {
+    "title": "Site \u00b7 desktop + mobile",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/bidrev/s1_0.webp",
+      "w": 1440,
+      "h": 1030
+     },
+     {
+      "type": "image",
+      "src": "/brand/bidrev/s1_1.webp",
+      "w": 419,
+      "h": 834
+     },
+     {
+      "type": "image",
+      "src": "/brand/bidrev/s1_2.webp",
+      "w": 419,
+      "h": 834
+     }
+    ]
+   },
+   {
+    "title": "Live auction + offer flow",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/bidrev/s2_0.webp",
+      "w": 1440,
+      "h": 1020
+     },
+     {
+      "type": "image",
+      "src": "/brand/bidrev/s2_1.webp",
+      "w": 680,
+      "h": 866
+     },
+     {
+      "type": "image",
+      "src": "/brand/bidrev/s2_2.webp",
+      "w": 658,
+      "h": 1208
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Broadstone Rio Salado",
+  "loc": "Tempe, AZ",
+  "role": "Brand Identity + Creative Direction",
+  "deliv": "Identity \u00b7 Stationery \u00b7 Brochure \u00b7 Campaign \u00b7 Website",
+  "story": "This is how we Tempe. A desert-postcard identity built from kraft textures, hand-drawn saguaros and passport stamps, carried from stationery to a campaign, brochure and website.",
+  "slug": "broadstone-rio-salado",
+  "group": "built",
+  "hero": {
+   "src": "/brand/broadstone-rio-salado/hero.webp",
+   "w": 1600,
+   "h": 1200
+  },
+  "tile": "/brand/broadstone-rio-salado/tile.webp",
+  "sections": [
+   {
+    "title": "Identity + stationery",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-rio-salado/s0_0.webp",
+      "w": 1600,
+      "h": 1600
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-rio-salado/s0_1.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   },
+   {
+    "title": "Campaign",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-rio-salado/s1_0.webp",
+      "w": 1600,
+      "h": 2070
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-rio-salado/s1_1.webp",
+      "w": 1250,
+      "h": 938
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-rio-salado/s1_2.webp",
+      "w": 1250,
+      "h": 938
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-rio-salado/s1_3.webp",
+      "w": 1250,
+      "h": 938
+     }
+    ]
+   },
+   {
+    "title": "Brochure",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-rio-salado/s2_0.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   },
+   {
+    "title": "Website",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-rio-salado/s3_0.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-rio-salado/s3_1.webp",
+      "w": 1600,
+      "h": 1071
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-rio-salado/s3_2.webp",
+      "w": 1600,
+      "h": 1071
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Broadstone Paragon",
+  "loc": "Dallas, TX",
+  "role": "Brand Identity + Creative Direction",
+  "deliv": "Logo system \u00b7 Stationery \u00b7 Signage \u00b7 Leasing campaign",
+  "story": "A distinguished Dallas lifestyle. A geometric A mark in slate and copper, extended into a narrative, stationery, building signage and a playful, high-contrast leasing campaign.",
+  "slug": "broadstone-paragon",
+  "group": "built",
+  "hero": {
+   "src": "/brand/broadstone-paragon/hero.webp",
+   "w": 1600,
+   "h": 1600
+  },
+  "tile": "/brand/broadstone-paragon/tile.webp",
+  "sections": [
+   {
+    "title": "Identity + stationery",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-paragon/s0_0.webp",
+      "w": 1600,
+      "h": 1600
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-paragon/s0_1.webp",
+      "w": 1600,
+      "h": 1280
+     }
+    ]
+   },
+   {
+    "title": "Print + Signage",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-paragon/s1_0.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-paragon/s1_1.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-paragon/s1_2.webp",
+      "w": 1600,
+      "h": 1063
+     }
+    ]
+   },
+   {
+    "title": "Campaign",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-paragon/s2_0.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-paragon/s2_1.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-paragon/s2_2.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Persea",
+  "loc": "North County \u00b7 San Diego, CA",
+  "role": "Brand Identity + Creative Direction",
+  "deliv": "Logo system \u00b7 Brand narrative \u00b7 Stationery \u00b7 Outreach \u00b7 Signage",
+  "story": "Homes designed for creative minds. A distressed, stamp-style wordmark and sunburst accent that make innovation feel handmade.",
+  "slug": "persea",
+  "group": "built",
+  "hero": {
+   "src": "/brand/persea/hero.webp",
+   "w": 1600,
+   "h": 1600
+  },
+  "tile": "/brand/persea/tile.webp",
+  "sections": [
+   {
+    "title": "Stationery + print",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/persea/s0_0.webp",
+      "w": 1600,
+      "h": 1280
+     },
+     {
+      "type": "image",
+      "src": "/brand/persea/s0_1.webp",
+      "w": 1600,
+      "h": 2070
+     },
+     {
+      "type": "image",
+      "src": "/brand/persea/s0_2.webp",
+      "w": 1600,
+      "h": 2400
+     },
+     {
+      "type": "image",
+      "src": "/brand/persea/s0_3.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/persea/s0_4.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Entrada",
+  "loc": "Gaslamp \u00b7 San Diego, CA",
+  "role": "Brand Identity + Creative Direction",
+  "deliv": "Logo system \u00b7 Brand book \u00b7 Brand narrative \u00b7 Website \u00b7 Outreach \u00b7 Business cards",
+  "story": "Entrada means entrance. The E is an open door \u2014 the brand literally invites you in \u2014 carried through a Gaslamp All-Access Pass campaign, print and website.",
+  "slug": "entrada",
+  "group": "built",
+  "hero": {
+   "src": "/brand/entrada/hero.webp",
+   "w": 1600,
+   "h": 643
+  },
+  "tile": "/brand/entrada/tile.webp",
+  "sections": [
+   {
+    "title": "The idea \u00b7 an E that opens like a door",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/entrada/s0_0.webp",
+      "w": 1600,
+      "h": 600
+     }
+    ]
+   },
+   {
+    "title": "Print + digital",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/entrada/s1_0.webp",
+      "w": 1600,
+      "h": 1360
+     },
+     {
+      "type": "image",
+      "src": "/brand/entrada/s1_1.webp",
+      "w": 1600,
+      "h": 1360
+     },
+     {
+      "type": "image",
+      "src": "/brand/entrada/s1_2.webp",
+      "w": 1600,
+      "h": 1071
+     }
+    ]
+   },
+   {
+    "title": "Website",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/entrada/s2_0.webp",
+      "w": 1600,
+      "h": 1194
+     },
+     {
+      "type": "image",
+      "src": "/brand/entrada/s2_1.webp",
+      "w": 1600,
+      "h": 2057
+     },
+     {
+      "type": "image",
+      "src": "/brand/entrada/s2_2.webp",
+      "w": 1417,
+      "h": 2560
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "The Drexel Collective",
+  "loc": "",
+  "role": "Brand Identity + Creative Direction",
+  "deliv": "Logo system \u00b7 Stationery \u00b7 eBrochure \u00b7 Leasing flyer \u00b7 Signage",
+  "story": "A home that inspires. A refined DC monogram and seal in a muted slate palette that brings boutique-hotel polish to every leasing touchpoint.",
+  "slug": "the-drexel-collective",
+  "group": "built",
+  "hero": {
+   "src": "/brand/the-drexel-collective/hero.webp",
+   "w": 1600,
+   "h": 1200
+  },
+  "tile": "/brand/the-drexel-collective/tile.webp",
+  "sections": [
+   {
+    "title": "Identity + stationery",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/the-drexel-collective/s0_0.webp",
+      "w": 1600,
+      "h": 1600
+     },
+     {
+      "type": "image",
+      "src": "/brand/the-drexel-collective/s0_1.webp",
+      "w": 1600,
+      "h": 1600
+     },
+     {
+      "type": "image",
+      "src": "/brand/the-drexel-collective/s0_2.webp",
+      "w": 1600,
+      "h": 1280
+     }
+    ]
+   },
+   {
+    "title": "Print + Signage",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/the-drexel-collective/s1_0.webp",
+      "w": 1600,
+      "h": 1066
+     },
+     {
+      "type": "image",
+      "src": "/brand/the-drexel-collective/s1_1.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/the-drexel-collective/s1_2.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Elements616",
+  "loc": "Redondo Beach, CA",
+  "role": "Brand Identity + Creative Direction",
+  "deliv": "Logo system \u00b7 Stationery \u00b7 Brochure \u00b7 Flyers \u00b7 Website",
+  "story": "Where the ocean breeze embraces you. A wave-swept E mark and airy coastal palette, extended across stationery, a lifestyle brochure, flyers and the web.",
+  "slug": "elements616",
+  "group": "built",
+  "hero": {
+   "src": "/brand/elements616/hero.webp",
+   "w": 1600,
+   "h": 1110
+  },
+  "tile": "/brand/elements616/tile.webp",
+  "sections": [
+   {
+    "title": "Identity + stationery",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/elements616/s0_0.webp",
+      "w": 1600,
+      "h": 1600
+     },
+     {
+      "type": "image",
+      "src": "/brand/elements616/s0_1.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   },
+   {
+    "title": "Print",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/elements616/s1_0.webp",
+      "w": 1600,
+      "h": 1110
+     },
+     {
+      "type": "image",
+      "src": "/brand/elements616/s1_1.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/elements616/s1_2.webp",
+      "w": 1600,
+      "h": 1035
+     }
+    ]
+   },
+   {
+    "title": "Website",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/elements616/s2_0.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "21LUX",
+  "loc": "Salt Lake City, UT",
+  "role": "Brand Identity + Creative Direction",
+  "deliv": "Logo concepts \u00b7 Stationery concept",
+  "story": "A brand built from the address up. This taxi-inspired yellow-and-black concept captured the city's on-the-move energy. It wasn't the direction the client chose.",
+  "slug": "21lux",
+  "group": "built",
+  "hero": {
+   "src": "/brand/21lux/hero.webp",
+   "w": 1600,
+   "h": 1280
+  },
+  "tile": "/brand/21lux/tile.webp",
+  "sections": [
+   {
+    "title": "Concept direction \u00b7 not selected",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/21lux/s0_0.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/21lux/s0_1.webp",
+      "w": 1600,
+      "h": 1600
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Exhibit",
+  "loc": "Japantown \u00b7 San Jose, CA",
+  "role": "Lead Designer",
+  "deliv": "Naming \u00b7 Logo system \u00b7 Brand narrative \u00b7 Landing page",
+  "story": "Naming first, then two directions: the cherry-blossom mark I led with, and the expressive paint-splash identity the client chose, launched on the landing page.",
+  "slug": "exhibit",
+  "group": "built",
+  "hero": {
+   "src": "/brand/exhibit/hero.webp",
+   "w": 1600,
+   "h": 1600
+  },
+  "tile": "/brand/exhibit/hero.webp",
+  "sections": [
+   {
+    "title": "Identity + launch",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/exhibit/x0.webp",
+      "w": 1600,
+      "h": 1600
+     },
+     {
+      "type": "image",
+      "src": "/brand/exhibit/x1.webp",
+      "w": 1600,
+      "h": 1176
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Diega",
+  "loc": "Downtown \u00b7 San Diego, CA",
+  "role": "Brand Identity + Creative Direction",
+  "deliv": "Logo system \u00b7 Brand style guide \u00b7 Stationery \u00b7 Brochure \u00b7 Leasing campaign \u00b7 Event + email",
+  "story": "Brand-new high-rise, said with confidence. A serif wordmark that ends in a full stop, a black-and-white palette and architectural photography that lets the building do the talking.",
+  "slug": "diega",
+  "group": "built",
+  "hero": {
+   "src": "/brand/diega/hero.webp",
+   "w": 1250,
+   "h": 938
+  },
+  "tile": "/brand/diega/hero.webp",
+  "sections": [
+   {
+    "title": "Brand style guide",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/diega/s0_0.webp",
+      "w": 1600,
+      "h": 1036
+     },
+     {
+      "type": "image",
+      "src": "/brand/diega/s0_1.webp",
+      "w": 1600,
+      "h": 1036
+     },
+     {
+      "type": "image",
+      "src": "/brand/diega/s0_2.webp",
+      "w": 1600,
+      "h": 1036
+     },
+     {
+      "type": "image",
+      "src": "/brand/diega/s0_3.webp",
+      "w": 1600,
+      "h": 1036
+     }
+    ]
+   },
+   {
+    "title": "Leasing campaign",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/diega/s1_0.webp",
+      "w": 1250,
+      "h": 938
+     },
+     {
+      "type": "image",
+      "src": "/brand/diega/s1_1.webp",
+      "w": 1250,
+      "h": 938
+     },
+     {
+      "type": "image",
+      "src": "/brand/diega/s1_2.webp",
+      "w": 1600,
+      "h": 2070
+     },
+     {
+      "type": "image",
+      "src": "/brand/diega/s1_3.webp",
+      "w": 600,
+      "h": 2000
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "The Ryan",
+  "loc": "Downtown Phoenix, AZ",
+  "role": "Creative Direction + Brand Rollout",
+  "deliv": "Launch campaign \u00b7 Storefront + window wraps \u00b7 Fence wraps \u00b7 Signage \u00b7 Stationery \u00b7 Brochure \u00b7 Digital",
+  "story": "It doesn't get more downtown than this. I owned how a new high-rise came to life \u2014 imagery, wraps, signage, print and digital \u2014 turning a brand kit into a launch campaign.",
+  "slug": "the-ryan",
+  "group": "life",
+  "hero": {
+   "src": "/brand/the-ryan/hero.webp",
+   "w": 1600,
+   "h": 1113
+  },
+  "tile": "/brand/the-ryan/tile.webp",
+  "sections": [
+   {
+    "title": "Environmental",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/the-ryan/s0_0.webp",
+      "w": 1600,
+      "h": 1575
+     },
+     {
+      "type": "image",
+      "src": "/brand/the-ryan/s0_1.webp",
+      "w": 1600,
+      "h": 880
+     },
+     {
+      "type": "image",
+      "src": "/brand/the-ryan/s0_2.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   },
+   {
+    "title": "Identity + signage + stationery",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/the-ryan/s1_0.webp",
+      "w": 1600,
+      "h": 1600
+     },
+     {
+      "type": "image",
+      "src": "/brand/the-ryan/s1_1.webp",
+      "w": 1600,
+      "h": 1404
+     },
+     {
+      "type": "image",
+      "src": "/brand/the-ryan/s1_2.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/the-ryan/s1_3.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   },
+   {
+    "title": "Print",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/the-ryan/s2_0.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/the-ryan/s2_1.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   },
+   {
+    "title": "Digital",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/the-ryan/s3_0.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   },
+   {
+    "title": "Motion \u00b7 15-second video ad \u00b7 one of three versions",
+    "layout": "motion",
+    "items": [
+     {
+      "type": "video",
+      "src": "/brand/motion/ryan_video_ad_final.mp4",
+      "poster": "/brand/motion/ryan_video_ad_final.jpg",
+      "w": 1920,
+      "h": 556,
+      "label": "Final cut"
+     },
+     {
+      "type": "video",
+      "src": "/brand/motion/ryan_video_ad_d2.mp4",
+      "poster": "/brand/motion/ryan_video_ad_d2.jpg",
+      "w": 1920,
+      "h": 556,
+      "label": "Version 2"
+     },
+     {
+      "type": "video",
+      "src": "/brand/motion/ryan_video_ad_vt.mp4",
+      "poster": "/brand/motion/ryan_video_ad_vt.jpg",
+      "w": 1920,
+      "h": 556,
+      "label": "Virtual tour version"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Revo",
+  "loc": "Platinum Park \u00b7 Anaheim, CA",
+  "role": "Creative Direction + Brand Rollout",
+  "deliv": "Brochure + folder \u00b7 Stationery \u00b7 Banners \u00b7 Fence wraps \u00b7 Flyers",
+  "story": "Where the energy is. Silver foil, kraft and red accents give a new community a fashion-editorial edge.",
+  "slug": "revo",
+  "group": "life",
+  "hero": {
+   "src": "/brand/revo/hero.webp",
+   "w": 1600,
+   "h": 1200
+  },
+  "tile": "/brand/revo/tile.webp",
+  "sections": [
+   {
+    "title": "Identity + print",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/revo/s0_0.webp",
+      "w": 1600,
+      "h": 1600
+     },
+     {
+      "type": "image",
+      "src": "/brand/revo/s0_1.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/revo/s0_2.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   },
+   {
+    "title": "Environmental",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/revo/s1_0.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/revo/s1_1.webp",
+      "w": 1600,
+      "h": 384
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Alexan ALX",
+  "loc": "San Diego, CA",
+  "role": "Creative Direction + Brand Rollout",
+  "deliv": "Toile campaign \u00b7 Window wraps \u00b7 Banners \u00b7 eBrochure \u00b7 Print ads",
+  "story": "A custom blue-and-white toile, inspired by downtown San Diego, became the campaign \u2014 wrapped across storefront windows, banners and print.",
+  "slug": "alexan-alx",
+  "group": "life",
+  "hero": {
+   "src": "/brand/alexan-alx/hero.webp",
+   "w": 1550,
+   "h": 1405
+  },
+  "tile": "/brand/alexan-alx/hero.webp",
+  "sections": [
+   {
+    "title": "Print",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/alexan-alx/s0_0.webp",
+      "w": 1600,
+      "h": 1036
+     },
+     {
+      "type": "image",
+      "src": "/brand/alexan-alx/s0_1.webp",
+      "w": 1600,
+      "h": 1036
+     },
+     {
+      "type": "image",
+      "src": "/brand/alexan-alx/s0_2.webp",
+      "w": 1600,
+      "h": 1924
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Jefferson Rise",
+  "loc": "Platinum Park \u00b7 Anaheim, CA",
+  "role": "Creative Director + Lead Designer",
+  "deliv": "Brand brochure \u00b7 Storefront window wraps \u00b7 Leasing campaign",
+  "story": "A place of stylish spirit. A botanical green-and-gold system carried through a brand brochure, storefront window wraps and leasing ads.",
+  "slug": "jefferson-rise",
+  "group": "life",
+  "hero": {
+   "src": "/brand/jefferson-rise/hero.webp",
+   "w": 1600,
+   "h": 1200
+  },
+  "tile": "/brand/jefferson-rise/hero.webp",
+  "sections": [
+   {
+    "title": "Storefront",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/jefferson-rise/s0_0.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/jefferson-rise/s0_1.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   },
+   {
+    "title": "Brand + print",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/jefferson-rise/s1_0.webp",
+      "w": 1600,
+      "h": 2070
+     },
+     {
+      "type": "image",
+      "src": "/brand/jefferson-rise/s1_1.webp",
+      "w": 1600,
+      "h": 1036
+     },
+     {
+      "type": "image",
+      "src": "/brand/jefferson-rise/s1_2.webp",
+      "w": 1600,
+      "h": 1036
+     },
+     {
+      "type": "image",
+      "src": "/brand/jefferson-rise/s1_3.webp",
+      "w": 1600,
+      "h": 1036
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Broadstone Osborn",
+  "loc": "Phoenix, AZ",
+  "role": "Creative Direction + Brand Rollout",
+  "deliv": "Persona-led campaign \u00b7 Quote book \u00b7 Brochure \u00b7 Website",
+  "story": "Luxury reinvented. A persona \u2014 B. Osborn \u2014 gave the brand a voice, carried through a quote campaign, brochure and website.",
+  "slug": "broadstone-osborn",
+  "group": "life",
+  "hero": {
+   "src": "/brand/broadstone-osborn/hero.webp",
+   "w": 1600,
+   "h": 800
+  },
+  "tile": "/brand/broadstone-osborn/hero.webp",
+  "sections": [
+   {
+    "title": "Quote campaign",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-osborn/s0_0.webp",
+      "w": 1600,
+      "h": 800
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-osborn/s0_1.webp",
+      "w": 1600,
+      "h": 800
+     }
+    ]
+   },
+   {
+    "title": "Website \u00b7 desktop + mobile",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-osborn/s1_0.webp",
+      "w": 1091,
+      "h": 2560
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-osborn/s1_1.webp",
+      "w": 985,
+      "h": 2560
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-osborn/s1_2.webp",
+      "w": 409,
+      "h": 2560
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-osborn/s1_3.webp",
+      "w": 819,
+      "h": 1631
+     }
+    ]
+   },
+   {
+    "title": "Campaign + digital",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-osborn/s2_0.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-osborn/s2_1.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-osborn/s2_2.webp",
+      "w": 1600,
+      "h": 1600
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-osborn/s2_3.webp",
+      "w": 1600,
+      "h": 2070
+     }
+    ]
+   },
+   {
+    "title": "Brochure + signage",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/broadstone-osborn/s3_0.webp",
+      "w": 1600,
+      "h": 2040
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-osborn/s3_1.webp",
+      "w": 1600,
+      "h": 1054
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-osborn/s3_2.webp",
+      "w": 1600,
+      "h": 2400
+     },
+     {
+      "type": "image",
+      "src": "/brand/broadstone-osborn/s3_3.webp",
+      "w": 1600,
+      "h": 480
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Columbia Square Living",
+  "loc": "Hollywood \u00b7 Los Angeles, CA",
+  "role": "Creative Direction + Brand Rollout",
+  "deliv": "Campaign \u00b7 Stationery \u00b7 Brochure \u00b7 Exterior signage \u00b7 Website",
+  "story": "Hollywood is having a moment. A fashion-forward campaign in saturated cobalt and red for a landmark Hollywood address.",
+  "slug": "columbia-square-living",
+  "group": "life",
+  "hero": {
+   "src": "/brand/columbia-square-living/hero.webp",
+   "w": 1600,
+   "h": 1280
+  },
+  "tile": "/brand/columbia-square-living/hero.webp",
+  "sections": [
+   {
+    "title": "Brand + print",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/columbia-square-living/s0_0.webp",
+      "w": 1600,
+      "h": 1237
+     },
+     {
+      "type": "image",
+      "src": "/brand/columbia-square-living/s0_1.webp",
+      "w": 1600,
+      "h": 1237
+     }
+    ]
+   },
+   {
+    "title": "Campaign",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/columbia-square-living/s1_0.webp",
+      "w": 1600,
+      "h": 1036
+     },
+     {
+      "type": "image",
+      "src": "/brand/columbia-square-living/s1_1.webp",
+      "w": 1600,
+      "h": 1036
+     },
+     {
+      "type": "image",
+      "src": "/brand/columbia-square-living/s1_2.webp",
+      "w": 1600,
+      "h": 580
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "The Angela",
+  "loc": "Biltmore \u00b7 Phoenix, AZ",
+  "role": "Creative Direction + Brand Rollout",
+  "deliv": "Campaign art direction \u00b7 Wall graphic \u00b7 Rack card \u00b7 Website",
+  "story": "Once you meet her, no one else will compare. A personified brand with a sun-warmed palette, carried from a large-format wall graphic to print, stationery and the web.",
+  "slug": "the-angela",
+  "group": "life",
+  "hero": {
+   "src": "/brand/the-angela/hero.webp",
+   "w": 1600,
+   "h": 1036
+  },
+  "tile": "/brand/the-angela/hero.webp",
+  "sections": [
+   {
+    "title": "Signage + print",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/the-angela/s0_0.webp",
+      "w": 1600,
+      "h": 1088
+     },
+     {
+      "type": "image",
+      "src": "/brand/the-angela/s0_1.webp",
+      "w": 1097,
+      "h": 2560
+     },
+     {
+      "type": "image",
+      "src": "/brand/the-angela/s0_2.webp",
+      "w": 1097,
+      "h": 2560
+     }
+    ]
+   },
+   {
+    "title": "Website",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/the-angela/s1_0.webp",
+      "w": 1600,
+      "h": 902
+     },
+     {
+      "type": "image",
+      "src": "/brand/the-angela/s1_1.webp",
+      "w": 1600,
+      "h": 890
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Logo Design",
+  "loc": "",
+  "role": "",
+  "deliv": "",
+  "story": "Marks from across my work: property identities, independent clients and logos I designed at GoDaddy.",
+  "slug": "logo-design",
+  "group": "range",
+  "hero": null,
+  "tile": "/brand/logo-design/tile.webp",
+  "sections": [
+   {
+    "title": "Property, independent + GoDaddy marks",
+    "layout": "tiles",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s0_0.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s0_1.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s0_2.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s0_3.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s0_4.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s0_5.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s0_6.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s0_7.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s0_8.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s0_9.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s0_10.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s0_11.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s0_12.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s0_13.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s1_0.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s1_1.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s1_2.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s1_3.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s1_4.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s1_5.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s1_6.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s1_7.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s1_8.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s1_9.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s1_10.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s1_11.webp",
+      "w": 900,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/logo-design/s1_12.webp",
+      "w": 900,
+      "h": 900
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Web + Digital",
+  "loc": "",
+  "role": "",
+  "deliv": "",
+  "story": "Property websites designed end to end, shown on every screen size.",
+  "slug": "web-digital",
+  "group": "range",
+  "hero": null,
+  "tile": "/brand/web-digital/tile.webp",
+  "sections": [
+   {
+    "title": "Broadstone Sawyer Yards \u00b7 website",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/web-digital/s0_0.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   },
+   {
+    "title": "Broadstone Summer Street \u00b7 15th Street Flats",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/web-digital/s1_0.webp",
+      "w": 1600,
+      "h": 1200
+     },
+     {
+      "type": "image",
+      "src": "/brand/web-digital/s1_1.webp",
+      "w": 1600,
+      "h": 1200
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "ARCX 2019 + 2020",
+  "loc": "Alliance Residential National Conference",
+  "role": "Creative Lead \u00b7 Event Identity",
+  "deliv": "Event identity \u00b7 Website \u00b7 \"What If?\" screen campaign \u00b7 Stage screens \u00b7 Motion",
+  "story": "What if? Alliance Residential's national conference, branded around a single provocative question and carried from the website to a quote-driven screen campaign. In 2020, Home Starts Here took over the stage, the screens and the lobby.",
+  "slug": "arcx-2019",
+  "group": "range",
+  "hero": {
+   "src": "/brand/arcx-2019/hero.webp",
+   "w": 1600,
+   "h": 1071
+  },
+  "tile": "/brand/arcx-2019/hero.webp",
+  "sections": [
+   {
+    "title": "\"What If?\" screen campaign",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/arcx-2019/s0_0.webp",
+      "w": 1600,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/arcx-2019/s0_1.webp",
+      "w": 1600,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/arcx-2019/s0_2.webp",
+      "w": 1600,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/arcx-2019/s0_3.webp",
+      "w": 1600,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/arcx-2019/s0_4.webp",
+      "w": 1600,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/arcx-2019/s0_5.webp",
+      "w": 1600,
+      "h": 900
+     }
+    ]
+   },
+   {
+    "title": "ARCX 2020 \u00b7 Home Starts Here \u00b7 stage + screens",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/arcx-2019/s1_0.webp",
+      "w": 1600,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/arcx-2019/s1_1.webp",
+      "w": 1600,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/arcx-2019/s1_2.webp",
+      "w": 1600,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/arcx-2019/s1_3.webp",
+      "w": 1600,
+      "h": 900
+     },
+     {
+      "type": "image",
+      "src": "/brand/arcx-2019/s1_4.webp",
+      "w": 1600,
+      "h": 900
+     }
+    ]
+   },
+   {
+    "title": "ARCX 2020 \u00b7 Motion \u00b7 kinetic type loop",
+    "layout": "motion",
+    "items": [
+     {
+      "type": "video",
+      "src": "/brand/motion/arcx2020_home_loop.mp4",
+      "poster": "/brand/motion/arcx2020_home_loop.jpg",
+      "w": 720,
+      "h": 406,
+      "label": "Home ___ Here, kinetic type loop"
+     },
+     {
+      "type": "video",
+      "src": "/brand/motion/arcx2020_home_evolves.mp4",
+      "poster": "/brand/motion/arcx2020_home_evolves.jpg",
+      "w": 720,
+      "h": 406,
+      "label": "Home Evolves Here"
+     },
+     {
+      "type": "video",
+      "src": "/brand/motion/arcx2020_hsh_motion.mp4",
+      "poster": "/brand/motion/arcx2020_hsh_motion.jpg",
+      "w": 1920,
+      "h": 1080,
+      "label": "Home Starts Here, web motion"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Marketing Masters 2021",
+  "loc": "Company Marketing Summit",
+  "role": "Creative Lead \u00b7 Event Identity",
+  "deliv": "Event identity \u00b7 Brand guide \u00b7 Save-the-date system \u00b7 Motion \u00b7 Event signage",
+  "story": "One Team, One Dream. A bold, gradient-split identity for the annual marketing summit, carried through a brand guide, animated save-the-dates and event signage.",
+  "slug": "marketing-masters-2021",
+  "group": "range",
+  "hero": {
+   "src": "/brand/marketing-masters-2021/hero.webp",
+   "w": 1600,
+   "h": 1236
+  },
+  "tile": "/brand/marketing-masters-2021/hero.webp",
+  "sections": [
+   {
+    "title": "Brand guide + save-the-date system",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/marketing-masters-2021/s0_0.webp",
+      "w": 1600,
+      "h": 1237
+     },
+     {
+      "type": "image",
+      "src": "/brand/marketing-masters-2021/s0_1.webp",
+      "w": 1600,
+      "h": 1236
+     },
+     {
+      "type": "image",
+      "src": "/brand/marketing-masters-2021/s0_2.webp",
+      "w": 1600,
+      "h": 1236
+     },
+     {
+      "type": "image",
+      "src": "/brand/marketing-masters-2021/s0_3.webp",
+      "w": 833,
+      "h": 342
+     }
+    ]
+   },
+   {
+    "title": "Motion \u00b7 animated save-the-date",
+    "layout": "motion",
+    "items": [
+     {
+      "type": "video",
+      "src": "/brand/motion/mm2021_save_the_date.mp4",
+      "poster": "/brand/motion/mm2021_save_the_date.jpg",
+      "w": 800,
+      "h": 618,
+      "label": "Animated save-the-date"
+     }
+    ]
+   },
+   {
+    "title": "Theme development + in-house signage",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/marketing-masters-2021/s2_0.webp",
+      "w": 1419,
+      "h": 1657
+     },
+     {
+      "type": "image",
+      "src": "/brand/marketing-masters-2021/s2_1.webp",
+      "w": 717,
+      "h": 1250
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Alliance Residential",
+  "loc": "Corporate Communications",
+  "role": "Lead Designer",
+  "deliv": "2018 CSR report \u00b7 Launch eBlast \u00b7 Corporate communications",
+  "story": "Grow With Us. Alliance Residential's 2018 Corporate Social Responsibility report \u2014 a faceted-architecture cover system, editorial layouts and data storytelling, launched company-wide.",
+  "slug": "alliance-residential",
+  "group": "range",
+  "hero": {
+   "src": "/brand/alliance-residential/hero.webp",
+   "w": 1600,
+   "h": 2070
+  },
+  "tile": "/brand/alliance-residential/hero.webp",
+  "sections": [
+   {
+    "title": "Report spreads",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/alliance-residential/s0_0.webp",
+      "w": 1600,
+      "h": 2070
+     },
+     {
+      "type": "image",
+      "src": "/brand/alliance-residential/s0_1.webp",
+      "w": 1600,
+      "h": 1036
+     }
+    ]
+   },
+   {
+    "title": "Report + launch",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/alliance-residential/s1_0.webp",
+      "w": 1600,
+      "h": 1036
+     },
+     {
+      "type": "image",
+      "src": "/brand/alliance-residential/s1_1.webp",
+      "w": 1600,
+      "h": 1036
+     },
+     {
+      "type": "image",
+      "src": "/brand/alliance-residential/s1_2.webp",
+      "w": 1250,
+      "h": 2560
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Prose",
+  "loc": "Scalable Brand Kit",
+  "role": "Creative Lead \u00b7 Team Project",
+  "deliv": "Brand system \u00b7 Logo concepts \u00b7 Template suite \u00b7 Landing page",
+  "story": "Live your story. A warm, family-friendly national brand built as a kit \u2014 so every new community launches on-brand without starting from scratch.",
+  "slug": "prose",
+  "group": "range",
+  "hero": {
+   "src": "/brand/prose/hero.webp",
+   "w": 1600,
+   "h": 1071
+  },
+  "tile": "/brand/prose/hero.webp",
+  "sections": [
+   {
+    "title": "Identity + launch",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/prose/x0.webp",
+      "w": 1600,
+      "h": 586
+     },
+     {
+      "type": "image",
+      "src": "/brand/prose/x1.webp",
+      "w": 1600,
+      "h": 1237
+     }
+    ]
+   },
+   {
+    "title": "Brochure",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/prose/s0_0.webp",
+      "w": 1600,
+      "h": 1360
+     },
+     {
+      "type": "image",
+      "src": "/brand/prose/s0_1.webp",
+      "w": 1600,
+      "h": 1360
+     },
+     {
+      "type": "image",
+      "src": "/brand/prose/s0_2.webp",
+      "w": 1600,
+      "h": 800
+     },
+     {
+      "type": "image",
+      "src": "/brand/prose/s0_3.webp",
+      "w": 1600,
+      "h": 800
+     }
+    ]
+   },
+   {
+    "title": "Brand kit",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/prose/s1_0.webp",
+      "w": 1600,
+      "h": 1244
+     },
+     {
+      "type": "image",
+      "src": "/brand/prose/s1_1.webp",
+      "w": 1600,
+      "h": 1244
+     },
+     {
+      "type": "image",
+      "src": "/brand/prose/s1_2.webp",
+      "w": 548,
+      "h": 1350
+     }
+    ]
+   }
+  ]
+ }
+]

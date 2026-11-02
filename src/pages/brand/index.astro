@@ -1,0 +1,175 @@
+---
+// src/pages/brand/index.astro - Brand work landing page
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import brands from '../../data/brands.json';
+
+const baseUrl = import.meta.env.BASE_URL;
+
+const groups = [
+  { id: 'built', title: 'Brands I built', lede: 'Identity, system and launch, from a blank page.' },
+  { id: 'life', title: 'Bringing brands to life', lede: 'Brands I was handed. Every touchpoint after that was mine.' },
+  { id: 'range', title: 'Range', lede: 'Logo design, web, events, motion and company-wide programs.' },
+];
+---
+
+<BaseLayout
+  title="Brand Work - Jake Maisel"
+  description="Brand identity, campaigns, environmental graphics, motion and creative direction by Jake Maisel."
+  image="/brand/bidrev/tile.webp">
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="eyebrow">Brand</p>
+      <h1>Brands that stay <em>true</em> wherever they show up.</h1>
+      <p class="lede">Identity systems, campaigns, signage, motion and the web. Click any brand to see the full system.</p>
+    </div>
+  </section>
+
+  {groups.map((g) => {
+    const list = brands.filter((b) => b.group === g.id);
+    return (
+      <section class="brand-group" aria-labelledby={`group-${g.id}`}>
+        <div class="container">
+          <header class="group-head">
+            <h2 id={`group-${g.id}`} class="section-title">{g.title}</h2>
+            <p class="group-lede">{g.lede}</p>
+          </header>
+          <div class="brand-grid">
+            {list.map((b) => (
+              <a href={`${baseUrl}brand/${b.slug}/`} class="brand-card">
+                <div class="brand-thumb">
+                  {b.tile && <img src={b.tile} alt="" loading="lazy" decoding="async" />}
+                </div>
+                <div class="brand-meta">
+                  <h3>{b.title}</h3>
+                  {b.role && <p>{b.role}</p>}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  })}
+
+  <ContactCTA />
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .brand-group {
+    padding: 1.5rem 0 3.5rem;
+  }
+
+  .group-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.75rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 1rem;
+  }
+
+  .group-head .section-title {
+    margin: 0;
+  }
+
+  .group-lede {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+  }
+
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .brand-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .brand-thumb {
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .brand-thumb img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .brand-card:hover .brand-thumb,
+  .brand-card:focus-visible .brand-thumb {
+    border-color: var(--gradient-start);
+    box-shadow: 0 12px 32px rgba(var(--brand-blue-rgb), 0.15);
+    transform: translateY(-2px);
+  }
+
+  .brand-card:hover .brand-thumb img {
+    transform: scale(1.03);
+  }
+
+  .brand-meta h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.45rem;
+    line-height: 1.15;
+    margin: 0.85rem 0 0.2rem;
+    color: var(--color-text);
+  }
+
+  .brand-meta p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 1024px) {
+    .brand-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .brand-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .brand-meta h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .brand-thumb,
+    .brand-thumb img {
+      transition: none;
+    }
+  }
+</style>
