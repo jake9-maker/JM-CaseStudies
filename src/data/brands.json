@@ -313,7 +313,7 @@
   "loc": "Dallas, TX",
   "role": "Brand Identity + Creative Direction",
   "deliv": "Logo system \u00b7 Stationery \u00b7 Signage \u00b7 Leasing campaign",
-  "story": "A distinguished Dallas lifestyle. A geometric A mark in slate and copper, extended into a narrative, stationery, building signage and a playful, high-contrast leasing campaign.",
+  "story": "A distinguished Dallas lifestyle. A geometric A mark in slate and copper, extended into stationery, building signage and a playful, high-contrast leasing campaign.",
   "slug": "broadstone-paragon",
   "group": "built",
   "hero": {
@@ -722,83 +722,6 @@
       "src": "/brand/exhibit/x1.webp",
       "w": 1600,
       "h": 1176
-     }
-    ]
-   }
-  ]
- },
- {
-  "title": "Diega",
-  "loc": "Downtown \u00b7 San Diego, CA",
-  "role": "Brand Identity + Creative Direction",
-  "deliv": "Logo system \u00b7 Brand style guide \u00b7 Stationery \u00b7 Brochure \u00b7 Leasing campaign \u00b7 Event + email",
-  "story": "Brand-new high-rise, said with confidence. A serif wordmark that ends in a full stop, a black-and-white palette and architectural photography that lets the building do the talking.",
-  "slug": "diega",
-  "group": "built",
-  "hero": {
-   "src": "/brand/diega/hero.webp",
-   "w": 1250,
-   "h": 938
-  },
-  "tile": "/brand/diega/hero.webp",
-  "sections": [
-   {
-    "title": "Brand style guide",
-    "layout": "grid",
-    "items": [
-     {
-      "type": "image",
-      "src": "/brand/diega/s0_0.webp",
-      "w": 1600,
-      "h": 1036
-     },
-     {
-      "type": "image",
-      "src": "/brand/diega/s0_1.webp",
-      "w": 1600,
-      "h": 1036
-     },
-     {
-      "type": "image",
-      "src": "/brand/diega/s0_2.webp",
-      "w": 1600,
-      "h": 1036
-     },
-     {
-      "type": "image",
-      "src": "/brand/diega/s0_3.webp",
-      "w": 1600,
-      "h": 1036
-     }
-    ]
-   },
-   {
-    "title": "Leasing campaign",
-    "layout": "grid",
-    "items": [
-     {
-      "type": "image",
-      "src": "/brand/diega/s1_0.webp",
-      "w": 1250,
-      "h": 938
-     },
-     {
-      "type": "image",
-      "src": "/brand/diega/s1_1.webp",
-      "w": 1250,
-      "h": 938
-     },
-     {
-      "type": "image",
-      "src": "/brand/diega/s1_2.webp",
-      "w": 1600,
-      "h": 2070
-     },
-     {
-      "type": "image",
-      "src": "/brand/diega/s1_3.webp",
-      "w": 600,
-      "h": 2000
      }
     ]
    }
@@ -1338,6 +1261,53 @@
       "src": "/brand/the-angela/s1_1.webp",
       "w": 1600,
       "h": 890
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Diega",
+  "loc": "Downtown \u00b7 San Diego, CA",
+  "role": "Creative Direction + Brand Rollout",
+  "deliv": "Leasing campaign \u00b7 Open house flyer \u00b7 Email",
+  "story": "Brand-new high-rise, said with confidence. A leasing campaign built on the brand's black-and-white system and architectural photography.",
+  "slug": "diega",
+  "group": "life",
+  "hero": {
+   "src": "/brand/diega/hero.webp",
+   "w": 1250,
+   "h": 938
+  },
+  "tile": "/brand/diega/hero.webp",
+  "sections": [
+   {
+    "title": "Leasing campaign",
+    "layout": "grid",
+    "items": [
+     {
+      "type": "image",
+      "src": "/brand/diega/s1_0.webp",
+      "w": 1250,
+      "h": 938
+     },
+     {
+      "type": "image",
+      "src": "/brand/diega/s1_1.webp",
+      "w": 1250,
+      "h": 938
+     },
+     {
+      "type": "image",
+      "src": "/brand/diega/s1_2.webp",
+      "w": 1600,
+      "h": 2070
+     },
+     {
+      "type": "image",
+      "src": "/brand/diega/s1_3.webp",
+      "w": 600,
+      "h": 2000
      }
     ]
    }
