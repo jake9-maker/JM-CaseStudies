@@ -263,4 +263,31 @@ const isActive = (href: string) => {
       padding: 0.35rem 0.55rem;
     }
   }
+  @media (max-width: 340px) {
+    .nav-links {
+      gap: 0.35rem;
+    }
+
+    .nav-links a:not(.nav-cta) {
+      font-size: 0.75rem;
+    }
+
+    .nav-links a.nav-cta {
+      padding: 0.3rem 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .brand-mark {
+      height: 22px;
+    }
+
+    .container {
+      padding: 0 0.5rem;
+    }
+
+    .header-inner,
+    .nav-wrapper {
+      gap: 0.25rem;
+    }
+  }
 </style>
