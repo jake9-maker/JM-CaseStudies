@@ -1,5 +1,9 @@
 ---
 // Footer.astro - Footer component
+// Brand pages link the brand resume; everywhere else links the UX resume.
+const base = import.meta.env.BASE_URL;
+const isBrand = Astro.url.pathname.startsWith(`${base}brand`);
+const resume = isBrand ? '/resume-brand.pdf' : '/resume.pdf';
 ---
 
 <footer>
@@ -10,7 +14,7 @@
       <span class="separator">•</span>
       <a href="https://www.linkedin.com/in/jake-maisel-33970197/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <span class="separator">•</span>
-      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+      <a href={resume} target="_blank" rel="noopener noreferrer">Resume</a>
     </p>
   </div>
 </footer>
