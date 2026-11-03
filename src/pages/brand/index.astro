@@ -22,6 +22,9 @@ const groups = [
       <p class="eyebrow">Brand</p>
       <h1>Brands that stay <em>true</em> wherever they show up.</h1>
       <p class="lede">Identity systems, campaigns, signage, motion and the web. Click any brand to see the full system.</p>
+      <div class="hero-actions">
+        <a href="/resume-brand.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Download brand resume</a>
+      </div>
     </div>
   </section>
 
@@ -52,10 +55,14 @@ const groups = [
     );
   })}
 
-  <ContactCTA />
+  <ContactCTA resume="/resume-brand.pdf" />
 </BaseLayout>
 
 <style>
+  .hero-actions {
+    margin-top: 1.75rem;
+  }
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
