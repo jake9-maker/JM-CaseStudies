@@ -1,0 +1,322 @@
+---
+// src/pages/work/index.astro - All work in one place: product case studies and brand systems
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import brands from '../../data/brands.json';
+
+const baseUrl = import.meta.env.BASE_URL;
+
+const products = (await getCollection('projects'))
+  .sort((a, b) => a.data.featured_order - b.data.featured_order);
+
+const brandGroups = [
+  { id: 'built', title: 'Brands I built', lede: 'Identity, system and launch, from a blank page.' },
+  { id: 'life', title: 'Bringing brands to life', lede: 'Brands I was handed. Every touchpoint after that was mine.' },
+  { id: 'range', title: 'Range', lede: 'Logo design, web, events, motion and company-wide programs.' },
+];
+
+const filters = [
+  { id: 'all', label: 'All', count: brands.length + products.length },
+  { id: 'brand', label: 'Brand', count: brands.length },
+  { id: 'product', label: 'Product', count: products.length },
+];
+---
+
+<BaseLayout
+  title="Work · Jake Maisel"
+  description="Brand identities, campaigns, launches and product case studies by Jake Maisel, Creative Director, Brand & Product.">
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="eyebrow">Work</p>
+      <h1>The brands, and the products that <em>prove</em> them.</h1>
+      <p class="lede">Identity systems, campaigns, signage, motion and the web, alongside the product work, from first research to what shipped.</p>
+    </div>
+  </section>
+
+  <div class="work" data-filter="all">
+    <div class="container">
+      <div class="filter-bar" role="group" aria-label="Show work by type">
+        {filters.map((f, i) => (
+          <button type="button" class="chip" data-value={f.id} aria-pressed={i === 0 ? 'true' : 'false'}>
+            {f.label} <span class="count">{f.count}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+
+    {brandGroups.map((g) => {
+      const list = brands.filter((b) => b.group === g.id);
+      return (
+        <section class="group" data-kind="brand" aria-labelledby={`group-${g.id}`}>
+          <div class="container">
+            <header class="group-head">
+              <h2 id={`group-${g.id}`} class="section-title">{g.title}</h2>
+              <p class="group-lede">{g.lede}</p>
+            </header>
+            <div class="grid">
+              {list.map((b) => (
+                <a href={`${baseUrl}brand/${b.slug}/`} class="card">
+                  <div class="thumb square">
+                    {(b.tile || b.hero?.src) && <img src={b.tile || b.hero.src} alt="" loading="lazy" decoding="async" />}
+                  </div>
+                  <div class="meta">
+                    <h3>{b.title}</h3>
+                    {b.role && <p>{b.role}</p>}
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    })}
+
+    <section class="group" data-kind="product" aria-labelledby="group-product">
+      <div class="container">
+        <header class="group-head">
+          <h2 id="group-product" class="section-title">Product case studies</h2>
+          <p class="group-lede">How I framed each problem, researched it, and led the team to ship.</p>
+        </header>
+        <div class="grid product-grid">
+          {products.map((p) => (
+            <a href={`${baseUrl}projects/${p.slug}/`} class="card">
+              <div class="thumb wide">
+                {p.data.featured_image && <img src={p.data.featured_image} alt="" loading="lazy" decoding="async" />}
+              </div>
+              <div class="meta">
+                <h3>{p.data.title}</h3>
+                <p class="summary">{p.data.summary}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <ContactCTA />
+</BaseLayout>
+
+<script>
+  const root = document.querySelector<HTMLElement>('.work');
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.chip'));
+  const valid = ['all', 'brand', 'product'];
+
+  function apply(value: string, push = false) {
+    if (!root || !valid.includes(value)) return;
+    root.dataset.filter = value;
+    chips.forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.value === value)));
+    if (push) history.replaceState(null, '', value === 'all' ? location.pathname : `#${value}`);
+  }
+
+  chips.forEach((c) => c.addEventListener('click', () => apply(c.dataset.value || 'all', true)));
+
+  // Old /brand/ and /projects/ links arrive with #brand or #product
+  apply(location.hash.replace('#', '') || 'all');
+</script>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .filter-bar {
+    display: inline-flex;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    margin: 0 0 2.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 9999px;
+    background: var(--color-bg-secondary);
+  }
+
+  .chip {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    min-height: 40px;
+    padding: 0 1.15rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-out, color 0.2s ease-out;
+  }
+
+  .count {
+    margin-left: 0.3rem;
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.6;
+  }
+
+  .chip:hover {
+    color: var(--color-text);
+  }
+
+  .chip[aria-pressed='true'] {
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+
+  .chip:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* Filtering hides whole sections, so headings stay with their work */
+  .work[data-filter='brand'] [data-kind='product'],
+  .work[data-filter='product'] [data-kind='brand'] {
+    display: none;
+  }
+
+  .group {
+    padding: 0 0 3.5rem;
+  }
+
+  .group-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .group-head .section-title {
+    margin: 0;
+  }
+
+  .group-lede {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem 1.5rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .thumb {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--color-bg-tertiary);
+    transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+  }
+
+  .thumb.square {
+    aspect-ratio: 1 / 1;
+  }
+
+  .thumb.wide {
+    aspect-ratio: 4 / 3;
+  }
+
+  .thumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px var(--image-outline);
+    pointer-events: none;
+  }
+
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .card:hover .thumb,
+  .card:focus-visible .thumb {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px -20px rgba(var(--glow-1-rgb), 0.4);
+  }
+
+  .card:hover .thumb img {
+    transform: scale(1.03);
+  }
+
+  .meta h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.45rem;
+    line-height: 1.15;
+    margin: 0.85rem 0 0.25rem;
+    color: var(--color-text);
+  }
+
+  .meta p {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--color-text-muted);
+  }
+
+  .meta .summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  @media (max-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem 1rem;
+    }
+
+    .product-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .meta h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card:hover .thumb,
+    .card:hover .thumb img {
+      transform: none;
+    }
+  }
+</style>

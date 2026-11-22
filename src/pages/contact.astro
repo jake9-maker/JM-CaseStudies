@@ -5,85 +5,116 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="Contact Jake Maisel - Let's Connect"
-  description="Get in touch to discuss your next product design project. Connect via email, LinkedIn, or download my resume to learn more.">
+  title="Contact · Jake Maisel, Creative Director, Brand & Product"
+  description="Get in touch with Jake Maisel about brand leadership, creative direction and product design. Based in Buffalo, NY, open to remote.">
   <section class="page-hero">
     <div class="page-hero-inner">
       <p class="eyebrow">Contact</p>
       <h1>Let's <em>connect</em>.</h1>
       <p class="lede">
-        I'm always interested in discussing new projects, design challenges, and opportunities to work together.
+        Building a brand team, launching something new, or need brand and product to finally tell the same story? I'd like to hear about it.
       </p>
     </div>
   </section>
 
   <section class="contact-page">
-    <div class="container">
-
-      <div class="contact-info">
-        <div class="info-card email-card edge-card">
-          <div class="info-header">
-            <h3>Email</h3>
-            <span class="timezone-badge">US Eastern Time</span>
-          </div>
-          <p class="contact-email">
-            <a href="mailto:jake@maiseldesigns.com" class="grad-text">jake@maiseldesigns.com</a>
-          </p>
-          <p class="contact-description">
-            The best way to reach me. I typically reply within 24 hours.
-          </p>
+    <div class="container contact-grid">
+      <div class="edge-card email-card">
+        <div class="info-header">
+          <h2>Email</h2>
+          <span class="timezone-badge">Buffalo, NY · US Eastern</span>
+        </div>
+        <p class="contact-email">
+          <a href="mailto:jake@maiseldesigns.com" class="grad-text">jake@maiseldesigns.com</a>
+        </p>
+        <p class="contact-description">
+          The best way to reach me. I typically reply within 24 hours, and I'm open to remote.
+        </p>
+        <div class="email-actions">
+          <a href="mailto:jake@maiseldesigns.com" class="btn btn-primary">Email me</a>
+          <button type="button" class="copy-btn" data-copy="jake@maiseldesigns.com">
+            <span class="copy-label">Copy email</span>
+          </button>
         </div>
       </div>
 
-      <div class="contact-methods">
-        <a href="https://www.linkedin.com/in/jake-maisel-33970197/" target="_blank" rel="noopener noreferrer" class="contact-item">
-          <div class="contact-item-header">
-            <h3>LinkedIn</h3>
-          </div>
-          <p class="contact-title">Jake Maisel</p>
-          <p class="contact-description">
-            Connect with me to stay updated on my latest work and insights.
-          </p>
-        </a>
+      <a href="https://www.linkedin.com/in/jake-maisel-33970197/" target="_blank" rel="noopener noreferrer" class="edge-card side-card link-card">
+        <div class="side-head">
+          <h2>LinkedIn</h2>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </div>
+        <p class="contact-description">My career in one place, and the quickest way to connect.</p>
+      </a>
 
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-item">
-          <div class="contact-item-header">
-            <h3>Resume</h3>
-          </div>
-          <p class="contact-title">Download PDF</p>
-          <p class="contact-description">
-            Full background, experience, and professional history.
-          </p>
-        </a>
-      </div>
-
-      <div class="cta-section edge-card">
-        <h2 class="display">Let's discuss your next <em>project</em>.</h2>
-        <p>
-          Whether you have a specific challenge in mind or want to explore how strategic design can solve your problems, I'm ready to have that conversation.
-        </p>
-        <a href="mailto:jake@maiseldesigns.com?subject=Let%27s%20work%20together" class="btn btn-primary">Start the conversation</a>
+      <div class="edge-card side-card">
+        <div class="side-head">
+          <h2>Resumes</h2>
+        </div>
+        <p class="contact-description">One for brand and creative leadership, one for product design.</p>
+        <div class="resume-links">
+          <a href="/resume-brand.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Brand resume</a>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Product resume</a>
+        </div>
       </div>
     </div>
   </section>
 </BaseLayout>
 
+<script>
+  // Copy the email address, and say so in the button itself (not just motion)
+  document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach((btn) => {
+    const label = btn.querySelector('.copy-label');
+    let timer: number | undefined;
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.copy || '');
+        if (label) label.textContent = 'Copied';
+        btn.classList.add('copied');
+      } catch {
+        // Clipboard blocked: highlight the address so a manual copy just works
+        const email = document.querySelector('.contact-email a');
+        const sel = window.getSelection();
+        if (email && sel) {
+          const range = document.createRange();
+          range.selectNodeContents(email);
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+        if (label) label.textContent = 'Selected, press ⌘C';
+      }
+      clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        if (label) label.textContent = 'Copy email';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  });
+</script>
+
 <style>
   .contact-page {
-    padding: 1rem 2rem 2rem;
+    padding: 0.5rem 2rem 5rem;
   }
 
+  /* Same width and left edge as the headline above */
   .container {
-    max-width: 720px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 
-  .contact-info {
-    margin-bottom: 3rem;
+  /* Email leads on the left; LinkedIn and resumes stack beside it */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
   }
 
-  .info-card {
-    padding: 2rem;
+  .email-card {
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
   }
 
   .info-header {
@@ -91,141 +122,173 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1rem;
+    flex-wrap: wrap;
   }
 
-  .info-header h3 {
-    font-size: 1.3rem;
+  .info-header h2,
+  .side-head h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1.1;
     margin: 0;
-    font-weight: 600;
+    color: var(--color-text);
   }
 
   .timezone-badge {
     font-size: 0.8rem;
+    font-weight: 500;
     color: var(--color-text-muted);
     background-color: var(--color-bg-tertiary);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-weight: 500;
+    padding: 0.3rem 0.8rem;
+    border-radius: 9999px;
   }
 
   .contact-email {
-    margin: 1rem 0;
+    margin: auto 0 0.75rem;
+    padding-top: 2.5rem;
   }
 
   .contact-email a {
     font-family: var(--font-display);
-    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-size: clamp(2rem, 4.4vw, 3.25rem);
     font-weight: 400;
-    letter-spacing: -0.01em;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
     text-decoration: none;
-    transition: text-decoration 0.2s ease;
+    overflow-wrap: anywhere;
   }
 
   .contact-email a:hover {
     text-decoration: underline;
   }
 
-  .contact-methods {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 4rem;
+  .email-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 1.75rem;
   }
 
-  .contact-item {
+  .copy-btn {
+    appearance: none;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.2;
+    padding: 0.8rem 1.5rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-border-strong);
+    background: transparent;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: border-color 0.2s ease-out, color 0.2s ease-out, transform 0.2s ease-out;
+  }
+
+  .copy-btn:hover {
+    border-color: var(--gradient-start);
+  }
+
+  .copy-btn:active {
+    transform: scale(0.96);
+  }
+
+  .copy-btn.copied {
+    border-color: var(--color-success);
+    color: var(--color-success);
+  }
+
+  .copy-btn:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .side-card {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
     padding: 2rem;
-    background-color: var(--color-bg-secondary);
-    border: 1px solid var(--color-border);
-    border-radius: 14px;
-    text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    text-decoration: none;
   }
 
-  .contact-item:hover {
-    border-color: var(--gradient-start);
-    box-shadow: 0 12px 32px rgba(var(--brand-blue-rgb), 0.15);
-    transform: translateY(-2px);
-  }
-
-  .contact-item-header {
+  .side-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
   }
 
-  .contact-item h3 {
-    font-family: var(--font-display);
-    font-size: 1.75rem;
-    margin: 0;
-    color: var(--color-text);
-    font-weight: 400;
+  .link-card {
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
   }
 
-  .contact-icon {
-    flex-shrink: 0;
+  .link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px -18px rgba(var(--glow-1-rgb), 0.45);
+  }
+
+  .link-card:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  .arrow {
     color: var(--color-accent);
-    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 1.25rem;
+    transition: transform 0.2s ease-out;
   }
 
-  .contact-item:hover .contact-icon {
-    color: var(--color-accent-dark);
-    transform: translateX(2px);
+  .link-card:hover .arrow {
+    transform: translate(2px, -2px);
   }
 
-  .contact-title {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--color-text);
-    margin: 0;
-  }
-
-  .contact-item p {
-    margin: 0;
-    line-height: 1.6;
+  .resume-links {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
   }
 
   .contact-description {
-    font-size: 0.9rem;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
     color: var(--color-text-muted);
+    max-width: 44ch;
   }
 
-  @media (max-width: 768px) {
-    .contact-methods {
+  @media (max-width: 860px) {
+    .contact-grid {
       grid-template-columns: 1fr;
     }
-  }
 
-  .cta-section {
-    padding: 3rem 2rem;
-    text-align: center;
-  }
+    .email-card {
+      grid-row: auto;
+      padding: 2rem;
+    }
 
-  .cta-section h2 {
-    font-size: clamp(2rem, 4.5vw, 2.75rem);
-    margin: 0 0 1rem;
-  }
-
-  .cta-section p {
-    font-size: 1.1rem;
-    color: var(--color-text-muted);
-    margin: 0 auto 2rem;
-    line-height: 1.7;
-    max-width: 48ch;
+    .contact-email {
+      padding-top: 1.5rem;
+    }
   }
 
   @media (max-width: 768px) {
     .contact-page {
-      padding: 1rem 1rem 2rem;
+      padding: 0.5rem 1rem 4rem;
     }
 
-    .cta-section {
-      padding: 2.5rem 1.25rem;
+    .email-card,
+    .side-card {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .link-card:hover,
+    .link-card:hover .arrow {
+      transform: none;
     }
   }
 </style>

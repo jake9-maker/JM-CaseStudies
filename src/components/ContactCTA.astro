@@ -1,16 +1,16 @@
 ---
 // ContactCTA.astro - Reusable contact call-to-action component
-// `resume` lets a page point to a different resume (e.g. the brand resume on /brand).
+// Defaults to the brand resume, like every other single "Resume" link on the site.
 interface Props {
   resume?: string;
 }
-const { resume = '/resume.pdf' } = Astro.props;
+const { resume = '/resume-brand.pdf' } = Astro.props;
 ---
 
 <section class="contact-cta">
   <div class="cta-content edge-card">
     <h2 class="display">Ready to work <em>together</em>?</h2>
-    <p>Let's talk about the complex problem your team is trying to solve.</p>
+    <p>A brand to build, a launch to land, or a product that has to live up to its promise. I'd like to hear about it.</p>
     <div class="cta-actions">
       <a href="mailto:jake@maiseldesigns.com" class="btn btn-primary">Get in touch</a>
       <a href={resume} target="_blank" rel="noopener noreferrer" class="btn btn-ghost">View resume</a>
@@ -39,7 +39,7 @@ const { resume = '/resume.pdf' } = Astro.props;
     left: 50%;
     top: -300px;
     transform: translateX(-50%);
-    background: radial-gradient(closest-side, rgba(var(--brand-blue-rgb), 0.22), rgba(var(--brand-teal-rgb), 0.08) 55%, transparent);
+    background: radial-gradient(closest-side, rgba(var(--glow-1-rgb), 0.22), rgba(var(--glow-2-rgb), 0.08) 55%, transparent);
     pointer-events: none;
   }
 

@@ -27,18 +27,19 @@ const alt = (title: string, i: number) => `${brand.title}: ${title}${i > 0 ? `, 
 ---
 
 <BaseLayout
-  title={`${brand.title} - Brand Work - Jake Maisel`}
+  title={`${brand.title} · Jake Maisel`}
   description={brand.story || `${brand.title} brand work by Jake Maisel.`}
   image={brand.tile ?? undefined}>
   <article class="brand-page project-content">
     <header class="brand-hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <a class="back" href={`${baseUrl}brand/`}>← All brand work</a>
+          <a class="back" href={`${baseUrl}work/#brand`}>← All brand work</a>
           <p class="eyebrow">{groupLabel}</p>
           <h1 class="display">{brand.title}</h1>
           {brand.loc && <p class="loc">{brand.loc}</p>}
-          {brand.story && <p class="story">{brand.story}</p>}
+          {brand.idea && <p class="idea">“{brand.idea}”</p>}
+          {(brand.approach || brand.story) && <p class="story">{brand.approach || brand.story}</p>}
           <dl class="facts">
             {brand.role && (<div><dt>Role</dt><dd>{brand.role}</dd></div>)}
             {deliverables.length > 0 && (
@@ -143,10 +144,12 @@ const alt = (title: string, i: number) => `${brand.title}: ${title}${i > 0 ? `, 
     padding: 0 2rem;
   }
 
+  /* Runs up behind the see-through nav, like the other page heroes */
   .brand-hero {
     position: relative;
     overflow: hidden;
-    padding: 3rem 0 3.5rem;
+    margin-top: calc(-1 * var(--header-h));
+    padding: calc(3rem + var(--header-h)) 0 3.5rem;
   }
 
   .brand-hero::before {
@@ -156,7 +159,7 @@ const alt = (title: string, i: number) => `${brand.title}: ${title}${i > 0 ? `, 
     height: 640px;
     right: -160px;
     top: -260px;
-    background: radial-gradient(closest-side, rgba(var(--brand-blue-rgb), 0.22), rgba(var(--brand-teal-rgb), 0.08) 55%, transparent);
+    background: radial-gradient(closest-side, rgba(var(--glow-1-rgb), 0.22), rgba(var(--glow-2-rgb), 0.08) 55%, transparent);
     pointer-events: none;
   }
 
@@ -169,11 +172,15 @@ const alt = (title: string, i: number) => `${brand.title}: ${title}${i > 0 ? `, 
   }
 
   .back {
-    display: inline-block;
+    /* Own line, with a 40px-tall hit area */
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 40px;
     font-size: 0.9rem;
     color: var(--color-text-muted);
     text-decoration: none;
-    margin-bottom: 2rem;
+    margin: -0.5rem 0 1.25rem;
   }
 
   .back:hover {
@@ -193,13 +200,28 @@ const alt = (title: string, i: number) => `${brand.title}: ${title}${i > 0 ? `, 
     color: var(--color-text-muted);
   }
 
-  .story {
+  /* The big idea, set like a pull quote */
+  .idea {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 1.35rem;
-    line-height: 1.45;
+    font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+    line-height: 1.25;
+    color: var(--color-accent);
+    margin: 1.25rem 0 0;
+    text-wrap: balance;
+  }
+
+  /* What I did, in first person */
+  .story {
+    font-size: 1.05rem;
+    line-height: 1.65;
     color: var(--color-text);
-    margin: 1.5rem 0 1.75rem;
+    max-width: 52ch;
+    margin: 0.9rem 0 1.75rem;
+  }
+
+  .loc + .story {
+    margin-top: 1.5rem;
   }
 
   .facts {
@@ -239,11 +261,17 @@ const alt = (title: string, i: number) => `${brand.title}: ${title}${i > 0 ? `, 
     background: var(--color-bg-secondary);
   }
 
+  /* The frame hugs the picture, so tall covers don't sit in an empty box */
+  .hero-media {
+    display: flex;
+    justify-content: center;
+  }
+
   .hero-media img {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: auto;
     max-height: 70vh;
-    object-fit: contain;
     margin: 0;
     border-radius: 12px;
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
@@ -309,7 +337,7 @@ const alt = (title: string, i: number) => `${brand.title}: ${title}${i > 0 ? `, 
 
   .gallery.tiles img {
     box-shadow: none;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--image-outline);
   }
 
   .gallery.motion {
@@ -355,12 +383,11 @@ const alt = (title: string, i: number) => `${brand.title}: ${title}${i > 0 ? `, 
   }
 
   .pager-link span {
-    font-family: inherit;
+    font-family: var(--font-body);
     font-size: 0.8rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-text-muted);
-    font-family: system-ui, sans-serif;
   }
 
   .pager-link.next {
