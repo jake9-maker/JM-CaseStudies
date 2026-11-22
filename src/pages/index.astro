@@ -1,90 +1,142 @@
 ---
-// src/pages/index.astro - Homepage
+// src/pages/index.astro - Homepage: one story across brand and product
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactCTA from '../components/ContactCTA.astro';
+import WorkMarquee from '../components/WorkMarquee.astro';
 import { getCollection } from 'astro:content';
+import brands from '../data/brands.json';
 
 const baseUrl = import.meta.env.BASE_URL;
 
-// Headline outcomes shown beside the hero, one per featured case study
-const outcomes = [
-  { slug: 'project-1', name: 'Guaranteed Sale', metric: '10×', what: 'more guaranteed vehicles in under a year' },
-  { slug: 'clearcar', name: 'ClearCar', metric: '65%+', what: 'of consumers finish the AI-powered trade-in offer' },
-  { slug: 'project-3', name: 'MAX + ClearCar', metric: '2 → 1', what: 'appraisal products, unified under ACV MAX' },
+// Career-wide numbers, all from the resumes
+const stats = [
+  { value: '500+', label: 'logos and brand identities designed' },
+  { value: '280+', label: 'brands designed and led' },
+  { value: '10×', label: 'product growth in under a year' },
+  { value: '11+', label: 'years leading brand and product' },
 ];
 
-// Fetch featured projects and sort by featured_order
+// Short outcome line per featured product case study
+const productLines: Record<string, string> = {
+  'project-1': '10× more guaranteed vehicles in under a year.',
+  clearcar: 'An AI-powered trade-in offer 65%+ of consumers finish.',
+  'project-3': 'Two appraisal products, unified under ACV MAX.',
+};
+
 const allProjects = await getCollection('projects');
-const projects = allProjects
-  .filter(project => project.data.featured)
-  .sort((a, b) => a.data.featured_order - b.data.featured_order);
+const totalWork = allProjects.length + brands.length;
+
+const products = allProjects
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.featured_order - b.data.featured_order)
+  .map((p) => ({
+    kind: 'Product',
+    title: p.data.title,
+    line: productLines[p.slug] ?? p.data.summary,
+    img: p.data.featured_image,
+    href: `${baseUrl}projects/${p.slug}/`,
+  }));
+
+const brandPicks = ['broadstone-grand', 'bidrev', 'the-ryan']
+  .map((slug) => brands.find((b) => b.slug === slug))
+  .filter(Boolean)
+  .map((b: any) => ({
+    kind: 'Brand',
+    title: b.title,
+    line: b.role,
+    img: b.tile || b.hero?.src,
+    href: `${baseUrl}brand/${b.slug}/`,
+  }));
+
+// Interleave so the grid reads brand, product, brand, product...
+const selected = brandPicks.flatMap((b, i) => [b, products[i]]).filter(Boolean);
 ---
 
 <BaseLayout
-  title="JM Case Studies - Product Design & Leadership"
-  description="Senior UX/Product Designer specializing in complex problem solving, strategic product design, and cross-functional leadership. View my case studies in automotive marketplace innovation.">
+  title="Jake Maisel · Creative Director, Brand & Product"
+  description="Jake Maisel is a creative director across brand and product: brand identities, campaigns and launches, and the products and systems that keep them honest. 11+ years, 500+ logos and identities.">
+  <script is:inline>
+    // Play the hero entrance once per visit, and never for reduced motion.
+    (function () {
+      try {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (sessionStorage.getItem('heroIntroSeen')) return;
+        sessionStorage.setItem('heroIntroSeen', '1');
+        document.documentElement.classList.add('hero-intro');
+      } catch (e) {}
+    })();
+  </script>
   <section class="hero">
+    <!-- Living gradient: three soft lights drifting slowly; runs up behind the nav -->
+    <div class="hero-field" aria-hidden="true">
+      <span class="light light-1"></span>
+      <span class="light light-2"></span>
+      <span class="light light-3"></span>
+    </div>
     <div class="hero-content">
-      <div class="hero-copy" data-parallax style="--parallax-speed: 0.12">
-        <p class="eyebrow">Jake Maisel · Senior Product Designer</p>
-        <h1 class="display">Complex workflows, made <em>trustworthy</em>.</h1>
-        <p class="tagline">
-          I turn complex, high-stakes processes—trade-ins, pricing, auctions—into products dealers rely on.
-        </p>
-        <div class="hero-actions">
-          <a href="#work" class="btn btn-primary">See the work</a>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">View resume</a>
+      <div class="hero-copy" data-parallax style="--parallax-speed: 0.1">
+        <p class="eyebrow intro-fade" style="--d: 0ms">Jake Maisel · Creative Director, Brand &amp; Product</p>
+        <h1 class="display">
+          <span class="line">
+            {['Brand', 'is', 'a', 'promise.'].map((word, i) => (
+              <><span class="word" style={`--i: ${i}`}>{word}</span>{' '}</>
+            ))}
+          </span>
+          <span class="line">
+            {['I', 'design', 'the'].map((word, i) => (
+              <><span class="word" style={`--i: ${i + 4}`}>{word}</span>{' '}</>
+            ))}<span class="word" style="--i: 7"><em>proof</em>.</span>
+          </span>
+        </h1>
+        <div class="hero-foot">
+          <p class="tagline intro-fade" style="--d: 760ms">
+            Brands built from a blank page, and the products, campaigns and systems that keep them honest.
+          </p>
+          <div class="hero-actions intro-fade" style="--d: 860ms">
+            <a href={`${baseUrl}work/`} class="btn btn-primary">See the work</a>
+            <a href="/resume-brand.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">View resume</a>
+          </div>
         </div>
       </div>
 
-      <div class="outcomes edge-card" data-parallax style="--parallax-speed: -0.08" aria-label="Selected outcomes">
-        {outcomes.map((o) => (
-          <a href={`${baseUrl}projects/${o.slug}/`} class="outcome">
-            <span class="outcome-name">{o.name}</span>
-            <span class="outcome-metric grad-text">{o.metric}</span>
-            <span class="outcome-arrow" aria-hidden="true">→</span>
-            <span class="outcome-what">{o.what}</span>
-          </a>
+      <dl class="stats intro-fade" style="--d: 980ms">
+        {stats.map((s) => (
+          <div class="stat">
+            <dt>{s.label}</dt>
+            <dd>{s.value}</dd>
+          </div>
         ))}
-        <div class="outcomes-foot">
-          <span>{outcomes.length} selected case studies</span>
-          <span class="ok">● all shipped and live at ACV</span>
-        </div>
-      </div>
+      </dl>
     </div>
   </section>
 
-  <section class="featured-projects" id="work">
-    <div class="container">
-      <p class="eyebrow">Featured work</p>
-      <h2 class="section-title">Problems worth <em class="grad-text">solving</em>.</h2>
-      <p class="section-intro">
-        How I frame problems, research them, and lead teams to ship.
-      </p>
+  <div class="marquee-wrap intro-fade" style="--d: 1100ms">
+    <WorkMarquee />
+  </div>
 
-      <div class="projects-grid">
-        {projects.map((project) => (
-          <a href={`${baseUrl}projects/${project.slug}/`} class="project-card">
-            {project.data.featured_image && (
-              <div class="project-image">
-                <img src={project.data.featured_image} alt={project.data.title} loading="lazy" />
-              </div>
-            )}
-            <div class="project-content">
-              <h3>{project.data.title}</h3>
-              <p class="project-summary">{project.data.summary}</p>
-              <span class="read-more">Read case study →</span>
+  <section class="featured" id="work">
+    <div class="container">
+      <div class="featured-head">
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2 class="section-title">One standard, <em class="grad-text">every</em> touchpoint.</h2>
+        </div>
+        <a href={`${baseUrl}work/`} class="btn btn-ghost">View all {totalWork} projects</a>
+      </div>
+
+      <div class="work-grid">
+        {selected.map((w) => (
+          <a href={w.href} class="work-card" data-kind={w.kind.toLowerCase()}>
+            <div class="work-image">
+              <img src={w.img} alt="" loading="lazy" decoding="async" />
+            </div>
+            <div class="work-meta">
+              <span class="work-kind">{w.kind}</span>
+              <h3>{w.title}</h3>
+              <p>{w.line}</p>
             </div>
           </a>
         ))}
-        <a href={`${baseUrl}projects/`} class="project-card view-all-card">
-          <div class="view-all-inner">
-            <p class="eyebrow">More case studies</p>
-            <h3 class="display">View all <em>work</em></h3>
-            <p class="project-summary">Every case study, from first research to what shipped.</p>
-            <span class="view-all-arrow" aria-hidden="true">→</span>
-          </div>
-        </a>
       </div>
     </div>
   </section>
@@ -96,147 +148,232 @@ const projects = allProjects
   .hero {
     position: relative;
     overflow: hidden;
-    padding: 5rem 2rem 6.5rem;
+    padding: calc(5.5rem + var(--header-h)) 2rem 3rem;
     background: var(--color-bg);
   }
 
-  /* Soft signature-gradient glow */
-  .hero::before {
-    content: "";
+  /* A. Living gradient: rose, plum and a warm ember, drifting slowly */
+  .hero-field {
+    --a-1: 0.3;
+    --a-2: 0.22;
+    --a-3: 0.14;
     position: absolute;
-    width: 720px;
-    height: 720px;
-    right: -160px;
-    top: -200px;
-    background: radial-gradient(closest-side, rgba(var(--brand-blue-rgb), 0.32), rgba(var(--brand-teal-rgb), 0.12) 55%, transparent);
+    width: 1280px;
+    height: 980px;
+    right: -220px;
+    top: -420px;
     pointer-events: none;
+  }
+
+  :global([data-theme='dark']) .hero-field {
+    --a-1: 0.42;
+    --a-2: 0.4;
+    --a-3: 0.16;
+  }
+
+  .light {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform;
+  }
+
+  .light-1 {
+    width: 58%;
+    height: 72%;
+    left: 10%;
+    top: 16%;
+    background: radial-gradient(closest-side, rgba(var(--glow-1-rgb), var(--a-1)), transparent);
+  }
+
+  .light-2 {
+    width: 50%;
+    height: 60%;
+    left: 40%;
+    top: 30%;
+    background: radial-gradient(closest-side, rgba(var(--glow-2-rgb), var(--a-2)), transparent);
+  }
+
+  .light-3 {
+    width: 36%;
+    height: 42%;
+    left: 22%;
+    top: 46%;
+    background: radial-gradient(closest-side, rgba(var(--glow-3-rgb), var(--a-3)), transparent);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-field {
+      transform: translate3d(0, calc(var(--scroll) * 0.45px), 0);
+    }
+
+    .light-1 { animation: drift-1 18s ease-in-out infinite alternate; }
+    .light-2 { animation: drift-2 22s ease-in-out infinite alternate; }
+    .light-3 { animation: drift-3 26s ease-in-out infinite alternate; }
+  }
+
+  @keyframes drift-1 {
+    to { transform: translate(-9%, 7%) scale(1.1); }
+  }
+
+  @keyframes drift-2 {
+    to { transform: translate(12%, -9%) scale(0.92); }
+  }
+
+  @keyframes drift-3 {
+    to { transform: translate(18%, -8%) scale(1.14); }
+  }
+
+  /* B. Headline that resolves: once per visit, only when html.hero-intro is set */
+  .word {
+    display: inline-block;
+  }
+
+  :global(html.hero-intro) .word {
+    animation: word-in 0.7s cubic-bezier(0.2, 0, 0, 1) both;
+    animation-delay: calc(var(--i) * 70ms + 120ms);
+  }
+
+  :global(html.hero-intro) .intro-fade {
+    animation: fade-up 0.6s cubic-bezier(0.2, 0, 0, 1) both;
+    animation-delay: var(--d);
+  }
+
+  @keyframes word-in {
+    from { opacity: 0; filter: blur(8px); transform: translateY(0.12em); }
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(8px); }
   }
 
   .hero-content {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 4rem;
-    align-items: center;
   }
 
   .hero-copy h1 {
-    font-size: clamp(3.1rem, 7vw, 5.75rem);
-    line-height: 1;
+    font-size: clamp(3.2rem, 8.4vw, 7.25rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
     margin: 0;
   }
 
+  .line {
+    display: block;
+  }
+
+  /* Keep room for the italic's overhang inside the gradient, but pull the period in */
+  .hero-copy h1 em {
+    padding-right: 0.06em;
+    margin-right: -0.04em;
+  }
+
+  .hero-foot {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem 3rem;
+    flex-wrap: wrap;
+    margin-top: 2.25rem;
+  }
+
   .tagline {
-    font-size: 1.2rem;
-    line-height: 1.55;
+    font-size: 1.25rem;
+    line-height: 1.5;
     color: var(--color-text-muted);
-    max-width: 36ch;
-    margin: 1.6rem 0 0;
+    max-width: 38ch;
+    margin: 0;
   }
 
   .hero-actions {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
-    margin-top: 2.25rem;
   }
 
-  /* Outcomes panel */
-  .outcomes {
-    padding: 0.5rem;
-  }
-
-  .outcome {
+  /* Career numbers: a quiet ruled row, figures in the display serif */
+  .stats {
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0.15rem 1.25rem;
-    align-items: center;
-    padding: 1.25rem;
-    border-radius: 8px;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .outcome + .outcome {
+    grid-template-columns: repeat(4, 1fr);
+    margin: 4rem 0 0;
     border-top: 1px solid var(--color-border);
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
   }
 
-  .outcome:hover {
-    background: var(--color-bg-tertiary);
-  }
-
-  .outcome-name {
-    grid-column: 1 / -1;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--color-text-muted);
-    margin-bottom: 0.25rem;
-  }
-
-  .outcome-metric {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 2.75rem;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-  }
-
-  .outcome-arrow {
-    grid-row: 2 / span 2;
-    grid-column: 2;
-    font-size: 1.25rem;
-    color: var(--color-accent);
-  }
-
-  .outcome-what {
-    font-size: 0.9rem;
-    line-height: 1.45;
-    color: var(--color-text-muted);
-    max-width: 30ch;
-  }
-
-  .outcomes-foot {
+  .stat {
     display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.9rem 1.25rem 0.75rem;
-    border-top: 1px solid var(--color-border);
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 0.35rem;
+    padding: 1.4rem 1.5rem 0 0;
   }
 
-  .outcomes-foot .ok {
-    color: var(--color-success);
+  .stat + .stat {
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--color-border);
+  }
+
+  .stat dd {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4.4vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-text);
+  }
+
+  .stat dt {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--color-text-muted);
+    max-width: 22ch;
+  }
+
+  .marquee-wrap {
+    padding: 1rem 0 2rem;
   }
 
   @media (max-width: 860px) {
     .hero {
-      padding: 3rem 1rem 4.5rem;
+      padding: calc(3rem + var(--header-h)) 1rem 2rem;
     }
 
-    .hero-content {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-
-    .hero::before {
-      width: 420px;
-      height: 420px;
-      right: -180px;
-      top: -100px;
+    .hero-field {
+      width: 620px;
+      height: 600px;
+      right: -260px;
+      top: -200px;
     }
 
     .tagline {
       font-size: 1.1rem;
     }
+
+    .stats {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 2.75rem;
+    }
+
+    .stat,
+    .stat + .stat {
+      padding: 1.1rem 1rem 1.1rem 0;
+      border-left: 0;
+    }
+
+    .stat:nth-child(even) {
+      padding-left: 1rem;
+      border-left: 1px solid var(--color-border);
+    }
+
+    .stat:nth-child(n + 3) {
+      border-top: 1px solid var(--color-border);
+    }
   }
 
-  .featured-projects {
-    padding: 4rem 2rem;
+  /* Selected work */
+  .featured {
+    padding: 4rem 2rem 2rem;
   }
 
   .container {
@@ -244,133 +381,125 @@ const projects = allProjects
     margin: 0 auto;
   }
 
-  .section-intro {
-    color: var(--color-text-muted);
-    font-size: 1.1rem;
-    margin: 0 0 3rem;
+  .featured-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
   }
 
-  .projects-grid {
+  .featured-head .section-title {
+    margin: 0;
+  }
+
+  .work-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 1.75rem;
   }
 
-  .project-card {
+  .work-card {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    background-color: var(--color-bg-secondary);
-    border: 1px solid var(--color-border);
-    border-radius: 14px;
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
   }
 
-  .project-card:hover {
-    border-color: var(--gradient-start);
-    box-shadow: 0 12px 32px rgba(var(--brand-blue-rgb), 0.15);
-    transform: translateY(-2px);
-  }
-
-  .project-image {
-    width: 100%;
-    height: 200px;
+  .work-image {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
     overflow: hidden;
-    background-color: var(--color-bg-tertiary);
+    background: var(--color-bg-tertiary);
+    box-shadow: 0 1px 2px rgba(var(--glow-2-rgb), 0.06);
+    transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
   }
 
-  .project-image img {
+  .work-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px var(--image-outline);
+    pointer-events: none;
+  }
+
+  .work-image img {
     width: 100%;
     height: 100%;
     margin: 0;
     border-radius: 0;
     object-fit: cover;
     object-position: top;
+    transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1);
   }
 
-  .view-all-card {
-    position: relative;
-    justify-content: flex-end;
-    min-height: 100%;
-    background:
-      radial-gradient(120% 80% at 100% 0%, rgba(var(--brand-blue-rgb), 0.28), transparent 60%),
-      radial-gradient(90% 70% at 0% 100%, rgba(var(--brand-teal-rgb), 0.18), transparent 60%),
-      var(--color-bg-secondary);
+  /* Brand art is composed around the center; product screens read from the top */
+  .work-card[data-kind='brand'] .work-image img {
+    object-position: center;
   }
 
-  .view-all-inner {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    height: 100%;
-    justify-content: flex-end;
+  .work-card:hover .work-image,
+  .work-card:focus-visible .work-image {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px -20px rgba(var(--glow-1-rgb), 0.4);
   }
 
-  .view-all-inner .eyebrow {
-    margin-bottom: auto;
+  .work-card:hover .work-image img {
+    transform: scale(1.03);
   }
 
-  .view-all-inner h3 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    margin: 2rem 0 0;
+  .work-meta {
+    padding-top: 1rem;
   }
 
-  .view-all-arrow {
-    align-self: flex-start;
-    margin-top: 0.75rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 9999px;
-    background: var(--gradient-button);
-    color: #fff;
-    font-size: 1.25rem;
-    transition: transform 0.3s ease;
-  }
-
-  .view-all-card:hover .view-all-arrow {
-    transform: translateX(4px);
-  }
-
-  .project-content {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .project-content h3 {
-    font-family: var(--font-display);
-    font-size: 1.75rem;
-    font-weight: 400;
-    margin: 0;
-    color: var(--color-text);
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-  }
-
-  .project-summary {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  .read-more {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    font-weight: 500;
+  .work-kind {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--color-accent);
   }
 
-  @media (max-width: 768px) {
-    .projects-grid {
+  .work-meta h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0.3rem 0 0.35rem;
+    color: var(--color-text);
+  }
+
+  .work-meta p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 1024px) {
+    .work-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .featured {
+      padding: 3rem 1rem 1rem;
+    }
+
+    .work-grid {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .work-card:hover .work-image,
+    .work-card:hover .work-image img {
+      transform: none;
     }
   }
 </style>

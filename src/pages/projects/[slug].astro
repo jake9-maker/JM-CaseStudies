@@ -29,12 +29,19 @@ const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
-  title={`${entry.data.title} - JM Case Studies`}
+  title={`${entry.data.title} · Jake Maisel`}
   description={entry.data.meta_description || entry.data.summary}
   image={entry.data.og_image || entry.data.featured_image}
 >
   <article class="project-page">
     <div class="container">
+      <header class="project-header">
+        <a class="back" href={`${baseUrl}work/#product`}>← All product work</a>
+        <p class="eyebrow">Case study</p>
+        <h1 class="display">{entry.data.title}</h1>
+        <p class="project-summary">{entry.data.summary}</p>
+      </header>
+
       {entry.data.featured_image && (
         <div class={`project-hero-wrap${entry.data.hero_frame ? ' framed' : ''}`}>
           <img
@@ -45,12 +52,6 @@ const baseUrl = import.meta.env.BASE_URL;
           />
         </div>
       )}
-
-      <header class="project-header">
-        <p class="eyebrow">Case study</p>
-        <h1 class="display">{entry.data.title}</h1>
-        <p class="project-summary">{entry.data.summary}</p>
-      </header>
 
       {(entry.data.role || entry.data.duration || entry.data.team_size) && (
         <section class="project-meta edge-card">
@@ -82,7 +83,7 @@ const baseUrl = import.meta.env.BASE_URL;
       </div>
 
       <nav class="content-nav" aria-label="Continue reading">
-        <a href={`${baseUrl}projects/`} class="content-nav-link back-link">
+        <a href={`${baseUrl}work/#product`} class="content-nav-link back-link">
           <span class="content-nav-label">← Back</span>
           <div class="content-nav-content">
             <span class="content-nav-title">To Projects</span>
@@ -110,7 +111,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
 <style>
   .project-page {
-    padding: 4rem 2rem;
+    padding: 3.5rem 2rem 4rem;
   }
 
   .container {
@@ -143,8 +144,8 @@ const baseUrl = import.meta.env.BASE_URL;
     overflow: hidden;
     background: #fff;
     box-shadow:
-      0 40px 100px -40px rgba(var(--brand-blue-rgb), 0.45),
-      0 20px 60px -30px rgba(var(--brand-teal-rgb), 0.35);
+      0 40px 100px -40px rgba(var(--glow-1-rgb), 0.45),
+      0 20px 60px -30px rgba(var(--glow-2-rgb), 0.35);
   }
 
   .project-hero-wrap.framed::before,
@@ -169,6 +170,22 @@ const baseUrl = import.meta.env.BASE_URL;
 
   .project-header {
     margin-bottom: 2.5rem;
+  }
+
+  .back {
+    /* Own line, with a 40px-tall hit area (matches brand pages) */
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 40px;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    margin: -0.5rem 0 1.25rem;
+  }
+
+  .back:hover {
+    color: var(--color-text);
   }
 
   .project-header h1 {
@@ -373,12 +390,12 @@ const baseUrl = import.meta.env.BASE_URL;
     border-radius: 14px;
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
   }
 
   .content-nav-link:hover {
     border-color: var(--gradient-start);
-    box-shadow: 0 12px 32px rgba(var(--brand-blue-rgb), 0.15);
+    box-shadow: 0 12px 32px rgba(var(--glow-1-rgb), 0.15);
     transform: translateY(-2px);
   }
 
@@ -455,7 +472,7 @@ const baseUrl = import.meta.env.BASE_URL;
     border-radius: 12px;
     overflow: hidden;
     background: #fff;
-    box-shadow: 0 24px 60px -30px rgba(var(--brand-blue-rgb), 0.4);
+    box-shadow: 0 24px 60px -30px rgba(var(--glow-1-rgb), 0.4);
   }
 
   .project-content :global(.shot img),
@@ -533,7 +550,7 @@ const baseUrl = import.meta.env.BASE_URL;
     overflow: hidden;
     border: 1px solid var(--color-border);
     background: #fff;
-    box-shadow: 0 24px 50px -28px rgba(var(--brand-blue-rgb), 0.55);
+    box-shadow: 0 24px 50px -28px rgba(var(--glow-1-rgb), 0.55);
   }
 
   .project-content :global(.phones img) {
@@ -571,8 +588,8 @@ const baseUrl = import.meta.env.BASE_URL;
     border-radius: 18px;
     border: 1px solid var(--color-border);
     background:
-      radial-gradient(120% 140% at 0% 0%, rgba(var(--brand-blue-rgb), 0.12), transparent 60%),
-      radial-gradient(120% 140% at 100% 100%, rgba(var(--brand-teal-rgb), 0.12), transparent 60%),
+      radial-gradient(120% 140% at 0% 0%, rgba(var(--glow-1-rgb), 0.12), transparent 60%),
+      radial-gradient(120% 140% at 100% 100%, rgba(var(--glow-2-rgb), 0.12), transparent 60%),
       var(--color-bg-secondary);
   }
 
@@ -619,8 +636,8 @@ const baseUrl = import.meta.env.BASE_URL;
   }
 
   .project-content :global(.vs-col.accent) {
-    border-color: rgba(var(--brand-blue-rgb), 0.5);
-    box-shadow: 0 16px 40px -24px rgba(var(--brand-blue-rgb), 0.6);
+    border-color: rgba(var(--glow-1-rgb), 0.5);
+    box-shadow: 0 16px 40px -24px rgba(var(--glow-1-rgb), 0.6);
   }
 
   .project-content :global(.vs-title) {
@@ -644,7 +661,7 @@ const baseUrl = import.meta.env.BASE_URL;
   /* Single-series score chart: <figure class="score-chart"> with .sc-row per item.
      Width comes from --v (0-5). Value is always printed; hover/focus shows .sc-tip. */
   .project-content :global(.score-chart) {
-    --sc-bar: #2f5bff;
+    --sc-bar: var(--gradient-start);
     --sc-lab: 5.5rem;
     --sc-valw: 2.5rem;
     --sc-gap: 0.75rem;
@@ -800,7 +817,7 @@ const baseUrl = import.meta.env.BASE_URL;
     content: "";
     flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, rgba(var(--brand-blue-rgb), 0.5), transparent);
+    background: linear-gradient(90deg, rgba(var(--glow-1-rgb), 0.5), transparent);
   }
 
   /* Pull quotes */

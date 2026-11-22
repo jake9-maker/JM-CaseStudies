@@ -2,7 +2,7 @@
 // ThemeToggle.astro - Dark/Light mode toggle
 ---
 
-<button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">
   <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <circle cx="12" cy="12" r="5"></circle>
     <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -34,6 +34,8 @@
     const toggle = document.getElementById('theme-toggle');
     if (toggle) {
       toggle.setAttribute('data-theme', theme);
+      // Say what a click will do, so screen readers hear the action
+      toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     }
   }
 
@@ -56,65 +58,83 @@
   }
 
   // Listen for system theme changes
+  // Follow the system only if the visitor hasn't picked a theme themselves
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (localStorage.getItem('theme')) return;
     const newTheme = e.matches ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
     updateToggleIcon(newTheme);
   });
 </script>
 
 <style>
+  /* A round 40px button; both icons sit dead center, stacked, and cross-fade */
   .theme-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 60px;
-    height: 36px;
-    border: 1px solid var(--color-border);
-    background: transparent;
-    cursor: pointer;
-    color: var(--color-text);
-    transition: all 0.3s ease;
-    border-radius: 6px;
-    padding: 0 0.75rem;
-    margin-left: 1.5rem;
     position: relative;
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: color 0.2s ease-out, border-color 0.2s ease-out, transform 0.2s ease-out;
   }
 
   .theme-toggle:hover {
     color: var(--color-accent);
     border-color: var(--color-accent);
-    box-shadow: 0 2px 8px rgba(var(--brand-teal-rgb), 0.1);
   }
 
+  .theme-toggle:active {
+    transform: scale(0.96);
+  }
+
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* Same grid cell for both, so neither can drift off center */
   .theme-toggle svg {
-    width: 20px;
-    height: 20px;
-    position: relative;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    flex-shrink: 0;
+    grid-area: 1 / 1;
+    width: 18px;
+    height: 18px;
+    transition:
+      opacity 0.3s cubic-bezier(0.2, 0, 0, 1),
+      transform 0.3s cubic-bezier(0.2, 0, 0, 1),
+      filter 0.3s cubic-bezier(0.2, 0, 0, 1);
   }
 
-  .sun-icon {
-    opacity: 1;
-    transform: rotate(0deg);
-  }
-
-  .moon-icon {
+  .moon-icon,
+  :global(html[data-theme='dark']) .theme-toggle .sun-icon {
     opacity: 0;
-    transform: rotate(-180deg);
-    position: absolute;
-    right: 0.75rem;
+    transform: scale(0.25);
+    filter: blur(4px);
   }
 
-  .theme-toggle[data-theme='dark'] .sun-icon {
-    opacity: 0;
-    transform: rotate(180deg);
-  }
-
-  .theme-toggle[data-theme='dark'] .moon-icon {
+  :global(html[data-theme='dark']) .theme-toggle .moon-icon {
     opacity: 1;
-    transform: rotate(0deg);
+    transform: scale(1);
+    filter: blur(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .theme-toggle svg {
+      transition: opacity 0.15s linear;
+      transform: none !important;
+      filter: none !important;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+    }
   }
 </style>

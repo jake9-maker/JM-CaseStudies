@@ -1,58 +1,75 @@
 /* Theme system with CSS variables */
 
+/* Nightshade palette: rose-red accent, blush-gray days, plum-black nights */
 :root,
 [data-theme='light'] {
   /* Background colors */
-  --color-bg: #f5f5f5;
+  --color-bg: #fbfafc;
   --color-bg-secondary: #ffffff;
-  --color-bg-tertiary: #f0f4ff;
+  --color-bg-tertiary: #f7eef3;
 
   /* Text colors */
-  --color-text: #333333;
-  --color-text-muted: #666666;
-  --color-text-subtle: #999999;
+  --color-text: #1a0f1a;
+  --color-text-muted: #6a5a68;
+  --color-text-subtle: #7f6f7c;
 
   /* Border and accent colors */
-  --color-border: #eeeeee;
-  --color-accent: #1f55e6;
-  --color-accent-dark: #1a44b8;
-  --color-accent-light: #eef3ff;
+  --color-border: #eae4ea;
+  --color-border-strong: #d2c8d1;
+  --color-accent: #c7004f;
+  --color-accent-dark: #a30041;
+  --color-accent-light: #fce8f0;
 
-  /* Gradient colors: electric blue -> teal (deeper teal for contrast on light) */
-  --gradient-start: #2f5bff;
-  --gradient-end: #0aa697;
+  /* Signature gradient: rose-red -> plum (deep enough to read on paper) */
+  --gradient-start: #e0095a;
+  --gradient-end: #9a1fa6;
+
+  /* Glow channels for shadows and soft light */
+  --glow-1-rgb: 224, 9, 90;
+  --glow-2-rgb: 120, 40, 140;
+  --glow-3-rgb: 255, 120, 90;
 
   /* Semantic colors */
-  --color-success: #10b981;
+  --color-success: #0f8a5f;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
+
+  /* Hairline edge for images: pure black, never a tinted gray */
+  --image-outline: oklch(0 0 0 / 0.1);
 }
 
 [data-theme='dark'] {
   /* Background colors */
-  --color-bg: #0d0d0d;
-  --color-bg-secondary: #131313;
-  --color-bg-tertiary: #172230;
+  --color-bg: #140a14;
+  --color-bg-secondary: #1c111c;
+  --color-bg-tertiary: #261626;
 
   /* Text colors */
-  --color-text: #e4e4e7;
-  --color-text-muted: #a1a1a6;
-  --color-text-subtle: #8b8b95;
+  --color-text: #f7eff5;
+  --color-text-muted: #b39fb0;
+  --color-text-subtle: #9a8697;
 
   /* Border and accent colors */
-  --color-border: #2a2a2a;
-  --color-accent: #5b9bff;
-  --color-accent-dark: #87b8ff;
-  --color-accent-light: #16304a;
+  --color-border: #2e1d2c;
+  --color-border-strong: #4a3247;
+  --color-accent: #ff6694;
+  --color-accent-dark: #ff8fb0;
+  --color-accent-light: #3a1428;
 
-  /* Gradient colors: electric blue -> teal */
-  --gradient-start: #2f5bff;
-  --gradient-end: #12d6c5;
+  /* Signature gradient: brighter rose -> orchid for the night */
+  --gradient-start: #ff3d7f;
+  --gradient-end: #c766e6;
+
+  --glow-1-rgb: 255, 46, 110;
+  --glow-2-rgb: 150, 50, 170;
+  --glow-3-rgb: 255, 110, 80;
 
   /* Semantic colors */
-  --color-success: #10b981;
+  --color-success: #34d399;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
+
+  --image-outline: oklch(1 0 0 / 0.1);
 }
 
 /* Selective transitions for interactive elements */
@@ -64,7 +81,7 @@ html {
   color-scheme: light;
 }
 
-[data-theme='dark'] html {
+html[data-theme='dark'] {
   color-scheme: dark;
 }
 
@@ -104,12 +121,22 @@ img[alt*="feature"] {
 
 :root {
   --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   --gradient: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  /* Deeper teal end so white button text stays readable */
-  --gradient-button: linear-gradient(135deg, #2f5bff, #0e8f88);
-  /* Same colors as channels, for glows and shadows */
-  --brand-blue-rgb: 47, 91, 255;
-  --brand-teal-rgb: 18, 214, 197;
+  /* Both ends dark enough that white button text passes contrast */
+  --gradient-button: linear-gradient(135deg, #e0095a, #a3127a);
+  /* Header height, so heroes can run up underneath the see-through nav */
+  --header-h: 74px;
+}
+
+/* Even line lengths: balanced headings, no orphan words in body text */
+h1, h2, h3, h4, .display, .section-title {
+  text-wrap: balance;
+}
+
+p, li, dd, figcaption {
+  text-wrap: pretty;
 }
 
 /* Display headings */
@@ -164,11 +191,17 @@ img[alt*="feature"] {
   font-size: 0.95rem;
   line-height: 1.2;
   text-decoration: none;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.2s ease-out, border-color 0.2s ease-out;
 }
 
 .btn:hover {
   transform: translateY(-2px);
+}
+
+/* Tactile press */
+.btn:active {
+  transform: scale(0.96);
+  transition-duration: 0.1s;
 }
 
 .btn-primary {
@@ -178,11 +211,7 @@ img[alt*="feature"] {
 
 .btn-ghost {
   color: var(--color-text);
-  border: 1px solid var(--color-border);
-}
-
-[data-theme='light'] .btn-ghost {
-  border-color: #d4d4d8;
+  border: 1px solid var(--color-border-strong);
 }
 
 .btn-ghost:hover {
@@ -193,8 +222,14 @@ img[alt*="feature"] {
 .page-hero {
   position: relative;
   overflow: hidden;
-  padding: 4.5rem 2rem 3.5rem;
+  padding: calc(4.5rem + var(--header-h)) 2rem 3.5rem;
   background: var(--color-bg);
+}
+
+/* Heroes slide up behind the see-through nav, so their light reaches the top edge */
+.hero,
+.page-hero {
+  margin-top: calc(-1 * var(--header-h));
 }
 
 .page-hero::before {
@@ -204,7 +239,7 @@ img[alt*="feature"] {
   height: 640px;
   right: -160px;
   top: -260px;
-  background: radial-gradient(closest-side, rgba(var(--brand-blue-rgb), 0.3), rgba(var(--brand-teal-rgb), 0.1) 55%, transparent);
+  background: radial-gradient(closest-side, rgba(var(--glow-1-rgb), 0.3), rgba(var(--glow-2-rgb), 0.1) 55%, transparent);
   pointer-events: none;
 }
 
@@ -253,7 +288,7 @@ img[alt*="feature"] {
   inset: -1px;
   border-radius: 15px;
   padding: 1px;
-  background: linear-gradient(160deg, rgba(var(--brand-blue-rgb), 0.75), transparent 40%, transparent 70%, rgba(var(--brand-teal-rgb), 0.6));
+  background: linear-gradient(160deg, rgba(var(--glow-1-rgb), 0.75), transparent 40%, transparent 70%, rgba(var(--glow-2-rgb), 0.6));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -261,8 +296,12 @@ img[alt*="feature"] {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --header-h: 60px;
+  }
+
   .page-hero {
-    padding: 3rem 1rem 2.5rem;
+    padding: calc(3rem + var(--header-h)) 1rem 2.5rem;
   }
 
   .page-hero::before {
@@ -299,5 +338,23 @@ img[alt*="feature"] {
 @media (max-width: 860px) {
   [data-parallax] {
     transform: none;
+  }
+}
+
+/* Hover lifts and press effects stay still for people who turn motion off */
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover,
+  .btn:active,
+  .project-card:hover,
+  .contact-item:hover,
+  .content-nav-link:hover,
+  .back-to-top-sticky:hover {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --header-h: 56px;
   }
 }
